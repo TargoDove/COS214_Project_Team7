@@ -1,7 +1,7 @@
 #ifndef EXAMPLE_H
 #define EXAMPLE_H
 
-#include "Command.h"
+//#include "Command.h"
 
 using namespace std;
 
