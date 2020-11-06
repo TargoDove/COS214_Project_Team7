@@ -19,6 +19,7 @@ class F1Car
     Tires *getTires();
     Tires* changeTires(Tires*); //Returns old tires and takes new tires
     void setStrategy(Strategy*); //Takes new Strategy and deletes old strategy
+    Strategy * getStrategy();
 
   private: 
     Strategy *strategy;

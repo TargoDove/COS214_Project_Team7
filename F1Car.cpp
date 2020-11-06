@@ -50,3 +50,8 @@ void F1Car::setStrategy(Strategy * newStrategy)
 
   strategy = newStrategy;
 }
+
+Strategy *F1Car::getStrategy()
+{
+  return strategy;
+}
