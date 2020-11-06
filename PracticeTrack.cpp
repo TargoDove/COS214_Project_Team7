@@ -21,8 +21,7 @@ void PracticeTrack::performPracticeRun(F1Car* testCar, RaceTrack* track){
 }
 
 //need to make sure it instantiates with each test car
-void PracticeTrack::simulateTrack(F1Car testCar, RaceTrack track)
-{
+void PracticeTrack::testTrack(F1Car* testCar, RaceTrack* track) {
     //will add up all scores to a total of 100
     int totalScore=0;
 
