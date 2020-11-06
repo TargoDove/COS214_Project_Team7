@@ -1,5 +1,6 @@
 #ifndef COMPETITION_H
 #define COMPETITION_H
+#include "RacingEvent.h"
 
 class Competition : EventObject, RacingEvent{
 
@@ -14,16 +15,16 @@ private:
 
 
 public:
-	Competition(int startDate, int numTeams, RacingEvent raceEvents[]);
+	Competition(int sDate, int nTeams, int nRaces);
 
 	virtual void daysEvents() = 0;
 
 	/**
 	 * adds a team to the event
 	 */
-	void addTeam(F1Team parameter);
+	void addTeam(F1Team team);
 
-	void addRace(Racing Event);
+	void addRace(RacingEvent race);
 
 	void getRaceNames();
 

@@ -14,10 +14,11 @@ class Tires
     virtual void decreaseIntegrity(double) = 0;
     virtual Tires* clone() = 0;
 
-  private:
+  protected:
     double integrity; //1.0
     double speed;
     double durability;
+    Tires(double, double, double);
 };
 
 #endif

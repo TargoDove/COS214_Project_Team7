@@ -1,21 +1,27 @@
 #ifndef PRACTICETRACK_H
 #define PRACTICETRACK_H
-
+#include "RaceTrack.h"
+#include "F1Car.h"
 class PracticeTrack {
 
 private:
-	float currentTime;
-	float bestTime;
-	/**
-	 * the amount of practice laps taken
-	 */
-	int practiceLaps;
+	int bestScore;
+	int worstScore;
+	int currentScore;
 
 public:
 	/**
 	 * simulates track with current components, returns time taken
 	 */
-	int simulateTrack(F1Car testCar);
+	 PracticeTrack();
+	 ~PracticeTrack();
+	void testTrack(F1Car* testCar, RaceTrack* track);
+
+    int getBestScore(){return bestScore;}
+    int getCurrentScore(){return currentScore;}
+    int getWorstScore(){return worstScore;}
+
 };
 
 #endif
+

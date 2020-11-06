@@ -17,8 +17,10 @@ class F1CarSpecification
     virtual void applyImprovements();
     virtual double getBaseValue();
     virtual double getTheoreticalValue();
+    virtual string getName();
 
-  private:
+  protected:
+    string name;
     double baseValue;
     list<double*> improvements;
     int numImprovements;
