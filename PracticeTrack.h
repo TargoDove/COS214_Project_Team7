@@ -15,7 +15,7 @@ public:
 	 */
 	 PracticeTrack();
 	 ~PracticeTrack();
-	void simulateTrack(F1Car* testCar, RaceTrack* track);
+	void testTrack(F1Car* testCar, RaceTrack* track);
 
     int getBestScore(){return bestScore;}
     int getCurrentScore(){return currentScore;}
