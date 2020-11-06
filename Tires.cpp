@@ -7,6 +7,13 @@ Tires::Tires()
   integrity = 1.0;
 }
 
+Tires::Tires(double s, double d, double i)
+{
+  speed = s;
+  durability = d;
+  integrity = i;
+}
+
 Tires::~Tires()
 {
     //Do nothing
