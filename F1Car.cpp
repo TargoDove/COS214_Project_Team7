@@ -24,7 +24,7 @@ F1Car::~F1Car()
 
 F1CarSpecification *F1Car::getSpecification(int index)
 {
-  if (index >= numberOfSpecifications) return NULL;
+  if (index < 0 || index >= numberOfSpecifications) return NULL;
   else
     return carSpecifications[index];
 }
