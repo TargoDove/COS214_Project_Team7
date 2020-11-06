@@ -81,7 +81,7 @@ T *GenericList<T>::getItem(string name)
 template <class T>
 T *GenericList<T>::getItem(int index)
 {
-  if (index >= numItems)
+  if (index < 0 || index >= numItems)
     return NULL;
   else
     return array[index];

@@ -1,7 +1,7 @@
 #include <iostream>
 #include "Competition.h"
 
-Competition::Competition(int sDate, int nTeams, int nRaces) {
+Competition::Competition(Date sDate, int nTeams, int nRaces) {
     startdate=sDate;
     numTeams=nTeams;
     numRaces=nRaces;

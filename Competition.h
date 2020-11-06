@@ -5,7 +5,7 @@
 class Competition : EventObject, RacingEvent{
 
 private:
-	int startDate;
+	Date startDate;
 	int numTeams;
 	int numRaces;
 	F1Team* teamList;
@@ -15,7 +15,7 @@ private:
 
 
 public:
-	Competition(int sDate, int nTeams, int nRaces);
+	Competition(Date sDate, int nTeams, int nRaces);
 
 	virtual void daysEvents() = 0;
 

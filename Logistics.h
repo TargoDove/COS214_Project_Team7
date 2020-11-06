@@ -7,6 +7,6 @@ class Logistics{
     private:
         Warehouse* warehouse;
     public:
-        void run(F1Car* car, Date date, RacingEvent* raceList);
+        void run(F1Car* car, Date date, RacingEvent* raceList, int id);
 };
 #endif
