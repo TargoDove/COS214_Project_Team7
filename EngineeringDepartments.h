@@ -3,6 +3,7 @@
 
 #include <string>
 #include "F1CarSpecification.h"
+#include "Testing.h"
 
 using namespace std;
 
@@ -17,6 +18,7 @@ class EngineeringDepartments
     int getG1Specialists();
     int getG2Specialists();
     void setSpecialists(int, int);
+
   private:
     string name;
     int numG1Specialists;

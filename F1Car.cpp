@@ -4,53 +4,29 @@ F1Car::F1Car()
 {
   strategy = NULL;
   location = "Home";
-  carSpecifications = NULL;
-  numberOfSpecifications = 0;
   fittedTires = NULL;
 }
 
 F1Car::~F1Car()
 {
   if(strategy != NULL) delete strategy;
-
-  for(int i = 0; i < numberOfSpecifications; i++){
-    if(carSpecifications[i] != NULL)
-      delete carSpecifications[i];
-  }
-
-  if (carSpecifications != NULL)
-    delete [] carSpecifications;
 }
 
 F1CarSpecification *F1Car::getSpecification(int index)
 {
-  if (index >= numberOfSpecifications) return NULL;
-  else
-    return carSpecifications[index];
+  return carSpecifications.getItem(index);
 }
 
-F1CarSpecification *F1Car::getSpecificationByName(string name)
+F1CarSpecification *F1Car::getSpecification(string name)
 {
-  for(int i = 0; i < numberOfSpecifications; i++){
-    if (name.compare(carSpecifications[i]->getName()) == 0)
-      return carSpecifications[i];
-  }
-  return NULL;
+  return carSpecifications.getItem(name);
 }
 
 void F1Car::addSpecification(F1CarSpecification * spec)
 {
   cout << "Adding " << spec->getName() << " specification to F1Car" << endl;
 
-  F1CarSpecification **newArr = new F1CarSpecification*[numberOfSpecifications+1];
-
-  for(int i = 0; i < numberOfSpecifications; i++){
-    newArr[i] = carSpecifications[i];
-  }
-  numberOfSpecifications++;
-  newArr[numberOfSpecifications] = spec;
-  delete [] carSpecifications;
-  carSpecifications = newArr;
+  carSpecifications.addItem(spec);
 }
 
 Tires *F1Car::getTires()

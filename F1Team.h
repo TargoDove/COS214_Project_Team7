@@ -25,7 +25,8 @@ class F1Team : public EventObject
     F1Car** currentCars;
     F1Car **nextCars;
     Driver** drivers;
-    EngineeringDepartments** departments;
+    //EngineeringDepartments** departments;
+    GenericList<EngineeringDepartments> departments;
     Logistics* logistics;
     RacingEvent** raceList; 
     void applyDepartmentImprovements();
