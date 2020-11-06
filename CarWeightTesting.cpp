@@ -3,6 +3,6 @@
 
 double* CarWeightTesting::testComponent(double t)
 {
-    t=(rand() % 10);
+    t=(rand() % 1);
     return &t;
 }
