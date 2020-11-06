@@ -1,5 +1,6 @@
 #ifndef COMPETITION_H
 #define COMPETITION_H
+#include "RacingEvent.h"
 
 class Competition : EventObject, RacingEvent{
 
