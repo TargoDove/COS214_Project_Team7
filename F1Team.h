@@ -3,6 +3,8 @@
 
 #include "EventObject.h"
 #include "Driver.h"
+#include "F1Car.h"
+#include "EngineeringDepartments.h"
 
 using namespace std;
 
