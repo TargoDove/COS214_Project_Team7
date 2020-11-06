@@ -5,8 +5,24 @@ PracticeTrack::PracticeTrack(){
     currentScore=0;
     cout<<"Ready to practice!"<<endl;
 }
+
+//rather do this
+void PracticeTrack::performPracticeRun(F1Car* testCar, RaceTrack* track){
+    cout << "Performing practice run for car " << "..." << " to test improvements." << endl;
+    
+    F1CarSpecification* spec = testCar->getSpecification(0);
+    int specCount = 1;
+    while(spec != NULL){
+        cout << "Testing " << spec->getName() << endl;
+        cout << "Applying " << spec->getName() << " improvements" << endl;
+        spec->applyImprovements();
+        spec = testCar->getSpecification(specCount);
+    }
+}
+
 //need to make sure it instantiates with each test car
-void PracticeTrack::simulateTrack(F1Car testCar, RaceTrack track) {
+void PracticeTrack::simulateTrack(F1Car testCar, RaceTrack track)
+{
     //will add up all scores to a total of 100
     int totalScore=0;
 
@@ -77,5 +93,4 @@ void PracticeTrack::simulateTrack(F1Car testCar, RaceTrack track) {
     cout<<"Best: "<<bestScore<<endl;
     cout<<"Worst: "<<worstScore<<endl;
     cout<<"Current: "<<currentScore<<endl;
-
 }

@@ -5,6 +5,7 @@ F1CarSpecification::F1CarSpecification()
   baseValue = 1;
   numImprovements = 0;
   improvements = {};
+  name = "";
 }
 
 F1CarSpecification::F1CarSpecification(double bv)
@@ -12,6 +13,7 @@ F1CarSpecification::F1CarSpecification(double bv)
   baseValue = bv;
   numImprovements = 0;
   improvements = {};
+  name = "";
 }
 
 F1CarSpecification::~F1CarSpecification()
@@ -58,4 +60,9 @@ double F1CarSpecification::getTheoreticalValue()
     sum += improvement[0];
   }
   return baseValue*sum;
+}
+
+string F1CarSpecification::getName()
+{
+  return name;
 }
