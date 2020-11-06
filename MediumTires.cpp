@@ -7,6 +7,10 @@ MediumTires::MediumTires()
   integrity = 1.0;
 }
 
+MediumTires::MediumTires(double s, double d, double i) : Tires(s, d, i)
+{
+}
+
 void MediumTires::decreaseIntegrity(double per)
 {
   integrity *= (1-per/durability);
@@ -14,5 +18,5 @@ void MediumTires::decreaseIntegrity(double per)
 
 Tires *MediumTires::clone()
 {
-  return new MediumTires();
+  return new MediumTires(this->getSpeed(), this->getDurability(), this->getIntegrity());
 }

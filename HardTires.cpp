@@ -7,6 +7,10 @@ HardTires::HardTires()
   integrity = 1.0;
 }
 
+HardTires::HardTires(double s, double d, double i) : Tires(s, d, i)
+{
+}
+
 void HardTires::decreaseIntegrity(double per)
 {
   integrity *= (1-per/durability);
@@ -14,5 +18,5 @@ void HardTires::decreaseIntegrity(double per)
 
 Tires *HardTires::clone()
 {
-  return new HardTires();
+  return new HardTires(this->getSpeed(), this->getDurability(), this->getIntegrity());
 }
