@@ -1,84 +1,57 @@
-//Paulus Wilhelmus Mouton u18069704
+#include "Container.h"
 #include <iostream>
-using namespace std;
-int main()
-{
-    class Container
-    {
-        private:
-            bool ArrivalStatus;
-            bool destination;
-            string* toolList;
-            string Car; //CHANGE
-            int dayCount;
-            int GarageIndex;
-            string ContainerType;
-        public:
-            Container(bool dest, string* tools, int teamId){
-                ArrivalStatus = false;
-                dayCount = 0;
-                GarageIndex = teamId;
-                destination = dest;
-                toolList = tools;
-                ContainerType = "tools";
-                cout << "A container to transport the tools is being prepared" << "\n";
-            }
 
-            Container(bool dest, string LeCar, int teamId){ //CHANGE
-                ArrivalStatus = false;
-                dayCount = 0;
-                destination = dest;
-                Car = LeCar;
-                ContainerType = "car";
-                cout << "Transport for the F1 car is being prepared" << "\n";
-            }
+Container::Container(bool dest, string* tools, int teamId){
+    ArrivalStatus = false;
+    dayCount = 0;
+    GarageIndex = teamId;
+    destination = dest;
+    toolList = tools;
+    ContainerType = "tools";
+    cout << "A container to transport the tools is being prepared" << "\n";
+}
 
-            bool getStatus(){
-                return ArrivalStatus;
-            }
+Container::Container(bool dest, F1Car* LeCar, int teamId){
+    ArrivalStatus = false;
+    dayCount = 0;
+    destination = dest;
+    Car = LeCar;
+    ContainerType = "car";
+    cout << "Transport for the F1 car is being prepared" << "\n";
+}
 
-            void setStatus(bool status){
-                ArrivalStatus = status;
-            }
+bool Container::getStatus(){
+    return ArrivalStatus;
+}
 
-            string* getContents(){
-                return toolList;
-            }
+void Container::setStatus(bool status){
+    ArrivalStatus = status;
+}
 
-            void setContents(string tools[4]){
-                toolList = tools;
-            }
+string* Container::getContents(){
+    return toolList;
+}
 
-            bool getDestination(){
-                return destination;
-            }
+void Container::setContents(string tools[]){
+    toolList = tools;
+}
 
-            void setDestination(bool dest){
-                destination = dest;
-            }
+bool Container::getDestination(){
+    return destination;
+}
 
-            void increaseCount(){
-                dayCount++;
-            }
+void Container::setDestination(bool dest){
+    destination = dest;
+}
 
-            int getDayCount(){
-                return dayCount;
-            }
+void Container::increaseCount(){
+    dayCount++;
+}
 
-            string getContainerType(){
-                return ContainerType;
-            }
-    };
-/*
-//////////////////////////////////////////////////////////////////////////////////////////////////
-//MAIN FOR TESTING//
-/////////////////////////////////////////////////////////////////////////////////////////////////
+int Container::getDayCount(){
+    return dayCount;
+}
 
-    string toolList[4] = {"Spenna", "Hemma", "Screwyoudriva", "Rrrrench"};
-    Container toolContainer(true, toolList, 1);
-    Container carContainer(true, "Ferrari", 2);
-    cout << toolContainer.getContainerType() << "\n";
-    cout << carContainer.getContainerType() << "\n";
-
-	*/return 0;
+string Container::getContainerType(){
+    return ContainerType;
 }
