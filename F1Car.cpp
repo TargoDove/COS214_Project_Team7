@@ -5,28 +5,31 @@ F1Car::F1Car()
   strategy = NULL;
   location = "Home";
   fittedTires = NULL;
+  carSpecifications = new GenericList<F1CarSpecification>();
 }
 
 F1Car::~F1Car()
 {
   if(strategy != NULL) delete strategy;
+
+  delete carSpecifications;
 }
 
 F1CarSpecification *F1Car::getSpecification(int index)
 {
-  return carSpecifications.getItem(index);
+  return carSpecifications->getItem(index);
 }
 
 F1CarSpecification *F1Car::getSpecification(string name)
 {
-  return carSpecifications.getItem(name);
+  return carSpecifications->getItem(name);
 }
 
 void F1Car::addSpecification(F1CarSpecification * spec)
 {
   cout << "Adding " << spec->getName() << " specification to F1Car" << endl;
 
-  carSpecifications.addItem(spec);
+  carSpecifications->addItem(spec);
 }
 
 Tires *F1Car::getTires()

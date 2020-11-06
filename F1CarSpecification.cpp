@@ -37,8 +37,8 @@ void F1CarSpecification::applyImprovements()
 {
   double sum = 1.0;
   for (double *improvement: improvements){
-    double rNum = 1.0;
-    rNum /= rand();
+    double rNum = 1.0 * rand();
+    rNum /= RAND_MAX;
     if(rNum <= improvement[1]){
       sum += improvement[0];
     } else 

@@ -23,7 +23,7 @@ class F1Car
   private: 
     Strategy *strategy;
     string location;
-    GenericList<F1CarSpecification> carSpecifications;
+    GenericList<F1CarSpecification>* carSpecifications;
     Tires *fittedTires();
     //Be better if the spare tires are created and transported and then held in the garage
 };
