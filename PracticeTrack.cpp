@@ -1,4 +1,5 @@
 #include "PracticeTrack.h"
+
 PracticeTrack::PracticeTrack(){
     bestScore=0;
     worstScore=0;

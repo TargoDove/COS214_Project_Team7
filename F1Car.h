@@ -12,7 +12,8 @@ class F1Car
 	public:
     F1Car();
     ~F1Car();
-    F1CarSpecification* getSpecification(int);
+    F1CarSpecification *getSpecification(int); //Will return NULL if given int is bigger than numberOfSpecifications
+    F1CarSpecification *getSpecificationByName(string); //Will return NULL if specificed Specification doesn't exist
     void addSpecification(F1CarSpecification *);
     Tires *getTires();
     Tires* changeTires(Tires*); //Returns old tires and takes new tires
@@ -21,7 +22,7 @@ class F1Car
   private: 
     Strategy *strategy;
     string location;
-    F1CarSpecification* carSpecifications;
+    F1CarSpecification** carSpecifications;
     int numberOfSpecifications;
     Tires *fittedTires();
     //Be better if the spare tires are created and transported and then held in the garage

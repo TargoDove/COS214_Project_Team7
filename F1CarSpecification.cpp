@@ -31,6 +31,8 @@ void F1CarSpecification::addImprovement(double * imp)
   improvements.push_back(imp);
 }
 
+//Improvement[0] -> improvement percentage/multiple
+//Improvement[1] -> probability of improvement being positive (added)
 void F1CarSpecification::applyImprovements()
 {
   double sum = 1.0;
