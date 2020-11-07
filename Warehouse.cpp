@@ -1,7 +1,18 @@
 #include "Warehouse.h"
 
 Warehouse::Warehouse(F1Car* _car, RacingEvent** _raceList) :
-    car(_car), raceList(_raceList){}
+    car(_car), raceList(_raceList){
+        toolList = {"Pit-box","Air Gun (Impact Wrench)","Air Compressor","Jack","Piano Bars","Fuel Cans","Duct Tape","BearBond"}
+    }
+
+Warehouse::~Warehouse(){
+    delete F1Car;
+    for(int i = 0; i<30 && raceList[i] != nullptr; i++){
+        delete raceList[i];
+    }
+
+    delete [] raceList;
+}
         
 Container* Warehouse::createContainer(bool raceType,bool pickContainer, int teamId, RacingEvent* race){
     Container* c;

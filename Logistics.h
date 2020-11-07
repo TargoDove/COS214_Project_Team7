@@ -9,13 +9,13 @@ class Logistics{
         Warehouse* warehouse;
         Container** container;
         Transportation** transport;
-        int toolsTransported[27];
-        int carTransported[27];
+        int toolsTransported[30];
+        int carTransported[30];
        //  Date currDate;
     public:
       //  void setDate(Date date);
-        Logistics();
+        Logistics(RacingEvent** raceList, F1Car* car);
         ~Logistics();
-        void run(F1Car* car, Date date, RacingEvent* raceList, int id);
+        void run(Date date, int id); // Calls warehouse to create container, creates transport and initializes the transportation of car and tools
 };
 #endif

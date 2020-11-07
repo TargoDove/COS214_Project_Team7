@@ -11,44 +11,44 @@ Logistics::~Logistics(){
     warehouse = null;
 
     for(int i=0; i<2; i++){
-        delete [] transport[i];
-        delete [] container[i];
+        delete transport[i];
+        delete container[i];
     }
 
-    delete transport;
-    delete container;
+    delete [] transport;
+    delete [] container;
 }
 
 void Logistics::run(Date date,int id){
-    int difference;
-    for(int i = 0; i< 25 ; i++){
+    int monthDiff, dayDiff;
+    bool inEuro;
+    for(int i = 0; i< 30 && warehouse->getRacingEvent()[i] != nullptr ; i++){
         monthDiff = warehouse->getRacingEvent()[i]->getRaceTrack()->getDate()->getMonth() - date.getMonth();
         dayDiff = warehouse->getRacingEvent()[i]->getRaceTrack()->getDate()->getDay() - date.getDay();
         //1 = transported, 0= not transported
-        if(monthDiff == 3 && warehouse->getRacingEvent()[i]->getRaceTrack()->inEurop() == 1){ // edit depending on where type attribte is
-            if(toolsTransported[i] == 0){// 1 = nonEurpean
+        inEuro = warehouse->getRacingEvent()[i]->getRaceTrack()->inEurop();
+        if(monthDiff <= 3 && inEuro == false){
+            if(toolsTransported[i] == false){
                 container[0] = warehouse->createContainer(1,1, id,warehouse->getRacingEvent()[i] );
-                transport[0] = new Ship();
+                transport[0] = new Ship(container[0]);
                 toolsTransport[i] = 1;
-                container[0] = transport[0]->Transport(container[0]);
             }
-            container[0] = transport[0]->Transport(container[0]);
+            transport[0]->Transport(container[0]);
                 
-                //container[0] = transport[0]->Transport(container[0]);
-        }else if(monthDiff <= 1 && ((dayDiff >= -24 && dayDiff <= -21) || dayDiff == 7)){
-            if(toolsTransported[i] == 0){
+        }else if(monthDiff <= 1 && ((dayDiff >= -24 && dayDiff <= -21) || dayDiff <= 7)){
+            if(toolsTransported[i] == false){
                 container[0] = warehouse->createContainer(0,1, id, warehouse->getRacingEvent()[i]);
-                transport[0] = new Truck();
+                transport[0] = new Truck(container[0]);
                 toolsTransport[i] = 1;
             }
-            container[0] = transport[0]->Transport(container[0]);
+            transport[0]->Transport(container[0]);
         }else if(monthDiff <= 1 && ((dayDiff >= -30 && dayDiff <= -27) || dayDiff == 1)){
-            if(carTransported[i] == 0){
-                if(warehouse->getRacingEvent()[i]->getRaceTrack()->inEurop() == 1)
+            if(carTransported[i] == false){
+                if(inEuro == true)
                     type = 1;
                 else type = 0;
                     container[1] = warehouse->createContainer(type,0, id, warehouse->getRacingEvent()[i]);
-                    transport[1] = new Plane();
+                    transport[1] = new Plane(container[1]);
                     carTransported[i] = 1;
                     
             }
