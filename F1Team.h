@@ -5,17 +5,22 @@
 #include "Driver.h"
 #include "F1Car.h"
 #include "EngineeringDepartments.h"
+#include "Logistics.h"
+#include "RacingEvent.h"
 
 using namespace std;
 
 class F1Team : public EventObject
 {
 	public:
-    F1Team();
+    //F1Team();
+    F1Team(string n, int id, double b, F1Car **cCars, F1Car **nCars, Driver **drs);
     virtual ~F1Team();
     virtual void update(Date date);
-    void setRaceList(RaceingEvent**);
-    void getF1Car(int);
+    void setRaceList(RaceingEvent **rList);
+    void setLogistics(Logistics *l);
+    void getCurrentCar(int);
+    void getNextYearCar(int);
     int points;
     int qualifyScore;
   private:
