@@ -8,16 +8,18 @@ Friday::Friday() {
     char in;
     while (cont && numRaces!=0){
         //run simlations until either tries are depleted or no longer want to race
-
+    }
+	//check if you want to contiune tests
         cout<<"Do you want to do another practice lap? Y/N"<<endl;
         cin>>in;
-        if (in){
+        if (in==Y){
 
         }
-        else if (!in){
+        else if (in==N){
             cont=false;
         }
-        else{cout<<"Incorrect input, continue practice.";
+        else{
+		cout<<"Incorrect input, continue practice.";
         }
     }
 }
@@ -27,5 +29,6 @@ void Friday::checkDay() {
 }
 
 void Friday::handleNextDay(RacingDay* day) {
+	//moves to saturday
     day->setRacingDay( new Saturday());
 }

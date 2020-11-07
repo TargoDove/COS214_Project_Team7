@@ -1,7 +1,7 @@
 #ifndef SUNDAY_H
 #define SUNDAY_H
 
-class Sunday : RacingDay, Racing {
+class Sunday : RacingDay, Racing, PrizeGiving {
 
 
 public:

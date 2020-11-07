@@ -1,6 +1,8 @@
 #include "RacingContext.h"
 #include <iostream>
 
+//COntext for the state design pattern, racingDay
+
 RacingContext::RacingContext() {
 	cout<<"Start of Race Weekend.";
 	raceDay = new Friday();

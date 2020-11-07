@@ -1,20 +1,20 @@
 #include "Transportation.h"
 #include <iostream>
 
-Transportation::Transport(Container* container){
-    if(container->loaded){
-        container->increaseCount();
-        Garage** LeGarage = container->race.getRaceTrack().getGarageList();
-        Garage TeamGarage = LeGarage[container->getIndex()];
-        if(container->getDestination()){
-            if(container->getDayCount >=6){
-                container->setStatus = true;
-                TeamGarage.setContainer(container);
+Transportation::Transport(Container* c){
+    if(c->loaded){
+        c->increaseCount();
+        Garage** LeGarage = c->race.getRaceTrack().getGarageList();
+        Garage* TeamGarage = LeGarage[c->getIndex()];
+        if(c->getDestination()){ //getDestination() will return a boolean value. True if the destination is in Europe and false if non-European.
+            if(c->getDayCount >=6){
+                c->setStatus = true; //Sets ArrivalStatus to true
+                TeamGarage->container = c;
             }
         }else{
             if(container->getDayCount >=90){
                 container->setStatus = true;
-                TeamGarage.setContainer(container);
+                TeamGarage->container = c
             }
         }
         
@@ -23,11 +23,11 @@ Transportation::Transport(Container* container){
     }
 }
 
-Transportation::void loadcontainer(){
+Transportation::void loadcontainer(){ //Setter function
     container = c;
 }
 
-Transportation::Container* unloadcontainer(){
+Transportation::Container* unloadcontainer(){ //Getter function
     return container;
 }
 
@@ -35,7 +35,7 @@ Ship::Ship(Container* c){
     container = c;
 }
 
-Ship::sendContainer(Container* c){
+Ship::sendContainer(Container* c){ //Virtual function. Will print out different message depending on type of transport used. This is for the important for the template method.
     cout << "The container has been loaded onto a ship and sent off to it's destination." << "\n";
 }
 

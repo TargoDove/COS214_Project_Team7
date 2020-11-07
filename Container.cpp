@@ -3,8 +3,8 @@
 
 Container::Container(bool dest, string* tools, int teamId, racingEvent* raceList){
     ArrivalStatus = false;
-    loaded = false;
-    dayCount = 0;
+    loaded = false; //Tests if a container is ready to be shipped. If yes, the daycount will increase. If no, it will ready the container for transport.
+    dayCount = 0; //Used to simulate the passage of time.
     GarageIndex = teamId;
     destination = dest;
     toolList = tools;

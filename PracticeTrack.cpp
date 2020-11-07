@@ -1,6 +1,7 @@
 #include "PracticeTrack.h"
 
 PracticeTrack::PracticeTrack(){
+	//will this be used?
     bestScore=0;
     worstScore=0;
     currentScore=0;
@@ -23,6 +24,7 @@ void PracticeTrack::performPracticeRun(F1Car* testCar, RaceTrack* track){
 
 //need to make sure it instantiates with each test car
 void PracticeTrack::testTrack(F1Car* testCar, RaceTrack* track) {
+	//delete if needed
     //will add up all scores to a total of 100
     int totalScore=0;
 

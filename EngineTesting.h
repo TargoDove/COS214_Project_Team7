@@ -1,11 +1,11 @@
 #include "Testing.h"
 #include "WindTunnel.h"
 
-class CarWeightTesting:public Testing {
-
+class EngineTesting:public Testing {
 public:
-    CarWeightTesting();
-    virtual ~CarWeightTesting();
+    EngineTesting();
+    virtual ~EngineTesting();
     virtual double getTestedvalue();
     virtual void TypeOfTest(double); //confidenceRange will be passed through here
+
 };

@@ -1,7 +1,8 @@
 #ifndef WAREHOUSE_H
 #define WAREHOUSE_H
-#include "RacingEvent.h"
+
 #include "F1Car.h"
+#include "RacingEvent.h"
 #include "Container.h"
 #include "Date.h"
 
@@ -13,17 +14,15 @@ class Warehouse{
     private:
         string toolList[];
         F1Car* car;
-        Date currDate;
-        RacingEvent* raceList;
-        int teamId;
+        RacingEvent** raceList;
     public:
-        Warehouse(F1Car*, RacingEvent*, Date, int);
-        void checkDate();
-        Container* createContainer(bool, bool);
+        Warehouse(F1Car*, RacingEvent**);
+        ~Warehouse();
+        Container* createContainer(bool, bool, int);
         void reinstateContainer(Container* container);
         void setRacingEvent(RacingEvent* list);
         RacingEvent* getRacingEvent();
-        void setDate(Date date);
+        //void setDate(Date date);
         void setCar(F1Car* car);
         void setTools(string[] tools);
 };
