@@ -7,13 +7,13 @@ class Racing {
 
 private:
     int numTeams;
-	F1Car gridOrder[];
-	F1Car finishOrder[];
+	F1Team* gridOrder[];
+	F1Team* finishOrder[];
 
 public:
-    Racing(F1Car gOrder[], int nTeams);
+    Racing(F1Team* gOrder[], int nTeams);
     ~Racing();
-	void swap( int*, int*);
+	void swap( F1Team*, F1Team*);
 	/**
 	 * used to add points to a teams finalScore
 	 */
