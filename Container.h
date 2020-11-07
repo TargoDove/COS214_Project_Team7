@@ -18,7 +18,7 @@ class Container
         racingEvent* race;
         string ContainerType;
 	public:
-		Container(bool dest, string* tools, int teamId, racingEvent* raceList);
+		Container(bool dest, string* tools, int teamId, racingEvent* raceList);  //Two different constructors. This is to decide whether the car or the tools will be transported in this container.
         Container(bool dest, F1Car* LeCar, int teamId, racingEvent* raceList);
         bool getStatus();
         void setStatus(bool status);
