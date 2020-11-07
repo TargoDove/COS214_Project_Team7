@@ -13,10 +13,17 @@ double Testing::getTestedvalue()
 {
     return confidenceRange;
 }
-double Testing::finalResult()
+
+
+void Testing::TypeOfTest(double cR)
 {
-    for(int i=0;i<3; i++)
+    confidenceRange=cR;
+    if(cR<0.3)
     {
-        confidenceRange=(rand() % 10);
+        testPerformance(cR);
+    }
+    else
+    {
+        //send for Testing to Simulator
     }
 }
