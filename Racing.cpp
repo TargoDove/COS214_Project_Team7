@@ -16,12 +16,22 @@ Racing::~Racing(){
     }
     cout<<"All cars are off the track."
 }
+void Racing::swap(int *xteam, int *yteam)
+{
+    int temp = *xteam;
+    *xteam = *yteam;
+    *yteam = temp;
+}
 
 void Racing::addFinalScore(F1Team team[]) {
     int n = sizeof(team);
-    //need to access each teams car score
-    //then arrange them in descending order
-    sort(team, team+n, greater<int>());
+    int i, j;
+    for (i = 0; i < n-1; i++)
+        // Last i elements are already in place
+        for (j = 0; j < n-i-1; j++)
+            if (team[j]->getF1Car(0)->getRaceScore > team[j+1]->getF1Car(0)->getRaceScore)
+                swap(&team[j], &team[j+1]);
+    }
     team[0]->points+=25;
     team[1]->points+=18;
     team[2]->points+=15;
