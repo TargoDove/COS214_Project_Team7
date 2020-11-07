@@ -16,7 +16,7 @@ class Formula1Date
     bool registerObj(EventObject*);
     bool deregisterObj(EventObject *);
     Date getDate();
-    void setDate();
+    void setDate(Date);
 
   private:
     Date date;

@@ -1,11 +1,14 @@
 #include <iostream>
 #include <string>
+#include "Date.h"
+#include "Formula1Date.h"
 
 using namespace std;
 
 int main(int argc, char const *argv[])
 {
-	Formula1Date *F1Date = new Formula1Date("1 January 2020");
+	Date firstDay(1, 1, 2020);
+	Formula1Date *F1Date = new Formula1Date(firstDay);
 
 	//TO DO: Instantiate and initialize all objects
 
