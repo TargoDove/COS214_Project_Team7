@@ -2,5 +2,10 @@
 
 TestingMethod::TestingMethod()
 {
-    performace=0;
+    performance=0;
+}
+
+double TestingMethod::displayPerformance()
+{
+    return performance;
 }
