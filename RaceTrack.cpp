@@ -17,7 +17,7 @@ RaceTrack::RaceTrack(int nStraights, int nCorners, string clim, int numLaps, int
     
 }
 void RaceTrack::setGarageList(Garage** garageList){
-	
+	//change garageList??
 }
 
 string RaceTrack::getTrackName() {
