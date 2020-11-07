@@ -11,6 +11,7 @@ private:
 public:
     RacingEvent(string name, Date sDate, RaceTrack* trk);
     ~RacingEvent();
+	RaceTrack getRaceTrack();
 	Date getDate();
 	string getName();
 };
