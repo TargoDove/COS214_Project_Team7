@@ -1,20 +1,20 @@
 #include "Transportation.h"
 #include <iostream>
 
-Transportation::Transport(Container* container){
-    if(container->loaded){
-        container->increaseCount();
-        Garage** LeGarage = container->race.getRaceTrack().getGarageList();
-        Garage TeamGarage = LeGarage[container->getIndex()];
-        if(container->getDestination()){
-            if(container->getDayCount >=6){
-                container->setStatus = true;
-                TeamGarage.setContainer(container);
+Transportation::Transport(Container* c){
+    if(c->loaded){
+        c->increaseCount();
+        Garage** LeGarage = c->race.getRaceTrack().getGarageList();
+        Garage* TeamGarage = LeGarage[c->getIndex()];
+        if(c->getDestination()){
+            if(c->getDayCount >=6){
+                c->setStatus = true;
+                TeamGarage->container = c;
             }
         }else{
             if(container->getDayCount >=90){
                 container->setStatus = true;
-                TeamGarage.setContainer(container);
+                TeamGarage->container = c
             }
         }
         
