@@ -20,8 +20,10 @@ class F1Car
     Tires* changeTires(Tires*); //Returns old tires and takes new tires
     void setStrategy(Strategy*); //Takes new Strategy and deletes old strategy
     Strategy * getStrategy();
+	int addToRaceScore();
 
   private: 
+	int raceScore=0;
     Strategy *strategy;
     string location;
     GenericList<F1CarSpecification>* carSpecifications;
