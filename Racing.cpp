@@ -1,7 +1,7 @@
 #include "Racing.h"
 #include <algorithm>
 
-Racing::Racing(F1Car gOrder[], int nTeams) {
+Racing::Racing(F1Team* gOrder[], int nTeams) {
     numTeams = nTeams;
     for (int i = 0; i <nTeams; i++) {
         gridOrder[i] = gOrder[i];
@@ -16,9 +16,9 @@ Racing::~Racing(){
     }
     cout<<"All cars are off the track."
 }
-void Racing::swap(int *xteam, int *yteam)
+void Racing::swap(F1Team *xteam, F1Team *yteam)
 {
-    int temp = *xteam;
+    F1Team temp = *xteam;
     *xteam = *yteam;
     *yteam = temp;
 }
