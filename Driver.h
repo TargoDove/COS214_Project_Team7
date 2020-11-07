@@ -11,6 +11,7 @@ class Driver
     ~Driver();
     void addPoints(double);
     double getPoints();
+    string getName();
     void clearPoints();
     void addSkill(double);
     double getSkill();
