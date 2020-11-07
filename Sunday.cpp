@@ -1,16 +1,15 @@
 #include "Sunday.h"
+#include <iostream>
 
-string Sunday::performPitstop(boolean pitstop) {
-	// TODO - implement Sunday::performPitstop
-	throw "Not yet implemented";
+Sunday::Sunday() {
+	//Call the race function;
+	//call prize giving function
 }
 
-void Sunday::tallyPoints() {
-
-	throw "Not yet implemented";
+void Sunday::handleNextDay(RacingDay* day) {
+	~RacingContext();
 }
 
-void Sunday::raceEvent() {
-	// TODO - implement Sunday::raceEvent
-	throw "Not yet implemented";
+void Sunday::checkDay() {
+    cout<<"Today is Sunday, Race Day."<<endl;
 }
