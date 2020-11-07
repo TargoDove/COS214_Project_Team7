@@ -30,7 +30,8 @@ public:
 	string checkWeather();
 	
 	Garage** getGarageList(){return garageList;};
-	void setGarageList
+	
+	void setGarageList(Garage** garageList);
 };
 
 #endif
