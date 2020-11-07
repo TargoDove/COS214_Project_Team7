@@ -1,7 +1,7 @@
 #include "Racing.h"
 #include <algorithm>
 
-Racing::Racing(F1Team* gOrder[], int nTeams) {
+Racing::Racing(F1Team* gOrder, int nTeams) {
     numTeams = nTeams;
     for (int i = 0; i <nTeams; i++) {
         gridOrder[i] = gOrder[i];
@@ -23,7 +23,7 @@ void Racing::swap(F1Team *xteam, F1Team *yteam)
     *yteam = temp;
 }
 
-void Racing::addFinalScore(F1Team team[]) {
+void Racing::addFinalScore(F1Team* team) {
     int n = sizeof(team);
     int i, j;
     for (i = 0; i < n-1; i++)
@@ -45,7 +45,7 @@ void Racing::addFinalScore(F1Team team[]) {
 	//need to make sure
 }
 
-void Racing::addQualifyScore(F1Team team[]) {
+void Racing::addQualifyScore(F1Team* team) {
 	sort;
 }
 
