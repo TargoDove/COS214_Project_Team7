@@ -17,7 +17,7 @@ public:
 	/**
 	 * used to add points to a teams finalScore
 	 */
-	void addFinalScore();
+	void addFinalScore(F1Team** team);
 
 	/**
 	 * used to add points to qailfying score
