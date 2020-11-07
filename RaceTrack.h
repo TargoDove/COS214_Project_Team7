@@ -28,6 +28,10 @@ public:
 	int getTotalLength();
 
 	string checkWeather();
+	
+	Garage** getGarageList(){return garageList;};
+	
+	void setGarageList(Garage** garageList);
 };
 
 #endif

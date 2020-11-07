@@ -16,11 +16,11 @@ class F1Team : public EventObject
     virtual void update(Date date);
     void setRaceList(RaceingEvent**);
     void getF1Car(int);
+    int points;
+    int qualifyScore;
   private:
     string teamName;
     int teamID;
-    int points;
-    int qualifyScore;
     int windTunnelTokens; //= 400
     double budget;
     F1Car** currentCars;
