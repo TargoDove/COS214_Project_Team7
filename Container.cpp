@@ -1,22 +1,28 @@
 #include "Container.h"
 #include <iostream>
 
-Container::Container(bool dest, string* tools, int teamId){
+Container::Container(bool dest, string* tools, int teamId, racingEvent* raceList){
     ArrivalStatus = false;
+    loaded = false;
     dayCount = 0;
     GarageIndex = teamId;
     destination = dest;
     toolList = tools;
     ContainerType = "tools";
+    GarageIndex = teamId;
+    race = raceList;
     cout << "A container to transport the tools is being prepared" << "\n";
 }
 
-Container::Container(bool dest, F1Car* LeCar, int teamId){
+Container::Container(bool dest, F1Car* LeCar, int teamId, racingEvent* raceList){
     ArrivalStatus = false;
+    loaded = false;
     dayCount = 0;
     destination = dest;
     Car = LeCar;
     ContainerType = "car";
+    GarageIndex = teamId;
+    races = raceList;
     cout << "Transport for the F1 car is being prepared" << "\n";
 }
 
@@ -54,4 +60,16 @@ int Container::getDayCount(){
 
 string Container::getContainerType(){
     return ContainerType;
+}
+
+string* Container::getTools(){
+    return toolList;
+}
+
+F1Car* Container::getCar(){
+    return Car;
+}
+
+int Container::getIndex(){
+    return GarageIndex;
 }

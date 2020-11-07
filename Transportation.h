@@ -20,23 +20,23 @@ class Ship : public Transportation{
     private:
         Container* container;
     public:
-        Ship(Container* container);
-        sendContainer(Container* container);
+        Ship(Container* c;
+        sendContainer(Container* c);
 }
 
 class Truck : public Transportation{
     private:
         Container* container;
     public:
-        Truck(Container* container);
-        sendContainer(Container* container);
+        Truck(Container* c);
+        sendContainer(Container* c);
 }
 
 class Plane : public Transportation{
     private:
         Container* container;
     public:
-        Plane(Container* container);
-        sendContainer(Container* container);
+        Plane(Container* c);
+        sendContainer(Container* c);
 }
 #endif

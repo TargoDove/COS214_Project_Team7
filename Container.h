@@ -2,20 +2,24 @@
 #define CONTAINER_H
 #include <string>
 #include "F1Car.h"
+#include "RacingEvent.h"
+#include "Garage.h"
 using namespace std;
 class Container
 {
     private:
         bool ArrivalStatus;
+        bool loaded;
         bool destination;
         string* toolList;
         F1Car* Car;
         int dayCount;
         int GarageIndex;
+        racingEvent* race;
         string ContainerType;
 	public:
-		Container(bool dest, string* tools, int teamId);
-        Container(bool dest, F1Car* LeCar, int teamId);
+		Container(bool dest, string* tools, int teamId, racingEvent* raceList);
+        Container(bool dest, F1Car* LeCar, int teamId, racingEvent* raceList);
         bool getStatus();
         void setStatus(bool status);
         string* getContents();
@@ -24,6 +28,7 @@ class Container
         void setDestination(bool dest);
         void increaseCount();
         int getDayCount();
+        int getIndex();
         string getContainerType();
         string* getTools();
         F1Car* getCar();
