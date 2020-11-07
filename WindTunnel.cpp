@@ -6,6 +6,12 @@ WindTunnel::WindTunnel()
     Tokens=0;
 }
 
+WindTunnel::WindTunnel(int t)
+{
+    Tokens=t;
+    decrement();
+}
+
 WindTunnel::~WindTunnel()
 {
 
@@ -14,6 +20,7 @@ void WindTunnel::decrement()
 {
     int tokens=getTokens();
     tokens--;
+    Tokens=tokens;
 }
 
 int WindTunnel::getTokens()
@@ -23,6 +30,11 @@ int WindTunnel::getTokens()
 
 double WindTunnel::displayPerformance()
 {
-    double performancetest = (rand() % 1);
-    return performancetest;
+    return performance;
+}
+
+void WindTunnel::testPerformance(double p)
+{
+    performance = (rand() % 1);
+
 }
