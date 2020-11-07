@@ -22,19 +22,13 @@ public:
 	/**
 	 * used to add points to qailfying score
 	 */
-	void addQualifyScore();
-
-	void raceLapOrder();
+	void addQualifyScore(F1Team** team);
 
 	void raceLapScore();
 
 	string performPitstop(boolean pitstop);
 
-	void raceLap();
-
-	int tallyPoints();
-
-	void raceEvent();
+	void raceEvent(F1Teams** teams);
 };
 
 #endif
