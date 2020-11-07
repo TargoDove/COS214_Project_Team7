@@ -19,8 +19,8 @@ class F1Team : public EventObject
     virtual void update(Date date);
     void setRaceList(RaceingEvent **rList);
     void setLogistics(Logistics *l);
-    void getCurrentCar(int);
-    void getNextYearCar(int);
+    F1Car* getCurrentCar(int);
+    F1Car *getNextYearCar(int);
     int points;
     int qualifyScore;
     string getTeamName();

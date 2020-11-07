@@ -38,14 +38,14 @@ void F1Team::update(Date date)
   throw "Not yet implemented";
 }
 
-void F1Team::getCurrentCar(int index)
+F1Car* F1Team::getCurrentCar(int index)
 {
   if(index >= 0 && index < 2)
     return currentCars[index];
   else 
     return NULL;
 }
-void F1Team::getNextYearCar(int index)
+F1Car* F1Team::getNextYearCar(int index)
 {
   if (index >= 0 && index < 2)
     return nextCars[index];
