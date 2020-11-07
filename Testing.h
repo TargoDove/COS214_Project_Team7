@@ -1,9 +1,9 @@
 #include "TestingMethod.h"
 #include "WindTunnel.h"
 
-class Testing:WindTunnel {
+class Testing:public WindTunnel {
 
-private:
+protected:
     double confidenceRange;
 
 
