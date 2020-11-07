@@ -19,6 +19,13 @@ Date::Date(int d, int m, int y){
   }
 }
 
+Date::Date(const Date &copy)
+{
+  day = copy.day;
+  month = copy.month;
+  year = copy.year;
+}
+
 Date::~Date(){
   //Do nothing
 }
@@ -282,6 +289,16 @@ Date Date::operator--(int)
   Date temp = *this;
   --*this;
   return temp;
+}
+
+// Overloaded assignment
+Date &Date::operator=(const Date &date)
+{
+  day = date.day;
+  month = date.month;
+  year = date.year;
+
+  return *this;
 }
 
 bool Date::isLeapYear(int y)
