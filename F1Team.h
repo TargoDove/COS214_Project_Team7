@@ -15,6 +15,7 @@ class F1Team : public EventObject
     virtual ~F1Team();
     virtual void update(Date date);
     void setRaceList(RaceingEvent**);
+    void getF1Car(int);
   private:
     string teamName;
     int teamID;
