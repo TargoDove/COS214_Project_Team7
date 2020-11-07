@@ -14,10 +14,12 @@ double BreakSim::simulateComponent(double e)
 	double excellent = 0.8*(e*1000*9.8);
 
 	double simulatedValue = e*(e*1000*9.8);
+	double improvement = (simulatedValue/excellent)*e;
 	cout << "_______________________________"<<endl;
 	cout << "Breaks Simulation Complete"<<endl;
 	cout << "_______________________________"<<endl;
 	cout << "Scored " << simulatedValue << endl;
+	cout << "Improvement " << (improvement)*100 << "%" << endl;
 	if(simulatedValue <= bad)
 	{
 		cout << "Outcome: [BAD]\nThe car takes long to stop"<< endl;
@@ -41,5 +43,5 @@ double BreakSim::simulateComponent(double e)
 	cout << "good:\t\t" << good << endl;
 	cout << "excellent:\t" << excellent << endl;
 	cout << "==============================="<<endl;
-	return simulatedValue;
+	return improvement*e;
 }
