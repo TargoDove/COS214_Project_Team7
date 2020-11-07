@@ -1,14 +1,15 @@
 #include "WindTunnel.h"
 
 class TestingMethod {
-private:
-    double performace;
+protected:
+    double performance;
     Simulator *sim;
     WindTunnel *windT;
 
 public:
     TestingMethod();
     virtual ~TestingMethod();
+    virtual void *testPerformance(double)=0;
     virtual double displayPerformance();
 
 };
