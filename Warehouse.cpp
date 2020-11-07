@@ -1,17 +1,13 @@
 #include "Warehouse.h"
 
-Warehouse::Warehouse(F1Car* _car, RacingEvent* _raceList, Date _date, int _teamId) :
-    car(_car), raceList(_raceList), date(_date), teamId(_teamId){}
+Warehouse::Warehouse(F1Car* _car, RacingEvent** _raceList) :
+    car(_car), raceList(_raceList){}
         
-void Warehouse::checkDate(){
-
-}
-    
-Container* Warehouse::createContainer(bool raceType,bool pickContainer){
+Container* Warehouse::createContainer(bool raceType,bool pickContainer, int teamId, RacingEvent* race){
     Container* c;
     if(pickContainer == 0)
-        c = new Container(raceType,car, teamId);
-    else c = new Container(raceType,toolList, teamId);
+        c = new Container(raceType,car, teamId, race);
+    else c = new Container(raceType,toolList, teamId, race);
 
     return c;
 }
