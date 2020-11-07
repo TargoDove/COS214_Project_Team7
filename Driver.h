@@ -7,7 +7,7 @@ class Driver
 {
 	public:
     Driver();
-    Driver(double, double);
+    Driver(double, double, string);
     ~Driver();
     void addPoints(double);
     double getPoints();
@@ -17,6 +17,7 @@ class Driver
   private:
     double skill;
     double currentPoints;
+    string name;
 };
 
 #endif
