@@ -79,8 +79,12 @@ void F1Team::applyDepartmentImprovements()
   }
 }
 
-void applyStrategy(){
+void F1Team::applyStrategy(){
   // TODO - implement F1Team::applyStrategy()
   //Need to set G1 and G2 specialists for each department based on strategy and budget
   throw "Not yet implemented";
+}
+
+string F1Team::getTeamName(){
+  return name;
 }
