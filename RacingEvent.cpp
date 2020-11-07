@@ -6,7 +6,7 @@ RacingEvent::RacingEvent(string name, Date sDate, RaceTrack* trk) {
     track = trk;
 }
 
-RaceTrack* RaceTrack::getRaceTrack(){
+RaceTrack* RaceEvent::getRaceTrack(){
 	return track
 }
 Date RacingEvent::getDate() {
