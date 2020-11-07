@@ -12,12 +12,13 @@ private:
 	string climate;
 	int numLaps;
 	string trackLocation;
+	boolean isEuropean;
 	string trackName;
 	int lapLen;
 	Garage** garageList;
 
 public:
-	RaceTrack(int numStraights, int numCorners, string climate, int numLaps, int lapLen, string trackLocation, string trackName, Garage** garageList);
+	RaceTrack(int numStraights, int numCorners, string climate, int numLaps, int lapLen, string trackLocation, string trackName, Garage** garageList, boolean inEuro);
 
 	void ~RaceTrack();
 
