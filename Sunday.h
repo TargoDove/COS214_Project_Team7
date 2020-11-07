@@ -1,15 +1,16 @@
 #ifndef SUNDAY_H
 #define SUNDAY_H
 
-class Sunday : racingDay {
+class Sunday : RacingDay, Racing {
 
 
 public:
-	string performPitstop(boolean pitstop);
+	Sunday();
 
-	void tallyPoints();
+	void handleNextDay(RacingDay* day);
 
-	void raceEvent();
+	void checkDay();
 };
 
 #endif
+
