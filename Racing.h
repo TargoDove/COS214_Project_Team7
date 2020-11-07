@@ -12,7 +12,8 @@ private:
 
 public:
     Racing(F1Car gOrder[], int nTeams);
-    F1Car gOrder[], int nTeams;
+    ~Racing();
+	void swap( int*, int*);
 	/**
 	 * used to add points to a teams finalScore
 	 */
