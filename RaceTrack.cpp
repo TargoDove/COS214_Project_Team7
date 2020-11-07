@@ -1,7 +1,7 @@
 #include "RaceTrack.h"
 #include "Competition.h"
 
-RaceTrack::RaceTrack(int nStraights, int nCorners, string clim, int numLaps, int lLen, string tLocation, string tName, Garage** garageList) {
+RaceTrack::RaceTrack(int nStraights, int nCorners, string clim, int numLaps, int lLen, string tLocation, string tName, Garage** garageList, boolean inEuro) {
     numStraights = nStraights;
     numCorners = nCorners;
     total = numStraights + numCorners;
@@ -10,6 +10,7 @@ RaceTrack::RaceTrack(int nStraights, int nCorners, string clim, int numLaps, int
     climate = clim;
     numLaps = numLaps;
     trackLocation = tLocation;
+    isEuropean = inEuro;
     trackName = tName;
     lapLen = lLen;
     Garage** garageList; //Paul: hwo should we initialise garageList
@@ -33,4 +34,8 @@ int RaceTrack::getTotalLength() {
 
 string RaceTrack::checkWeather() {
     return this->climate;
+}
+
+boolean RaceTrack::inEurope(){
+	return this->isEuropean;
 }
