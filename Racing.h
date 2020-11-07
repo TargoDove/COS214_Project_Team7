@@ -7,11 +7,11 @@ class Racing {
 
 private:
     int numTeams;
-	F1Team* gridOrder[];
-	F1Team* finishOrder[];
+	F1Team* gridOrder;
+	F1Team* finishOrder;
 
 public:
-    Racing(F1Team* gOrder[], int nTeams);
+    Racing(F1Team* gOrder, int nTeams);
     ~Racing();
 	void swap( F1Team*, F1Team*);
 	/**
