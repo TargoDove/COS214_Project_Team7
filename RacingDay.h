@@ -5,6 +5,8 @@ class RacingDay {
 
 
 public:
+	//state for the days
+	//completely virtual
 	virtual void handleNextDay(RacingDay* day);
 
 	virtual void checkDay();
