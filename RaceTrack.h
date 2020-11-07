@@ -32,6 +32,8 @@ public:
 	Garage** getGarageList(){return garageList;};
 	
 	void setGarageList(Garage** garageList);
+	
+	void setGarageList(Garage** garageList);
 };
 
 #endif
