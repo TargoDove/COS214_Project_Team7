@@ -1,11 +1,15 @@
 #ifndef FRIDAY_H
 #define FRIDAY_H
 
-class Friday : racingDay {
+class Friday : RacingDay, PracticeTrack {
 
 
 public:
-	int simulateTrack(F1Car testCar);
+	Friday();
+
+	void checkDay();
+
+	void handleNextDay(RacingDay* day);
 };
 
 #endif
