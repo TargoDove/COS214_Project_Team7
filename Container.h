@@ -9,7 +9,7 @@ class Container
         bool ArrivalStatus;
         bool destination;
         string* toolList;
-        F1Car* Car; //CHANGE
+        F1Car* Car;
         int dayCount;
         int GarageIndex;
         string ContainerType;
@@ -25,6 +25,8 @@ class Container
         void increaseCount();
         int getDayCount();
         string getContainerType();
+        string* getTools();
+        F1Car* getCar();
 };
 
 #endif
