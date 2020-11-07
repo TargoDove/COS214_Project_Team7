@@ -1,13 +1,15 @@
 #ifndef SATURDAY_H
 #define SATURDAY_H
 
-class Saturday : racingDay {
+class Saturday : RacingDay, PracticeTrack, Racing{
 
 
 public:
-	void addQualifyScore();
+	Saturday();
 
-	void setGridLayout(F1Team teamList);
+	void checkDay();
+
+	void handleNextDay(RacingDay* day);
 };
 
 #endif
