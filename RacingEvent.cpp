@@ -5,6 +5,10 @@ RacingEvent::RacingEvent(string name, Date sDate, RaceTrack* trk) {
     startDate = sDate;
     track = trk;
 }
+
+RaceTrack* RaceTrack::getRaceTrack(){
+	return track
+}
 Date RacingEvent::getDate() {
 	return startDate;
 }
