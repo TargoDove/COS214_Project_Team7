@@ -23,6 +23,7 @@ class F1Team : public EventObject
     void getNextYearCar(int);
     int points;
     int qualifyScore;
+    string getTeamName();
   private:
     string teamName;
     int teamID;
