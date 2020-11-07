@@ -12,10 +12,8 @@ RaceTrack::RaceTrack(int nStraights, int nCorners, string clim, int numLaps, int
     trackLocation = tLocation;
     trackName = tName;
     lapLen = lLen;
-    Garage** garageList;
-    for (int i = 0; i < Competition->numTeams; ++i) {
-
-    }
+    Garage** garageList; //Paul: hwo should we initialise garageList
+    
 }
 void RaceTrack::setGarageList(Garage** garageList){
 	
