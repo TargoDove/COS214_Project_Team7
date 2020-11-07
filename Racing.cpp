@@ -21,7 +21,7 @@ void Racing::addFinalScore(F1Team team[]) {
     int n = sizeof(team);
     //need to access each teams car score
     //then arrange them in descending order
-    std::sort(team, team+n, std::greater<int>());
+    sort(team, team+n, greater<int>());
     team[0]->points+=25;
     team[1]->points+=18;
     team[2]->points+=15;

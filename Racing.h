@@ -1,6 +1,8 @@
 #ifndef RACING_H
 #define RACING_H
 
+using namespace std;
+
 class Racing {
 
 private:
