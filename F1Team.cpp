@@ -35,7 +35,12 @@ void F1Team::setLogistics(Logistics *l)
 void F1Team::update(Date date)
 {
   // TODO - implement F1Team::update(Date date)
-  throw "Not yet implemented";
+  throw "Not yet finnished";
+
+  //Do we need to get or add another strategy?
+  //Does the strategy change at all?
+
+  
 }
 
 F1Car* F1Team::getCurrentCar(int index)

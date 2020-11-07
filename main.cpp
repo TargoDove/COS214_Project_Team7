@@ -8,7 +8,7 @@ using namespace std;
 int main(int argc, char const *argv[])
 {
 	Date firstDay(1, 1, 2020);
-	Formula1Date *F1Date = new Formula1Date(firstDay);
+	Formula1Date *f1Date = new Formula1Date(firstDay);
 
 	//TO DO: Instantiate and initialize all objects
 
@@ -17,7 +17,7 @@ int main(int argc, char const *argv[])
 	//Looping through/simulating year
 	for (int i = 0; i < 365; i++)
 	{
-		F1Date->increment();
+		f1Date->increment();
 
 		return 0;
 	}

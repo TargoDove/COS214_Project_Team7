@@ -3,7 +3,7 @@
 F1Car::F1Car()
 {
   strategy = NULL;
-  location = "Home";
+  location = "Factory"; //Factory -> home, other options include "in transit" or race locations
   fittedTires = NULL;
   carSpecifications = new GenericList<F1CarSpecification>();
 }
@@ -61,4 +61,14 @@ void F1Car::addToRaceScore(int lapScore){
 }
 int F1Car::getRaceScore(){
   return raceScore;
+}
+
+string F1Car::getLocation()
+{
+  return location;
+}
+
+void F1Car::setLocation(string l)
+{
+  location = l;
 }

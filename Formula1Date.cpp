@@ -16,6 +16,10 @@ Formula1Date::~Formula1Date()
 void Formula1Date::increment()
 {
   date++;
+  for (EventObject *obj : eventObjs)
+  {
+    obj->update(date);
+  }
 }
 
 bool Formula1Date::registerObj(EventObject * obj)
