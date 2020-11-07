@@ -24,11 +24,14 @@ class F1Car
 	  int getRaceScore();
     string getLocation();
     void setLocation(string);
+    bool isCurrentYearCar();
+    void setCurrentYear(bool);
 
   private: 
-	int raceScore=0;
+	  int raceScore=0;
     Strategy *strategy;
     string location; //Factory -> home, other options include "in transit" or race locations
+    bool currentYearCar;
     GenericList<F1CarSpecification>* carSpecifications;
     Tires *fittedTires();
     //Be better if the spare tires are created and transported and then held in the garage

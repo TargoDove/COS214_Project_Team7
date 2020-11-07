@@ -6,6 +6,7 @@ F1Car::F1Car()
   location = "Factory"; //Factory -> home, other options include "in transit" or race locations
   fittedTires = NULL;
   carSpecifications = new GenericList<F1CarSpecification>();
+  currentYearCar = true;
 }
 
 F1Car::~F1Car()
@@ -71,4 +72,13 @@ string F1Car::getLocation()
 void F1Car::setLocation(string l)
 {
   location = l;
+}
+
+bool F1Car::isCurrentYearCar()
+{
+  return currentYearCar;
+}
+void F1Car::setCurrentYear(bool val)
+{
+  currentYearCar = val;
 }

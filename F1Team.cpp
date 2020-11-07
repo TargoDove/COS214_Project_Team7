@@ -40,7 +40,25 @@ void F1Team::update(Date date)
   //Do we need to get or add another strategy?
   //Does the strategy change at all?
 
-  
+  if(currentCars[0]->getLocation().compare("Factory") == 0)
+  {
+    applyDepartmentImprovements(currentCars[0]);
+  }
+
+  if (currentCars[1]->getLocation().compare("Factory") == 0)
+  {
+    applyDepartmentImprovements(currentCars[1]);
+  }
+
+  if (nextCars[0]->getLocation().compare("Factory") == 0)
+  {
+    applyDepartmentImprovements(nextCars[0]);
+  }
+
+  if (nextCars[1]->getLocation().compare("Factory") == 0)
+  {
+    applyDepartmentImprovements(nextCars[1]);
+  }
 }
 
 F1Car* F1Team::getCurrentCar(int index)
@@ -58,28 +76,20 @@ F1Car* F1Team::getNextYearCar(int index)
     return NULL;
 }
 
-void F1Team::applyDepartmentImprovements()
+void F1Team::applyDepartmentImprovements(F1Car* car)
 {
   Iterator* it = departments->createIterator();
   it->first();
 
   if(it->current() != NULL){
     string n = it->current()->getSpecificationName();
-    it->current()->performImprovement(currentCars[0]->getSpecification(n), true));
-    it->current()->performImprovement(currentCars[1]->getSpecification(n), true));
-
-    it->current()->performImprovement(nextCars[0]->getSpecification(n), false));
-    it->current()->performImprovement(nextCars[1]->getSpecification(n), false));
+    it->current()->performImprovement(car->getSpecification(n), car->isCurrentYearCar()));
 
     while(it->hasNext()){
       it->next();
 
       n = it->current()->getSpecificationName();
-      it->current()->performImprovement(currentCars[0]->getSpecification(n), true));
-      it->current()->performImprovement(currentCars[1]->getSpecification(n), true));
-
-      it->current()->performImprovement(nextCars[0]->getSpecification(n), false));
-      it->current()->performImprovement(nextCars[1]->getSpecification(n), false));
+      it->current()->performImprovement(car->getSpecification(n), car->isCurrentYearCar()));
     }
   }
 }
