@@ -1,15 +1,16 @@
 #include "TestingMethod.h"
+#include "WindTunnel.h"
 
-class Testing {
+class Testing:WindTunnel {
 
 private:
     double confidenceRange;
-    TestingMethod *testingMethod;
-    virtual double getTestedvalue();
-    virtual double finalResult();
+
 
 public:
         Testing();
         virtual ~Testing();
-        double *testComponent(double);
+        virtual double getTestedvalue();
+        void TypeOfTest(double); //confidenceRange will be passed through here
+
 };
