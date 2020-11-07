@@ -1,18 +1,23 @@
 #ifndef PRIZEGIVING_H
 #define PRIZEGIVING_H
 
-class PrizeGiving {
+class PrizeGiving: Racing{
 
 private:
-	string podium[];
-	string engineeringWin;
-	string driverWin;
+	string driver1st;
+    string driver2nd;
+    string driver3rd;
 	string teamWin;
 
 public:
-	string celebrate();
+    PrizeGiving();
+
+    ~PrizeGiving();
+
+	void celebrate();
 
 	void announceWinner();
+
 };
 
 #endif
