@@ -55,3 +55,10 @@ Strategy *F1Car::getStrategy()
 {
   return strategy;
 }
+
+void F1Car::addToRaceScore(int lapScore){
+  raceScore+=lapScore;
+}
+int F1Car::getRaceScore(){
+  return raceScore;
+}
