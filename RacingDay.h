@@ -3,7 +3,6 @@
 
 class RacingDay {
 
-
 public:
 	//state for the days
 	//completely virtual
@@ -11,7 +10,7 @@ public:
 
 	virtual void checkDay();
 
-	void ~RacingDay();
+	~RacingDay();
 };
 
 #endif

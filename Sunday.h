@@ -1,8 +1,11 @@
 #ifndef SUNDAY_H
 #define SUNDAY_H
 
-class Sunday : RacingDay, Racing, PrizeGiving {
+#include "RacingDay.h"
+#include "PrizeGiving.h"
+#include "Racing.h"
 
+class Sunday : public RacingDay, public Racing, public PrizeGiving {
 
 public:
 	Sunday();

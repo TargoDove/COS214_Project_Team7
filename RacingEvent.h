@@ -1,6 +1,9 @@
 #ifndef RACINGEVENT_H
 #define RACINGEVENT_H
 
+#include "RaceTrack.h"
+#include "Date.h"
+
 class RacingEvent {
 
 private:

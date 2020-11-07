@@ -1,7 +1,10 @@
 #ifndef PRIZEGIVING_H
 #define PRIZEGIVING_H
 
-class PrizeGiving: Racing{
+#include "Racing.h"
+#include <string>
+
+class PrizeGiving: public Racing{
 
 private:
 	string driver1st;

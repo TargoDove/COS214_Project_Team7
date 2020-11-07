@@ -15,6 +15,7 @@ class Driver
     void clearPoints();
     void addSkill(double);
     double getSkill();
+    
   private:
     double skill;
     double currentPoints;

@@ -1,6 +1,8 @@
 #ifndef RACETRACK_H
 #define RACETRACK_H
 
+#include "Garage.h"
+
 class RaceTrack {
 
 private:
@@ -18,7 +20,7 @@ private:
 	Garage** garageList;
 
 public:
-	RaceTrack(int numStraights, int numCorners, string climate, int numLaps, int lapLen, string trackLocation, string trackName, Garage** garageList, boolean inEuro);
+	RaceTrack(int numStraights, int numCorners, string climate, int numLaps, int lapLen, string trackLocation, string trackName, Garage** garageList, bool inEuro);
 
 	void ~RaceTrack();
 

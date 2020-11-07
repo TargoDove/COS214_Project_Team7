@@ -1,6 +1,10 @@
 #ifndef COMPETITION_H
 #define COMPETITION_H
+
 #include "RacingEvent.h"
+#include "EventObject.h"
+#include "Date.h"
+#include "F1Team.h"
 
 class Competition : EventObject, RacingEvent{
 
@@ -11,7 +15,7 @@ private:
 	F1Team* teamList;
 	RacingEvent* raceList;
 	int currTeamCount = 0;
-    int currRaceCount = 0;
+  int currRaceCount = 0;
 
 
 public:

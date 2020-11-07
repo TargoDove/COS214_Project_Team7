@@ -1,14 +1,16 @@
 #ifndef RACING_H
 #define RACING_H
 
+#include "F1Team.h"
+
 using namespace std;
 
 class Racing {
 
 private:
     int numTeams;
-	F1Team** gridOrder;
-	F1Team** finishOrder;
+		F1Team** gridOrder;
+		F1Team** finishOrder;
 
 public:
     Racing(F1Team** gOrder, int nTeams);
@@ -26,7 +28,7 @@ public:
 
 	void raceLapScore();
 
-	string performPitstop(boolean pitstop);
+	string performPitstop(bool pitstop);
 
 	void raceEvent(F1Teams** teams);
 };

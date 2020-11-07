@@ -1,7 +1,10 @@
 #ifndef LAPELEMENT_H
 #define LAPELEMENT_H
 
-class LapElement : TrackShape {
+#include "F1Car.h"
+#include "RaceTrack.h"
+
+class LapElement {
 
 private:
 	int elementsPerLap;

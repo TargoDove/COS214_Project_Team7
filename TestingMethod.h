@@ -1,3 +1,6 @@
+#ifndef TESTINGMETHOD_H
+#define TESTINGMETHOD_H
+
 #include "WindTunnel.h"
 
 class TestingMethod {
@@ -13,3 +16,5 @@ public:
     virtual double displayPerformance();
 
 };
+
+#endif

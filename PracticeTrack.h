@@ -1,7 +1,9 @@
 #ifndef PRACTICETRACK_H
 #define PRACTICETRACK_H
+
 #include "RaceTrack.h"
 #include "F1Car.h"
+
 class PracticeTrack {
 
 private:
