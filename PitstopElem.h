@@ -3,14 +3,15 @@
 
 #include "LapElement.h"
 
-class PitstopElem : LapElement {
+class PitstopElem : LapElement
+{
+
+private:
+	double pitstopTimePenalty;
 
 public:
-	int pitstopTemp;
-
-	string performPitstop(bool pitstop);
-
-	void handleLap();
+	PitstopElem(int, LapElement *, double);
+	virtual void handleLap(AssembledCar *, double *);
 };
 
 #endif

@@ -2,6 +2,7 @@
 #define LAPELEMENT_H
 
 #include "F1Car.h"
+#include "AssembledCar.h"
 #include "RaceTrack.h"
 
 class LapElement {
@@ -11,13 +12,10 @@ private:
 	LapElement* nextElement;
 
 public:
-	int getScore(F1Car* raceCar, RaceTrack* track);
-
-	void simulateLapTime();
-
-	void simulateLapOrder();
-
-	void handleLap();
+	LapElement(int, LapElement *);
+	virtual ~LapElement();
+	virtual void handleLap(AssembledCar *, double *) = 0; //handleLap(AssembledCar* car, double *time)
+	virtual void setNextElement(LapElement*);
 };
 
 #endif

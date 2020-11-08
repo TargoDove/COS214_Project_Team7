@@ -1,11 +1,13 @@
 #include "PitstopElem.h"
 
-string PitstopElem::performPitstop(boolean pitstop) {
-	// TODO - implement PitstopElem::performPitstop
-	throw "Not yet implemented";
+PitstopElem::PitstopElem(int num, LapElement *next, double penalty):LapElement(num, next)
+{
+	pitstopTimePenalty = penalty;
 }
 
-void PitstopElem::handleLap() {
-	// TODO - implement PitstopElem::handleLap
-	throw "Not yet implemented";
+void PitstopElem::handleLap(AssembledCar *car, double *time)
+{
+	if(car->getF1Car()->getStrategy()->performPitstop(car)){
+		*time += pitstopTimePenalty;
+	}
 }

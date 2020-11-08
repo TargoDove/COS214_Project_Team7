@@ -36,7 +36,10 @@ void RacingEvent::RunRace(Date currentDate)
 {
   // TODO - implement RacingEvent::RunRace(Date currentDate)
   throw "Not yet implemented";
-  dayState->handle(currentDate);
+  if (dayState != NULL)
+  {
+    dayState->handle(currentDate);
+  }
 }
 
 RaceTrack *RacingEvent::getRaceTrack()

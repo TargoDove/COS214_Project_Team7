@@ -1,21 +1,28 @@
 #include "LapElement.h"
 
-int LapElement::getScore(F1Car* raceCar, RaceTrack* track) {
-	// TODO - implement LapElement::getScore
-	throw "Not yet implemented";
+LapElement::LapElement(int num, LapElement *el)
+{
+	elementsPerLap = num;
+	nextElement = el;
 }
 
-void LapElement::simulateLapTime() {
-	// TODO - implement LapElement::simulateLapTime
-	throw "Not yet implemented";
+virtual LapElement::~LapElement()
+{
+	if(nextElement != NULL)
+	{
+		delete nextElement;
+	}
 }
 
-void LapElement::simulateLapOrder() {
-	// TODO - implement LapElement::simulateLapOrder
-	throw "Not yet implemented";
-}
-
-void LapElement::handleLap() {
-	// TODO - implement LapElement::handleLap
-	throw "Not yet implemented";
+virtual void LapElement::setNextElement(LapElement *el)
+{
+	if(nextElement == NULL)
+	{
+		nextElement = el;
+	} 
+	else 
+	{
+		el->setNextElement(nextElement);
+		nextElement = el;
+	}
 }
