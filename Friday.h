@@ -1,15 +1,16 @@
 #ifndef FRIDAY_H
 #define FRIDAY_H
 
+#include "RacingDay.h"
+
 class Friday : RacingDay, PracticeTrack {
 
-
 public:
-	Friday();
+	Friday(RacingEvent*);
+	virtual void handle(Date);
 
-	void checkDay();
-
-	void handleNextDay(RacingDay* day);
+protected:
+	RacingEvent *event;
 };
 
 #endif

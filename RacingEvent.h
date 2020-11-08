@@ -4,6 +4,9 @@
 #include "RaceTrack.h"
 #include "Date.h"
 #include "RacingDay.h"
+#include "Friday.h"
+#include "Saturday.h"
+#include "Sunday.h"
 
 class RacingEvent {
 
@@ -22,6 +25,7 @@ public:
 		Date getStartDate();
 		Date getEndDate();
 		string getName();
+		void setState(RacingDay*);
 };
 
 #endif
