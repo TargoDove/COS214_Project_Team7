@@ -1,17 +1,35 @@
 #include "RacingEvent.h"
 
-RacingEvent::RacingEvent(string name, Date sDate, RaceTrack* trk) {
-    raceName = name;
-    startDate = sDate;
-    track = trk;
+RacingEvent::RacingEvent(string name, Date sDate, RaceTrack *trk)
+{
+  raceName = name;
+  startDate = sDate;
+  endDate = sDate;
+  endDate.incrementDate(2);
+  track = trk;
 }
 
-RaceTrack* RaceEvent::getRaceTrack(){
-	return track
+void RacingEvent::RunRace(Date currentDate)
+{
+  // TODO - implement RacingEvent::RunRace(Date currentDate)
+  throw "Not yet implemented";
 }
-Date RacingEvent::getDate() {
-	return startDate;
+
+RaceTrack *RacingEvent::getRaceTrack()
+{
+    return track;
 }
-string RacingEvent::getName() {
-    return raceName;
+
+Date RacingEvent::getStartDate()
+{
+  return startDate;
+}
+
+Date RacingEvent::getEndDate()
+{
+  return endDate;
+}
+string RacingEvent::getName()
+{
+  return raceName;
 }

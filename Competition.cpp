@@ -17,7 +17,9 @@ Competition::~Competition()
 
 void Competition::update(Date date)
 {
-  
+  // TODO - implement Competition::update(Date date)
+  //Loop throught races and run the ones in progress based on date
+  throw "Not yet implemented";
 }
 
 void Competition::addTeam(F1Team *team)

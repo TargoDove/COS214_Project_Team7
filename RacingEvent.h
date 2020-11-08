@@ -3,20 +3,25 @@
 
 #include "RaceTrack.h"
 #include "Date.h"
+#include "RacingDay.h"
 
 class RacingEvent {
 
 private:
 	string raceName;
 	Date startDate;
-	RaceTrack track;
+	Date endDate;
+	RaceTrack* track;
+	RacingDay* dayState;
 
 public:
     RacingEvent(string name, Date sDate, RaceTrack* trk);
     ~RacingEvent();
-	RaceTrack getRaceTrack();
-	Date getDate();
-	string getName();
+		void RunRace(Date);
+		RaceTrack* getRaceTrack();
+		Date getStartDate();
+		Date getEndDate();
+		string getName();
 };
 
 #endif
