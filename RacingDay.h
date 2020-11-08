@@ -14,6 +14,7 @@ public:
 
 protected:
 	RacingEvent *event;
+	list<AssembledCar *> carList;
 };
 
 #endif

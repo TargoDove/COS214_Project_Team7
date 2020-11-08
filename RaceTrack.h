@@ -20,10 +20,15 @@ private:
 	int lapLen;
 	Garage** garageList;
 	int numberOfGarages;
+	LapElement* trackLap;
 
 public:
 	RaceTrack(int numStraights, int numCorners, string climate, int numLaps, int lapLen, string trackLocation, string trackName, int numGarages, bool inEuro);
 	void ~RaceTrack();
+	void buildLap();
+	//LapElement* getTrackLap();
+	double raceSingleLap(AssembledCar*);
+	double raceFull(AssembledCar*);
 	string getTrackName();
 	string getTrackLocation();
 	int getTotalLength();

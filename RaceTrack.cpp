@@ -15,13 +15,48 @@ RaceTrack::RaceTrack(int nStraights, int nCorners, string clim, int numLaps, int
   lapLen = lLen;
   numberOfGarages = numGarages;
   garageList = new Garage *[numberOfGarages];
+  trackLap = NULL;
   for (int i = 0; i < numberOfGarages; i++)
   {
     garageList[i] = new Garage();
   }
+  buildLap();
 }
 // void RaceTrack::setGarageList(Garage** garageList){
 // 	//change garageList??
+// }
+
+RaceTrack::~RaceTrack()
+{
+  // TODO - implement RaceTrack::~RaceTrack()
+  throw "Not yet implemented";
+}
+
+void RaceTrack::buildLap()
+{
+  // TODO - implement RaceTrack::buildLap()
+  throw "Not yet implemented";
+}
+
+double RaceTrack::raceSingleLap(AssembledCar * car)
+{
+  double time = 0;
+  trackLap->handleLap(car, &time);
+  return time;
+}
+
+double RaceTrack::raceFull(AssembledCar *car)
+{
+  double time = 0;
+  for(int i = 0; i < numLaps; i++){
+    trackLap->handleLap(car, &time);
+  }
+  return time;
+}
+
+// LapElement *RaceTrack::getTrackLap()
+// {
+//   return trackLap;
 // }
 
 string RaceTrack::getTrackName()

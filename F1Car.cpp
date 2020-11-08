@@ -82,3 +82,8 @@ void F1Car::setCurrentYear(bool val)
 {
   currentYearCar = val;
 }
+
+void F1Car::addRacePoints(int p)
+{
+  raceScore += p;
+}

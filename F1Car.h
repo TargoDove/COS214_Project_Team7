@@ -26,9 +26,10 @@ class F1Car
     void setLocation(string);
     bool isCurrentYearCar();
     void setCurrentYear(bool);
+    void addRacePoints(int);
 
   private: 
-	  int raceScore=0;
+	  int raceScore; //Set back to zero once points have been added to team
     Strategy *strategy;
     string location; //Factory -> home, other options include "in transit" or race locations
     bool currentYearCar;

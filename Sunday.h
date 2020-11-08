@@ -2,17 +2,19 @@
 #define SUNDAY_H
 
 #include "RacingDay.h"
-#include "PrizeGiving.h"
-#include "Racing.h"
+//#include "PrizeGiving.h"
+//#include "Racing.h"
 
-class Sunday : public RacingDay, public Racing, public PrizeGiving {
+//class Sunday : public RacingDay, public Racing, public PrizeGiving {
+class Sunday : public RacingDay {
 
 public:
-	Sunday();
+	Sunday(RacingEvent *, list<AssembledCar *>);
+	virtual void handle(Date);
 
-	void handleNextDay(RacingDay* day);
-
-	void checkDay();
+protected:
+	int pointsArray[];
+	int pointsArraySize;
 };
 
 #endif

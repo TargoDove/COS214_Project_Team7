@@ -1,34 +1,34 @@
 #include "Saturday.h"
-#include <iostream>
 
-Saturday::Saturday() {
-    bool cont=true;
-    int numRaces=5;
-    checkDay();
-    while (cont && numRaces!=0){
-        //run simlations until either tries are depleted or no longer want to race
-	    
-	    //check if you want to contiune tests
+Saturday::Saturday(RacingEvent *ev, list<AssembledCar *> l) : RacingDay(ev)
+{
+  carList = l;
+}
 
-        cout<<"Do you want to do another practice lap? Y/N"<<endl;
-        cin>>in;
-        if (in==Y){
+void Saturday::handle(Date)
+{
+  if (date.getDayOfWeek() == 6 && !carList.empty())
+  {
+    RaceTrack * track = event->getRaceTrack();
 
-        }
-        else if (in==N){
-            cont=false;
-        }
-        else{cout<<"Incorrect input, continue practice.";
-        }
+    for (AssembledCar * car: carList){
+      car->setRaceTime(track->raceSingleLap(car));
     }
-    //call qualify race
-}
 
-void Saturday::checkDay() {
-	cout<<"Today is Saturday, practice then qualifying."<<endl;
-}
+    int size = carList->size();
 
-void Saturday::handleNextDay(RacingContext* day) {
-	//move to sunday
-	day->setRacingDay( new Sunday());
+    //bubble sort
+    for(int i = 0; i < size-1; i++){
+      for(int j = 1; j < size; j++){
+        if (carList[j - 1]->getRaceTime() > carList[j]->getRaceTime())
+        {
+          swap(carList[j - 1], carList[j]);
+        }
+      }
+    }
+
+    event->setState(new Sunday(ev, carList));
+  } else {
+    event->setState(NULL);
+  }
 }
