@@ -5,34 +5,29 @@
 #include "EventObject.h"
 #include "Date.h"
 #include "F1Team.h"
+#include <iostream>
 
-class Competition : EventObject, RacingEvent{
+//class Competition : EventObject, RacingEvent{ <- why would this inherit from RacingEvent?
+class Competition : public EventObject{
 
 private:
 	Date startDate;
 	int numTeams;
 	int numRaces;
-	F1Team* teamList;
-	RacingEvent* raceList;
+	F1Team** teamList;
+	RacingEvent** raceList;
 	int currTeamCount = 0;
   int currRaceCount = 0;
 
-
 public:
 	Competition(Date sDate, int nTeams, int nRaces);
-
+	~Competition();
 	virtual void daysEvents() = 0;
-
-	/**
-	 * adds a team to the event
-	 */
-	void addTeam(F1Team team);
-
-	void addRace(RacingEvent race);
-
+	void addTeam(F1Team* team); 					//adds a team to the event
+	void addRace(RacingEvent* race);
 	void getRaceNames();
-
 	void getTeamNames();
+	virtual void update(Date);
 };
 
 #endif

@@ -34,6 +34,12 @@ class Date
     Date &operator--();    // Prefix decrement operator.
     Date operator--(int);  // Postfix decrement operator.
     Date &operator=(const Date &); // Overloaded assignment
+    friend bool operator==(const Date &d1, const Date &d2); // Overloaded comparision operator
+    friend bool operator!=(const Date &d1, const Date &d2); // Overloaded comparision operator
+    friend bool operator>(const Date &d1, const Date &d2);  // Overloaded comparision operator
+    friend bool operator<=(const Date &d1, const Date &d2); // Overloaded comparision operator
+    friend bool operator<(const Date &d1, const Date &d2);  // Overloaded comparision operator
+    friend bool operator>=(const Date &d1, const Date &d2); // Overloaded comparision operator
 
   private:
     int day;
