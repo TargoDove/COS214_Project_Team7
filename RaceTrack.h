@@ -2,6 +2,7 @@
 #define RACETRACK_H
 
 #include "Garage.h"
+#include "Competition.h"
 
 class RaceTrack {
 
@@ -18,25 +19,22 @@ private:
 	string trackName;
 	int lapLen;
 	Garage** garageList;
+	int numberOfGarages;
 
 public:
-	RaceTrack(int numStraights, int numCorners, string climate, int numLaps, int lapLen, string trackLocation, string trackName, Garage** garageList, bool inEuro);
-
+	RaceTrack(int numStraights, int numCorners, string climate, int numLaps, int lapLen, string trackLocation, string trackName, int numGarages, bool inEuro);
 	void ~RaceTrack();
-
 	string getTrackName();
-
 	string getTrackLocation();
-
 	int getTotalLength();
-
 	string checkWeather();
+	Garage** getGarageList();
+	Garage *getGarage(int);
+	int getNumGarages();
+
+	//void setGarageList(Garage** garageList);
 	
-	Garage** getGarageList(){return garageList;};
-	
-	void setGarageList(Garage** garageList);
-	
-	void setGarageList(Garage** garageList);
+	//void setGarageList(Garage** garageList);
 };
 
 #endif
