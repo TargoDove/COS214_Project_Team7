@@ -2,11 +2,11 @@
 
 Competition::Competition(Date sDate, int nTeams, int nRaces)
 {
-  startdate = sDate;
+  startDate = sDate;
   numTeams = nTeams;
   numRaces = nRaces;
   teamList = new F1Team*[numTeams];
-  raceList = new RaceEvent*[numRaces];
+  raceList = new RacingEvent*[numRaces];
 }
 
 Competition::~Competition()
@@ -21,7 +21,7 @@ void Competition::update(Date date)
   //Loop throught races and run the ones in progress based on date
   throw "Not yet implemented";
 
-  for (int i = 0; i < currRaceCountCount; i++)
+  for (int i = 0; i < currRaceCount; i++)
   {
     if (raceList[i]->getStartDate() <= date && raceList[i]->getEndDate() >= date){
       raceList[i]->runRace(date);
@@ -31,13 +31,13 @@ void Competition::update(Date date)
 
 void Competition::addTeam(F1Team *team)
 {
-  if (currTeamCount != num)
+  if (currTeamCount != numTeams)
   {
     teamList[currTeamCount++] = team;
   }
   else
   {
-    cout << "Team Limit Reached, unable to add team"
+    cout << "Team Limit Reached, unable to add team" << endl;
   }
 }
 
@@ -45,24 +45,24 @@ void Competition::getTeamNames()
 {
   for (int i = 0; i < currTeamCount; i++)
   {
-    cout << teamList[i]->teamName << " is competing." << endl;
+    cout << teamList[i]->getTeamName() << " is competing." << endl;
   }
 }
 void Competition::addRace(RacingEvent *race)
 {
-  if (currRaceCountCount < numRaces)
+  if (currRaceCount < numRaces)
   {
     raceList[currRaceCount++] = race;
   }
   else
   {
-    cout << "Race Limit Reached, unable to add race"
+    cout << "Race Limit Reached, unable to add race" << endl;
   }
 }
 void Competition::getRaceNames()
 {
-  for (int i = 0; i < currRaceCountCount; i++)
+  for (int i = 0; i < currRaceCount; i++)
   {
-    cout << raceList[i]->raceName << endl;
+    cout << raceList[i]->getName() << endl;
   }
 }
