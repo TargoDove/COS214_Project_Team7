@@ -1,14 +1,27 @@
 #include "Warehouse.h"
 
-Warehouse::Warehouse(F1Car** _cars, RacingEvent** _raceList, Driver** _drivers) :
-    cars(_cars), raceList(_raceList), drivers(_drivers){
-        toolList = {"Pit-box","Air Gun (Impact Wrench)","Air Compressor","Jack","Piano Bars","Fuel Cans","Duct Tape","BearBond"}
+Warehouse::Warehouse(F1Car** _cars, RacingEvent** _raceList, Driver** _drivers)
+{
+    cars = _cars;
+    raceList = _raceList;
+    drivers = _drivers;
+    string tool[8] = {"Pit-box","Air Gun (Impact Wrench)","Air Compressor","Jack","Piano Bars","Fuel Cans","Duct Tape","BearBond"};
+    toolList = tool; 
     cars[0]->setLocation("Factory");
     cars[1]->setLocation("Factory");
 }
 
 Warehouse::~Warehouse(){
-    delete F1Car;
+    for(int i = 0; i<2;i++){
+        delete cars[i];
+        delete drivers[i];
+    }
+
+    delete [] cars;
+    delete [] drivers;
+
+    delete [] toolList;
+
     for(int i = 0; i<30 && raceList[i] != nullptr; i++){
         delete raceList[i];
     }
@@ -20,43 +33,39 @@ Container* Warehouse::createContainer(bool raceType,bool pickContainer, int team
     Container* c;
     if(pickContainer == 0)
         c = new Container(raceType,cars, drivers, teamId, race);
-    else c = new Container(raceType,toolList, cars->getStrategy()->getNewTires(),teamId, race);
+    else c = new Container(raceType,toolList, cars[0]->getStrategy()->getNewTireSets(),cars[1]->getStrategy()->getNewTireSets(),teamId, race);
 
     return c;
 }
     
 void Warehouse::reinstateContainer(Container* container){
     if(container->getContainerType() == "car"){
-        cars = container->getCar();
+        cars = container->getCars();
         drivers = container->getDrivers();
         cars[0]->setLocation("Factory");
         cars[1]->setLocation("Factory");
     }
     else {
-        for(int i = 0; i<container->getTools().size(); i++){
+        for(int i = 0; i<8; i++){
             toolList[i] = container->getTools()[i];
         }
     }
 }
     
-void Warehouse::setRacingEvent(RacingEvent* list){
+void Warehouse::setRacingEvent(RacingEvent** list){
     raceList = list;
 }
     
-RacingEvent* Warehouse::getRacingEvent(){
-    return list;
-}
-    
-void Warehouse::setDate(Date date){
-    currDate = date;
+RacingEvent** Warehouse::getRacingEvent(){
+    return raceList;
 }
         
-void Warehouse::setCar(F1Car* car){
-    this.car = car;
+void Warehouse::setCars(F1Car** car){
+    this->cars = car;
 }
 
-void Warehouse::setTools(string[] tools){
-    for(int i = 0; i<tools.size(); i++){
+void Warehouse::setTools(string* tools){
+    for(int i = 0; i<8; i++){
         toolList[i] = tools[i];
     }
 }

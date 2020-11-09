@@ -13,19 +13,19 @@ using namespace std;
 
 class Warehouse{
     private:
-        string toolList[];
+        string* toolList;
         F1Car** cars;
         RacingEvent** raceList;
         Driver** drivers;
     public:
-        Warehouse(F1Car*, RacingEvent**, Driver**);
+        Warehouse(F1Car**, RacingEvent**, Driver**);
         ~Warehouse();
         Container* createContainer(bool, bool, int, RacingEvent*);
         void reinstateContainer(Container* container);
-        void setRacingEvent(RacingEvent* list);
-        RacingEvent* getRacingEvent();
+        void setRacingEvent(RacingEvent** list);
+        RacingEvent** getRacingEvent();
         //void setDate(Date date);
-        void setCar(F1Car* car);
-        void setTools(string[] tools);
+        void setCars(F1Car** car);
+        void setTools(string* tools);
 };
 #endif
