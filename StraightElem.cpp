@@ -19,15 +19,15 @@ void StraightElem::handleLap(AssembledCar *car, double *time)
 	double weightVal = (car->getF1Car()->getSpecification("Weight")->getBaseValue() / 1000.0);
 	double breakVal = (car->getF1Car()->getSpecification("BreakEfficiency")->getBaseValue());
 
-	if (car->getF1Car()->getStrategy()->useBoostStraight() && car->getF1Car()->getSpecification("Boost")->isFull())
+	Boost *bst = dynamic_cast<Boost*>(car->getF1Car()->getSpecification("Boost"));
+	if (car->getF1Car()->getStrategy()->useBoostStraight() && bst!= 0 && bst->isFull())
 	{
-		F1CarSpecification * bst = car->getF1Car()->getSpecification("Boost");
 		boostVal = bst->getBaseValue();
-		bst->useBoost();
+		bst->useCharge();
 	}
 
-	double elTime = straightMultiplier * l / 100;
-	double multiplier = 1 + (engineVal*boostVal -1) + ((aerodynamics-1)*length/1000) + (weightVal*speedVal*friction -1);
+	double elTime = straightMultiplier * length / 100;
+	double multiplier = 1 + (engineVal*boostVal -1) + ((aerodynamicsVal-1)*length/1000) + (weightVal*speedVal*friction -1);
 
 	elTime /= multiplier;
 	elTime *= elementsPerLap;

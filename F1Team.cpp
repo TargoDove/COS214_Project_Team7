@@ -14,15 +14,32 @@ F1Team::F1Team(string n, int id, double b, F1Car **cCars, F1Car **nCars, Driver 
   raceList = NULL;
   points = 0;
   qualifyScore = 0;
+  //setCarStrategies();//Must add departments first
 }
 
 F1Team::~F1Team()
 {
-  // TODO - implement F1Team::~F1Team
-  throw "Not yet implemented";
+  delete departments;
+
+  int i = 0;
+  while (getCurrentCar(i) != NULL)
+  {
+    delete getCurrentCar(i);
+    delete drivers[i];
+  }
+  delete [] currentCars;
+  delete [] drivers;
+  i = 0;
+  while (getNextYearCar(i) != NULL)
+  {
+    delete getNextYearCar(i);
+  }
+  delete [] nextCars;
+  
+  delete logistics;
 }
 
-void F1Team::setRaceList(RaceingEvent **rList)
+void F1Team::setRaceList(RacingEvent **rList)
 {
   raceList = rList;
 }
@@ -30,6 +47,23 @@ void F1Team::setRaceList(RaceingEvent **rList)
 void F1Team::setLogistics(Logistics *l)
 {
   logistics = l;
+}
+
+void F1Team::setCarStrategies()
+{
+  int i = 0;
+  Strategy* strat = new Strategy(this);
+
+  while(getCurrentCar(i) != NULL)
+  {
+    getCurrentCar(i)->setStrategy(strat->chooseStategy(i));
+  }
+
+  i = 0;
+  while (getCurrentCar(i) != NULL)
+  {
+    getNextYearCar(i)->setStrategy(strat->chooseStategy(i));
+  }
 }
 
 void F1Team::update(Date date)
@@ -84,16 +118,21 @@ void F1Team::applyDepartmentImprovements(F1Car* car)
   it->first();
 
   if(it->current() != NULL){
-    string n = it->current()->getSpecificationName();
-    it->current()->performImprovement(car->getSpecification(n), car->isCurrentYearCar()));
+    string n = departments->getItem(it->current())->getSpecificationName();
+    departments->getItem(it->current())->performImprovement(car->getSpecification(n), car->isCurrentYearCar());
 
     while(it->hasNext()){
       it->next();
 
-      n = it->current()->getSpecificationName();
-      it->current()->performImprovement(car->getSpecification(n), car->isCurrentYearCar()));
+      n = departments->getItem(it->current())->getSpecificationName();
+      departments->getItem(it->current())->performImprovement(car->getSpecification(n), car->isCurrentYearCar());
     }
   }
+}
+
+double F1Team::getBudget()
+{
+  return budget;
 }
 
 void F1Team::applyStrategy(){
@@ -103,5 +142,5 @@ void F1Team::applyStrategy(){
 }
 
 string F1Team::getTeamName(){
-  return name;
+  return teamName;
 }

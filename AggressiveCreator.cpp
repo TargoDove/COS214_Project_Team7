@@ -1,15 +1,17 @@
 #include "AggressiveCreator.h"
 
-AggressiveCreator::AggressiveCreator(TeamStrategy* strat,int index):StrategyCreator(strat,index)
+AggressiveCreator::AggressiveCreator()
 {
-    //ctor
+    //Do nothing
 }
 
 AggressiveCreator::~AggressiveCreator()
 {
-    //dtor
+    //Do nothing
 }
-TeamStrategy* AggressiveCreator::createStrategy(F1Team*team)
+
+TeamStrategy *AggressiveCreator::createStrategy(F1Team *team, int index)
 {
-      return new AgressiveStrategy(team,this->getIndex());
+    cout << "Agressive Strategy has been chosen for " << team->getTeamName() << "'s car " << index << endl;
+    return new AgressiveStrategy();
 }

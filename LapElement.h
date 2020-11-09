@@ -6,7 +6,7 @@
 
 class LapElement {
 
-private:
+protected:
 	int elementsPerLap;
 	LapElement* nextElement;
 

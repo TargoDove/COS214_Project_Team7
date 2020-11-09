@@ -19,6 +19,9 @@ void Friday::handle(Date date)
         for(int g = 0; g < garage->getNumCars(); g++)
         {
           F1Car * car = garage->getAssembledCar(g)->getF1Car();
+
+          car->changeTires(garage->getAssembledCar(g)->getSpareTires()[0]); // Equiping first set of tires
+
           int specNum = 0;
           while(car->getSpecification(specNum) != NULL)
           {
@@ -29,7 +32,7 @@ void Friday::handle(Date date)
         }
       }
     }
-    event->setState(new Saturday(ev, carList));
+    event->setState(new Saturday(event, carList));
   } else {
     event->setState(NULL);
   }

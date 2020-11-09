@@ -1,16 +1,17 @@
 #include "SimpleCreator.h"
 
-SimpleCreator::SimpleCreator(TeamStrategy* strat,int index):StrategyCreator(strat,index)
+SimpleCreator::SimpleCreator()
 {
-    //ctor
+    //Do nothing
 }
 
 SimpleCreator::~SimpleCreator()
 {
-    //dtor
+    //Do nothing
 }
-TeamStrategy* SimpleCreator::createStrategy(F1Team*team)
-{
 
-    return new SimpleStrategy(team,this->getIndex());
+TeamStrategy *SimpleCreator::createStrategy(F1Team *team, int index)
+{
+    cout << "Simple Strategy has been chosen for " << team->getTeamName() << "'s car " << index << endl;
+    return new SimpleStrategy();
 }

@@ -3,7 +3,7 @@
 
 #include <string>
 #include "F1CarSpecification.h"
-#include "Strategy.h"
+#include "TeamStrategy.h"
 #include "GenericList.h"
 
 using namespace std;
@@ -18,9 +18,9 @@ class F1Car
     void addSpecification(F1CarSpecification *);
     Tires *getTires();
     Tires* changeTires(Tires*); //Returns old tires and takes new tires
-    void setStrategy(Strategy*); //Takes new Strategy and deletes old strategy
-    Strategy * getStrategy();
-	  void addToRaceScore(int lapScore);
+    void setStrategy(TeamStrategy *); //Takes new Strategy and deletes old strategy
+    TeamStrategy *getStrategy();
+    void addToRaceScore(int lapScore);
 	  int getRaceScore();
     string getLocation();
     void setLocation(string);
@@ -30,7 +30,7 @@ class F1Car
 
   private: 
 	  int raceScore; //Set back to zero once points have been added to team
-    Strategy *strategy;
+    TeamStrategy *strategy;
     string location; //Factory -> home, other options include "in transit" or race locations
     bool currentYearCar;
     GenericList<F1CarSpecification>* carSpecifications;

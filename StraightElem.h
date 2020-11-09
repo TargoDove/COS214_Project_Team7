@@ -2,6 +2,7 @@
 #define STRAIGHTELEM_H
 
 #include "LapElement.h"
+#include "Boost.h"
 
 class StraightElem: public LapElement {
 
@@ -11,7 +12,7 @@ private:
 	double friction;
 
 public:
-	StraightElem(int, LapElement *, double, double, double);
+	StraightElem(int, LapElement *, double, double);
 	virtual void handleLap(AssembledCar *, double *);
 };
 

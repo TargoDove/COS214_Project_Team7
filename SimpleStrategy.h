@@ -2,16 +2,15 @@
 #define SIMPLESTRATEGY_H
 
 #include "TeamStrategy.h"
-#include "MediumTires.h"
-
 
 class SimpleStrategy:public TeamStrategy
 {
 public:
-        SimpleStrategy(F1Team*team,int index);
-        virtual ~SimpleStrategy();
-        void print();
-        bool UseBoost();
-
+  SimpleStrategy();
+  virtual ~SimpleStrategy();
+  //virtual Tires **getNewTireSets();
+  //virtual bool performPitstop(AssembledCar *);
+  virtual bool useBoostStraight(Tires *);
+  virtual bool useBoostCorner(Tires *);
 };
 #endif // SIMPLESTRATEGY_H

@@ -1,16 +1,17 @@
 #include "DefaultCreator.h"
 
-DefaultCreator::DefaultCreator(TeamStrategy* strat,int index):StrategyCreator(strat,index)
+DefaultCreator::DefaultCreator()
 {
-    //ctor
-
+    //Do nothing
 }
 
 DefaultCreator::~DefaultCreator()
 {
-    //dtor
+    //Do nothing
 }
-TeamStrategy* DefaultCreator::createStrategy(F1Team*team)
+
+TeamStrategy *DefaultCreator::createStrategy(F1Team *team, int index)
 {
-    return new DefaultStrategy(team,this->getIndex());
+    cout << "Default Strategy has been chosen for " << team->getTeamName() << "'s car " << index << endl;
+    return new DefaultStrategy();
 }

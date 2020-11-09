@@ -24,6 +24,8 @@ void CornerElem::handleLap(AssembledCar *car, double *time)
 		bst->useBoost();
 	}
 
+	//If tire integrity is below 20% they should burst
+
 	// TODO - implement CornerElem::handleLap
 	throw "Not yet finished";
 
