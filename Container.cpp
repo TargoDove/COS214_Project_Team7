@@ -1,14 +1,15 @@
 #include "Container.h"
 #include <iostream>
 
-Container::Container(bool dest, string* tools, Tire** tireParts, int teamId, racingEvent* raceList){
+Container::Container(bool dest, string* tools, Tire** tires1, Tire** tires2, int teamId, racingEvent* raceList){
     ArrivalStatus = false;
     loaded = false; //Tests if a container is ready to be shipped. If yes, the daycount will increase. If no, it will ready the container for transport.
     dayCount = 0; //Used to simulate the passage of time.
     GarageIndex = teamId;
     destination = dest;
     toolList = tools;
-    tires = tireParts;
+    tiresCar1 = tires1;
+    tiresCar2 = tires2;
     ContainerType = "tools";
     GarageIndex = teamId;
     race = raceList;
@@ -77,8 +78,12 @@ int Container::getIndex(){
     return GarageIndex;
 }
     
-Tire** getTires(){
-    retun tires;
+Tire** getTires1(){
+    retun tiresCar1;
+}
+
+Tire** getTires2(){
+    retun tiresCar2;
 }
 
 RacingEvent* getRace(){
