@@ -1,15 +1,18 @@
 #ifndef STRAIGHTELEM_H
 #define STRAIGHTELEM_H
 
-class StraightElem {
+#include "LapElement.h"
+
+class StraightElem: public LapElement {
 
 private:
-	int straightTemp;
+	double straightMultiplier;
+	double length;
+	double friction;
 
 public:
-	void takeStraight();
-
-	void handleLap();
+	StraightElem(int, LapElement *, double, double, double);
+	virtual void handleLap(AssembledCar *, double *);
 };
 
 #endif

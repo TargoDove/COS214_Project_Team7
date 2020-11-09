@@ -3,7 +3,6 @@
 Garage::Garage()
 {
   assembledCars = NULL;
-
   numCars = 0;
 }
 
@@ -18,6 +17,8 @@ Garage::~Garage()
 void Garage::unpackContainers()
 {
   // TODO - implement Garage::unpackContainers()
+  //Containers must be unpacked and contents must be used to create an array of AssembledCars
+  //Since two cars are being shipped this will be an array of length 2
   throw "Not yet implemented";
 }
 

@@ -3,14 +3,17 @@
 
 #include "LapElement.h"
 
-class CornerElem : LapElement {
+class CornerElem : public LapElement
+{
+
+private:
+	double cornerMultiplier;
+	double sharpness;
+	double friction;
 
 public:
-	int cornerTemp;
-
-	void takeCorner();
-
-	void handleLap();
+	CornerElem(int, LapElement *, double, double, double);
+	virtual void handleLap(AssembledCar *, double *);
 };
 
 #endif

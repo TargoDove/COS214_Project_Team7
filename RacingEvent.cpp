@@ -17,7 +17,7 @@ RacingEvent::RacingEvent(string name, Date sDate, RaceTrack *trk)
 RacingEvent::~RacingEvent()
 {
   // TODO - implement RacingEvent::~RacingEvent()
-  throw "Not yet implemented";
+  throw "Not yet finished";
 
   if(dayState != NULL)
   {
@@ -32,10 +32,10 @@ RacingEvent::~RacingEvent()
   }
 }
 
-void RacingEvent::RunRace(Date currentDate)
+void RacingEvent::runRace(Date currentDate)
 {
   // TODO - implement RacingEvent::RunRace(Date currentDate)
-  throw "Not yet implemented";
+  throw "Not yet finished";
   if (dayState != NULL)
   {
     dayState->handle(currentDate);

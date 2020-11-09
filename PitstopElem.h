@@ -3,7 +3,7 @@
 
 #include "LapElement.h"
 
-class PitstopElem : LapElement
+class PitstopElem : public LapElement
 {
 
 private:

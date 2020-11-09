@@ -20,7 +20,7 @@ private:
 public:
     RacingEvent(string name, Date sDate, RaceTrack* trk);
     ~RacingEvent();
-		void RunRace(Date);
+		void runRace(Date);
 		RaceTrack* getRaceTrack();
 		Date getStartDate();
 		Date getEndDate();

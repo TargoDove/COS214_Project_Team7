@@ -24,7 +24,7 @@ void Competition::update(Date date)
   for (int i = 0; i < currRaceCountCount; i++)
   {
     if (raceList[i]->getStartDate() <= date && raceList[i]->getEndDate() >= date){
-      raceList[i]->RunRace(date);
+      raceList[i]->runRace(date);
     }
   }
 }

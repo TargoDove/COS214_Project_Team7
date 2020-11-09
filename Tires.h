@@ -12,6 +12,7 @@ class Tires
     virtual double getSpeed();
     virtual double getDurability();
     virtual void decreaseIntegrity(double) = 0;
+    virtual double getActualSpeed(); //Speed is reduced slightly when integrity is reduced
     virtual Tires* clone() = 0;
 
   protected:

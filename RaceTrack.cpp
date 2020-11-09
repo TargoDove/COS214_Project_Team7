@@ -35,6 +35,7 @@ RaceTrack::~RaceTrack()
 void RaceTrack::buildLap()
 {
   // TODO - implement RaceTrack::buildLap()
+  //Need to create and link all the raceElements here
   throw "Not yet implemented";
 }
 

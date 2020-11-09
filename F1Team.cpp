@@ -40,6 +40,8 @@ void F1Team::update(Date date)
   //Do we need to get or add another strategy?
   //Does the strategy change at all?
 
+  logistics->run(date, teamID);
+
   if(currentCars[0]->getLocation().compare("Factory") == 0)
   {
     applyDepartmentImprovements(currentCars[0]);
