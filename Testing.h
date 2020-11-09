@@ -2,19 +2,22 @@
 #define TESTING_H
 
 #include "TestingMethod.h"
-#include "WindTunnel.h"
+#include "F1CarSpecification.h"
 
-class Testing : public WindTunnel
+class Testing
 {
-
 protected:
-    double confidenceRange;
+    //double confidenceRange;
+    TestingMethod* testingMethod;
+    Testing *next;
 
 public:
-    Testing();
+    Testing(Testing *);
     virtual ~Testing();
-    virtual double getTestedvalue();
-    void TypeOfTest(double); //confidenceRange will be passed through here
+    virtual double *testComponent(double, F1CarSpecification *) = 0;
+    void setNext(Testing*);
+    // virtual double getTestedvalue();
+    // void TypeOfTest(double); //confidenceRange will be passed through here
 };
 
 #endif

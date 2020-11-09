@@ -1,40 +1,30 @@
 #include "WindTunnel.h"
-#include <cstdlib>
 
 WindTunnel::WindTunnel()
 {
-    Tokens=0;
+  tokens = 400;
 }
 
 WindTunnel::WindTunnel(int t)
 {
-    Tokens=t;
-    decrement();
+  tokens = t;
 }
 
 WindTunnel::~WindTunnel()
 {
-
 }
 void WindTunnel::decrement()
 {
-    int tokens=getTokens();
-    tokens--;
-    Tokens=tokens;
+  tokens--;
 }
 
 int WindTunnel::getTokens()
 {
-    return getTokens();
+  return tokens;
 }
 
-double WindTunnel::displayPerformance()
+double WindTunnel::testComponent(double range)
 {
-    return performance;
-}
-
-void WindTunnel::testPerformance(double p)
-{
-    performance = (rand() % 1);
-
+  decrement();
+  return range * (((double)rand() * 1.0) / RAND_MAX);
 }

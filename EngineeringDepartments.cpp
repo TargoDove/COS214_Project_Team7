@@ -33,16 +33,16 @@ void EngineeringDepartments::performImprovement(F1CarSpecification *spec, bool i
   randNum /= RAND_MAX;
 
   if(randNum <= probabilityOfImprovement){
-    spec->addImprovement(getImprovement(isG1));
+    spec->addImprovement(getImprovement(isG1, spec));
   }
 }
 
-double *EngineeringDepartments::getImprovement(bool isG1)
+double *EngineeringDepartments::getImprovement(bool isG1, F1CarSpecification *spec)
 {
   if (isG1)
-    return testing->testComponent(baseImprovementRange * numG1Specialists);
+    return testing->testComponent(baseImprovementRange * numG1Specialists, spec);
   else
-    return testing->testComponent(baseImprovementRange * numG2Specialists);
+    return testing->testComponent(baseImprovementRange * numG2Specialists, spec);
 }
 
 int EngineeringDepartments::getG1Specialists()

@@ -2,18 +2,22 @@
 #define TESTINGMETHOD_H
 
 #include "WindTunnel.h"
+#include "Simulator.h"
 
 class TestingMethod {
 protected:
-    double performance;
-    Simulator *sim;
-    WindTunnel *windT;
+    Simulator *simulator;
+    WindTunnel *windTunnel;
 
 public:
-    TestingMethod();
+    TestingMethod(Simulator *);
+    TestingMethod(Simulator *, WindTunnel*);
     virtual ~TestingMethod();
-    virtual void *testPerformance(double)=0;
-    virtual double displayPerformance();
+    double computerSimulation(double);
+    double windTunnelTest(double);
+    int getWindTunnelTokens();
+    // virtual void *testPerformance(double)=0;
+    // virtual double displayPerformance();
 
 };
 

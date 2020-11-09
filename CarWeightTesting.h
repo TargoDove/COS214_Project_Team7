@@ -2,15 +2,15 @@
 #define CARWEIGHTTESTING_H
 
 #include "Testing.h"
-#include "WindTunnel.h"
+#include "CarWeightSim.h"
+#include "Weight.h"
 
 class CarWeightTesting:public Testing {
 
 public:
-    CarWeightTesting();
+    CarWeightTesting(Testing *);
     virtual ~CarWeightTesting();
-    virtual double getTestedvalue();
-    virtual void TypeOfTest(double); //confidenceRange will be passed through here
+    virtual double *testComponent(double, F1CarSpecification *);
 };
 
 #endif

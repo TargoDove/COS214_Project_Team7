@@ -16,7 +16,7 @@ class EngineeringDepartments
     string getName();
     string getSpecificationName();
     void performImprovement(F1CarSpecification *, bool);
-    double *getImprovement(bool);
+    double *getImprovement(bool, F1CarSpecification *);
     int getG1Specialists();
     int getG2Specialists();
     void setSpecialists(int, int);
