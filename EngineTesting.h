@@ -7,7 +7,7 @@
 
 class EngineTesting:public Testing {
 public:
-    EngineTesting(Testing *);
+    EngineTesting(Testing *, WindTunnel *);
     virtual ~EngineTesting();
     virtual double *testComponent(double, F1CarSpecification *);
 };

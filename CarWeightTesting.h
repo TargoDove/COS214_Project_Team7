@@ -8,7 +8,7 @@
 class CarWeightTesting:public Testing {
 
 public:
-    CarWeightTesting(Testing *);
+    CarWeightTesting(Testing *, WindTunnel *);
     virtual ~CarWeightTesting();
     virtual double *testComponent(double, F1CarSpecification *);
 };

@@ -1,8 +1,8 @@
 #include "EngineTesting.h"
 
-EngineTesting::EngineTesting(Testing *n) : Testing(n)
+EngineTesting::EngineTesting(Testing *n, WindTunnel *t) : Testing(n)
 {
-  testingMethod = new TestingMethod(new EngineSim(), new WindTunnel(400));
+  testingMethod = new TestingMethod(new EngineSim(), t);
 }
 
 EngineTesting::~EngineTesting()

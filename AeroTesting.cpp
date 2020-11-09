@@ -1,8 +1,8 @@
 #include "AeroTesting.h"
 
-AeroTesting::AeroTesting(Testing *n) : Testing(n)
+AeroTesting::AeroTesting(Testing *n, WindTunnel *t) : Testing(n)
 {
-  testingMethod = new TestingMethod(new AeroSim(), new WindTunnel(400));
+  testingMethod = new TestingMethod(new AeroSim(), t);
 }
 
 AeroTesting::~AeroTesting()

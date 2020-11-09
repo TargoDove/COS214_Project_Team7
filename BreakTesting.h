@@ -8,7 +8,7 @@
 class BreakTesting: public Testing {
 
 public:
-    BreakTesting(Testing *);
+    BreakTesting(Testing *, WindTunnel *);
     virtual ~BreakTesting();
     virtual double *testComponent(double, F1CarSpecification *);
 };

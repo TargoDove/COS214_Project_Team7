@@ -1,8 +1,8 @@
 #include "CarWeightTesting.h"
 
-CarWeightTesting::CarWeightTesting(Testing *n) : Testing(n)
+CarWeightTesting::CarWeightTesting(Testing *n, WindTunnel *t) : Testing(n)
 {
-  testingMethod = new TestingMethod(new CarWeightSim(), new WindTunnel(400));
+  testingMethod = new TestingMethod(new CarWeightSim(), t);
 }
 
 CarWeightTesting::~CarWeightTesting()

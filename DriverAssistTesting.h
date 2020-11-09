@@ -7,7 +7,7 @@
 
 class DriverAssistTesting: public Testing {
 public:
-    DriverAssistTesting(Testing *);
+    DriverAssistTesting(Testing *, WindTunnel *);
     virtual ~DriverAssistTesting();
     virtual double *testComponent(double, F1CarSpecification *);
 };

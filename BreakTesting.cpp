@@ -1,8 +1,8 @@
 #include "BreakTesting.h"
 
-BreakTesting::BreakTesting(Testing *n) : Testing(n)
+BreakTesting::BreakTesting(Testing *n, WindTunnel *t) : Testing(n)
 {
-  testingMethod = new TestingMethod(new BreakSim(), new WindTunnel(400));
+  testingMethod = new TestingMethod(new BreakSim(), t);
 }
 
 BreakTesting::~BreakTesting()

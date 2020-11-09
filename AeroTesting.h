@@ -8,7 +8,7 @@
 class AeroTesting: public Testing {
 
 public:
-    AeroTesting(Testing *);
+    AeroTesting(Testing *, WindTunnel *);
     virtual ~AeroTesting();
     virtual double *testComponent(double, F1CarSpecification *);
 };

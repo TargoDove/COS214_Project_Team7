@@ -1,8 +1,8 @@
 #include "DriverAssistTesting.h"
 
-DriverAssistTesting::DriverAssistTesting(Testing *n) : Testing(n)
+DriverAssistTesting::DriverAssistTesting(Testing *n, WindTunnel *t) : Testing(n)
 {
-  testingMethod = new TestingMethod(new DriverAssistSim(), new WindTunnel(400));
+  testingMethod = new TestingMethod(new DriverAssistSim(), t);
 }
 
 DriverAssistTesting::~DriverAssistTesting()
