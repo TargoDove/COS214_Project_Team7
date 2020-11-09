@@ -1,12 +1,12 @@
 #ifndef WINDTUNNEL_H
 #define WINDTUNNEL_H
 
-#include "TestingMethod.h"
+#include <cstdlib>
 
-class WindTunnel : TestingMethod
+class WindTunnel
 {
 private:
-  int Tokens;
+  int tokens;
 
 public:
   WindTunnel();
@@ -14,8 +14,7 @@ public:
   virtual ~WindTunnel();
   int getTokens();
   void decrement();
-  double displayPerformance();
-  virtual void testPerformance(double);
+  double testComponent(double);
 };
 
 #endif

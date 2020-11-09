@@ -1,16 +1,34 @@
 #include "Testing.h"
-#include <cstdlib>
 
-Testing::Testing()
+Testing::Testing(Testing *n)
 {
-    confidenceRange=0;
+    next = n;
+    //confidenceRange=0;
+    //testingMethod = new TestingMethod();
 }
+
 Testing::~Testing()
 {
-
+    if(next != NULL)
+    {
+        delete next;
+    }
+    delete testingMethod;
 }
-double Testing::getTestedvalue()
+
+void Testing::setNext(Testing *n)
 {
-    return confidenceRange;
+    if(next == NULL)
+    {
+        next = n;
+    } else 
+    {
+        n->setNext(next);
+        next = n;
+    }
 }
 
+    // double Testing::getTestedvalue()
+    // {
+    //     return confidenceRange;
+    // }

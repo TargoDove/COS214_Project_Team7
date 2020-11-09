@@ -2,16 +2,15 @@
 #define AEROTESTING_H
 
 #include "Testing.h"
-#include "WindTunnel.h"
+#include "AeroSim.h"
+#include "Aerodynamics.h"
 
 class AeroTesting: public Testing {
 
 public:
-    AeroTesting();
+    AeroTesting(Testing *, WindTunnel *);
     virtual ~AeroTesting();
-    virtual double getTestedvalue();
-    virtual void TypeOfTest(double); //confidenceRange will be passed through here
-
+    virtual double *testComponent(double, F1CarSpecification *);
 };
 
 #endif

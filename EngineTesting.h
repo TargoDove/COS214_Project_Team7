@@ -2,15 +2,14 @@
 #define ENGINETESTING_H
 
 #include "Testing.h"
-#include "WindTunnel.h"
+#include "EngineSim.h"
+#include "EnginePower.h"
 
 class EngineTesting:public Testing {
 public:
-    EngineTesting();
+    EngineTesting(Testing *, WindTunnel *);
     virtual ~EngineTesting();
-    virtual double getTestedvalue();
-    virtual void TypeOfTest(double); //confidenceRange will be passed through here
-
+    virtual double *testComponent(double, F1CarSpecification *);
 };
 
 #endif

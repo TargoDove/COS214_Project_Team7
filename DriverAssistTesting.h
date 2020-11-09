@@ -2,14 +2,14 @@
 #define DRIVERASSISTTESTING_H
 
 #include "Testing.h"
-#include "WindTunnel.h"
+#include "DriverAssistSim.h"
+#include "DriverAssistance.h"
 
 class DriverAssistTesting: public Testing {
 public:
-    DriverAssistTesting();
+    DriverAssistTesting(Testing *, WindTunnel *);
     virtual ~DriverAssistTesting();
-    virtual double getTestedvalue();
-    virtual void TypeOfTest(double); //confidenceRange will be passed through here
+    virtual double *testComponent(double, F1CarSpecification *);
 };
 
 #endif
