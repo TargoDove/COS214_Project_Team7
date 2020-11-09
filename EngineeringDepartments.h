@@ -20,6 +20,7 @@ class EngineeringDepartments
     int getG1Specialists();
     int getG2Specialists();
     void setSpecialists(int, int);
+    double getSpecialistCost();
 
   private:
     string name;

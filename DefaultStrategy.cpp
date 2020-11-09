@@ -9,10 +9,18 @@
 
 // }
 
-DefaultStrategy::DefaultStrategy()
+DefaultStrategy::DefaultStrategy():TeamStrategy()
 {
   tireSetSize = 5;
   integrityCutoff = 0.5;
+
+  //{"Weight", "EnginePower", "Aerodynamics", "BreakEfficiency", "Boost", "DriverAssistance"};
+  priorities[0] = 1;
+  priorities[1] = 1;
+  priorities[2] = 1;
+  priorities[3] = 1;
+  priorities[4] = 1;
+  priorities[5] = 1;
 
   templateSet = new Tires *[tireSetSize];
   templateSet[0] = new MediumTires();

@@ -69,7 +69,7 @@ void F1Team::setCarStrategies()
 void F1Team::update(Date date)
 {
   // TODO - implement F1Team::update(Date date)
-  throw "Not yet finnished";
+  //throw "Not yet finnished";
 
   //Do we need to get or add another strategy?
   //Does the strategy change at all?
@@ -136,9 +136,32 @@ double F1Team::getBudget()
 }
 
 void F1Team::applyStrategy(){
-  // TODO - implement F1Team::applyStrategy()
   //Need to set G1 and G2 specialists for each department based on strategy and budget
-  throw "Not yet implemented";
+
+  int numDepartments = departments->size();
+  int * priorities = new int[numDepartments];
+  int *costPriorities = new int[numDepartments];
+  double total = 0;
+  for(int i = 0; i < numDepartments; i++)
+  {
+    priorities[i] = currentCars[0]->getStrategy()->getPriority(departments->getItem(i)->getSpecificationName());
+    costPriorities[i] = priorities[i]*departments->getItem(i)->getSpecialistCost();
+    total += costPriorities[i];
+  }
+
+  if(total < 0.0001){
+    cout << "ERROR!!!: F1Team::applyStrategy" << endl;
+    return;
+  }
+
+  for(int i = 0; i < numDepartments; i++)
+  {
+    int num = (int)floor((budget * (costPriorities[i] / total)) / departments->getItem(i)->getSpecialistCost());
+    departments->getItem(i)->setSpecialists(num, num);
+  }
+
+  delete [] priorities;
+  delete [] costPriorities;
 }
 
 string F1Team::getTeamName(){

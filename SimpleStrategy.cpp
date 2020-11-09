@@ -8,10 +8,18 @@
 //     this->getTeam()->getCurrentCar(this->getIndex())->changeTires(tires);
 // }
 
-SimpleStrategy::SimpleStrategy()
+SimpleStrategy::SimpleStrategy():TeamStrategy()
 {
   tireSetSize = 5;
   integrityCutoff = 0.6;
+
+  //{"Weight", "EnginePower", "Aerodynamics", "BreakEfficiency", "Boost", "DriverAssistance"};
+  priorities[0] = 3;
+  priorities[1] = 2;
+  priorities[2] = 1;
+  priorities[3] = 3;
+  priorities[4] = 4;
+  priorities[5] = 1;
 
   templateSet = new Tires *[tireSetSize];
   templateSet[0] = new SoftTires();

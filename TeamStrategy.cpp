@@ -6,6 +6,7 @@ TeamStrategy::TeamStrategy()
   integrityCutoff = 0.0;
 
   templateSet = NULL;
+  priorities = new int[6];
 }
 
 TeamStrategy::~TeamStrategy()
@@ -72,4 +73,18 @@ bool TeamStrategy::performPitstop(AssembledCar *aCar)
   }
 
   return true;
+}
+
+int TeamStrategy::getPriority(string specName)
+{
+  string specNames[6] = {"Weight", "EnginePower", "Aerodynamics", "BreakEfficiency", "Boost", "DriverAssistance"};
+  if(priorities == NULL) return -1;
+
+  for(int i = 0; i < 6; i++){
+    if(specName.compare(specNames[i]) == 0)
+    {
+      return priorities[i];
+    }
+  }
+  return 0;
 }

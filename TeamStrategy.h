@@ -15,6 +15,7 @@ public:
   virtual bool performPitstop(AssembledCar *);
   virtual bool useBoostStraight(Tires *) = 0;
   virtual bool useBoostCorner(Tires *) = 0;
+  virtual int getPriority(string);
   //virtual void print() = 0;
   //virtual bool UseBoost() = 0;
 
@@ -27,6 +28,7 @@ protected:
   double integrityCutoff;
   Tires** templateSet;
   int tireSetSize;
+  int * priorities;
 //   //bool boost;
 //   //F1Team *team;
 //   //int index;
