@@ -2,7 +2,6 @@
 #define STRAIGHTELEM_H
 
 #include "LapElement.h"
-#include "Boost.h"
 
 class StraightElem: public LapElement {
 

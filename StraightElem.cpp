@@ -4,7 +4,7 @@ StraightElem::StraightElem(int num, LapElement *next, double l, double f) : LapE
 {
 	straightMultiplier = 10.0; 
 	length = l;	//Should ideally be 100 to 200
-	friction = f;
+	friction = f; //Should be between 1.0 and 4.0
 }
 
 void StraightElem::handleLap(AssembledCar *car, double *time)
@@ -20,16 +20,20 @@ void StraightElem::handleLap(AssembledCar *car, double *time)
 	double breakVal = (car->getF1Car()->getSpecification("BreakEfficiency")->getBaseValue());
 
 	Boost *bst = dynamic_cast<Boost*>(car->getF1Car()->getSpecification("Boost"));
-	if (car->getF1Car()->getStrategy()->useBoostStraight() && bst!= 0 && bst->isFull())
+	if (car->getF1Car()->getStrategy()->useBoostStraight(car->getF1Car()->getTires()) && bst != 0 && bst->isFull())
 	{
 		boostVal = bst->getBaseValue();
 		bst->useCharge();
 	}
 
-	double elTime = straightMultiplier * length / 100;
-	double multiplier = 1 + (engineVal*boostVal -1) + ((aerodynamicsVal-1)*length/1000) + (weightVal*speedVal*friction -1);
+	if(bst != 0){
+		bst->addCharge(0.1*breakVal);
+	}
 
-	elTime /= multiplier;
+	double elTime = straightMultiplier * length / 100;
+	double divider = 1 + (engineVal*boostVal -1) + ((aerodynamicsVal-1)*length/1000) + (weightVal*speedVal*friction -1);
+
+	elTime /= divider;
 	elTime *= elementsPerLap;
 
 	*time += elTime;

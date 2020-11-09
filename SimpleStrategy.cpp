@@ -11,13 +11,13 @@
 SimpleStrategy::SimpleStrategy()
 {
   tireSetSize = 5;
-  integrityCutoff = 0.3;
+  integrityCutoff = 0.6;
 
   templateSet = new Tires *[tireSetSize];
   templateSet[0] = new SoftTires();
-  templateSet[1] = new SoftTires();
-  templateSet[2] = new SoftTires();
-  templateSet[3] = new SoftTires();
+  templateSet[1] = new HardTires();
+  templateSet[2] = new HardTires();
+  templateSet[3] = new HardTires();
   templateSet[4] = new HardTires();
 }
 
