@@ -20,7 +20,7 @@ class Container
         Tire** tiresCar1;
         Tire** tiresCar2;
         int dayCount;
-        int GarageIndex;
+        int GarageIndex;    //Determines which garage the container should be stored in.
         RacingEvent* race;
         string ContainerType;
 	public:
@@ -38,8 +38,8 @@ class Container
         string getContainerType();
         string* getTools();
         F1Car** getCars();
-        Tire** getTires1();
-        Tire** getTires2();
+        Tire** getTires1(); //Tires for car 1
+        Tire** getTires2(); //Tires for car 2
         Driver** getDrivers();
         RacingEvent* getRace();
 

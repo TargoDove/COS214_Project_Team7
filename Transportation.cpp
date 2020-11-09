@@ -2,24 +2,24 @@
 #include <iostream>
 
 Transportation::Transport(Container* c){
-    if(c->loaded){
+    if(c->loaded){ //This tests if there is a container to be transported.
         if(c->getContainerType() == "car"){
                     c->cars[0]->setLocation("In Transit");
         }
         c->increaseCount();
         Garage** LeGarage = c->race.getRaceTrack().getGarageList();
         Garage* TeamGarage = LeGarage[c->getIndex()];
-        if(c->getContainerType() == "car"){
-            duration = 0;
+        if(c->getContainerType() == "car"){ //This if-else statement determines how many days the container will be in transit. Would have been 1, 6 and 30, but I subtracted 1 day from each to ensure the container arrives one day before the race.
+            duration = 0;                   // Flights are fast so will probably reach it's destination in 1 day.
         }else{
             if(c->getDestination()){ //getDestination() will return a boolean value. True if the destination is in Europe and false if non-European.
-                duration = 89;
+                duration = 89;  //Containers for Non-European races in transit for 3 months.
             }else{
-                duration = 5;
+                duration = 5;   //Transportation between weekly European races.
             }
         }
 
-        if(container->getDayCount >=duration){
+        if(container->getDayCount >=duration){ //This checks if the container has arrived at it's destination yet.
                 container->setStatus = true;
                 TeamGarage->addContainer(c);
         }
