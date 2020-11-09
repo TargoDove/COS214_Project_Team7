@@ -19,6 +19,9 @@ Warehouse::~Warehouse(){
 
     delete [] cars;
     delete [] drivers;
+
+    delete [] toolList;
+
     for(int i = 0; i<30 && raceList[i] != nullptr; i++){
         delete raceList[i];
     }
