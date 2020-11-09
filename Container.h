@@ -17,13 +17,14 @@ class Container
         string* toolList;
         F1Car** cars;
         Driver** drivers
-        Tire** tires;
+        Tire** tiresCar1;
+        Tire** tiresCar2;
         int dayCount;
-        int GarageIndex;
-        racingEvent* race;
+        int GarageIndex;    //Determines which garage the container should be stored in.
+        RacingEvent* race;
         string ContainerType;
 	public:
-		Container(bool dest, string* tools, Tire** tireParts, int teamId, racingEvent* raceList);  //Two different constructors. This is to decide whether the car or the tools will be transported in this container.
+		Container(bool dest, string* tools, Tire** tires1, Tire** tires2, int teamId, racingEvent* raceList);  //Two different constructors. This is to decide whether the car or the tools will be transported in this container.
         Container(bool dest, F1Car** LeCars, Driver** LeDrivers ,int teamId, racingEvent* raceList);
         bool getStatus();
         void setStatus(bool status);
@@ -37,7 +38,10 @@ class Container
         string getContainerType();
         string* getTools();
         F1Car** getCars();
-        Tire** getTires();
+        Tire** getTires1(); //Tires for car 1
+        Tire** getTires2(); //Tires for car 2
+        Driver** getDrivers();
+        RacingEvent* getRace();
 
 };
 
