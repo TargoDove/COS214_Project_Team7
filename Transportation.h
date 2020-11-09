@@ -15,6 +15,7 @@ public:
   Transport(Container *c);
   void loadContainer(Container *c);
   Container *unloadContainer();
+  F1Car** returnCars();
   virtual void sendContainer(Container *c);
 }
 
