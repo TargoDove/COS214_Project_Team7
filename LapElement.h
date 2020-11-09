@@ -1,20 +1,20 @@
 #ifndef LAPELEMENT_H
 #define LAPELEMENT_H
 
-class LapElement : TrackShape {
+#include "AssembledCar.h"
+//#include "RaceTrack.h"
+
+class LapElement {
 
 private:
 	int elementsPerLap;
 	LapElement* nextElement;
 
 public:
-	int getScore(F1Car* raceCar, RaceTrack* track);
-
-	void simulateLapTime();
-
-	void simulateLapOrder();
-
-	void handleLap();
+	LapElement(int, LapElement *);
+	virtual ~LapElement();
+	virtual void handleLap(AssembledCar *, double *) = 0; //handleLap(AssembledCar* car, double *time)
+	virtual void setNextElement(LapElement*);
 };
 
 #endif

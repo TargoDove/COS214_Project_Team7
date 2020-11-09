@@ -1,17 +1,20 @@
 #ifndef RACINGDAY_H
 #define RACINGDAY_H
 
-class RacingDay {
+#include "RacingEvent.h"
 
+class RacingDay
+{
 
 public:
-	//state for the days
-	//completely virtual
-	virtual void handleNextDay(RacingDay* day);
+	virtual RacingDay(RacingEvent*);
+	virtual ~RacingDay();
+	virtual void handle(Date) = 0;
+	virtual bool checkGarage(Garage *);
 
-	virtual void checkDay();
-
-	void ~RacingDay();
+protected:
+	RacingEvent *event;
+	list<AssembledCar *> carList;
 };
 
 #endif

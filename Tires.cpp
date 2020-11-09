@@ -33,3 +33,8 @@ double Tires::getDurability()
 {
   return durability;
 }
+
+double Tires::getActualSpeed()
+{
+  return speed*(1.0-0.4*(1.0-integrity));
+}

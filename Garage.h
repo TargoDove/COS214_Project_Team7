@@ -1,13 +1,24 @@
 #ifndef GARAGE_H
 #define GARAGE_H
 
-#include "Tires.h"
+#include "Container.h"
+#include "AssembledCar.h"
 
 class Garage {
 
+  private:
+    list<Container *> containers;
+    AssembledCar* assembledCars;
+    int numCars; //will always be maximum of 2
+
   public:
-    Tires ***carTires; //carTires[0] is the array of tires for car1, carTires[0][0] is a Tires ptr to the first set of tires for car1
-    Container* container;
+    Garage();
+    ~Garage();
+    void unpackContainers();
+    void addContainer(Container*);
+    bool haveTools();
+    int getNumCars();
+    AssembledCar *getAssembledCar(int);
 };
 
 #endif

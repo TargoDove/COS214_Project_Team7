@@ -10,6 +10,7 @@ class Date
 	public:
     Date();
     Date(int d, int m, int y);
+    Date(const Date &copy); //Copy constructor
     ~Date();
     void setDate(int d, int m, int y);
     string dateToString(Date d);
@@ -32,6 +33,14 @@ class Date
     // Declare prefix and postfix decrement operators.
     Date &operator--();    // Prefix decrement operator.
     Date operator--(int);  // Postfix decrement operator.
+    Date &operator=(const Date &); // Overloaded assignment
+    friend bool operator==(const Date &d1, const Date &d2); // Overloaded comparision operator
+    friend bool operator!=(const Date &d1, const Date &d2); // Overloaded comparision operator
+    friend bool operator>(const Date &d1, const Date &d2);  // Overloaded comparision operator
+    friend bool operator<=(const Date &d1, const Date &d2); // Overloaded comparision operator
+    friend bool operator<(const Date &d1, const Date &d2);  // Overloaded comparision operator
+    friend bool operator>=(const Date &d1, const Date &d2); // Overloaded comparision operator
+
   private:
     int day;
     int month;

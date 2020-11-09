@@ -3,9 +3,10 @@
 F1Car::F1Car()
 {
   strategy = NULL;
-  location = "Home";
+  location = "Factory"; //Factory -> home, other options include "in transit" or race locations
   fittedTires = NULL;
   carSpecifications = new GenericList<F1CarSpecification>();
+  currentYearCar = true;
 }
 
 F1Car::~F1Car()
@@ -61,4 +62,28 @@ void F1Car::addToRaceScore(int lapScore){
 }
 int F1Car::getRaceScore(){
   return raceScore;
+}
+
+string F1Car::getLocation()
+{
+  return location;
+}
+
+void F1Car::setLocation(string l)
+{
+  location = l;
+}
+
+bool F1Car::isCurrentYearCar()
+{
+  return currentYearCar;
+}
+void F1Car::setCurrentYear(bool val)
+{
+  currentYearCar = val;
+}
+
+void F1Car::addRacePoints(int p)
+{
+  raceScore += p;
 }

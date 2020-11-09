@@ -5,11 +5,17 @@
 
 using namespace std;
 
-class Boost: public F1CarSpecification
+class Boost : public F1CarSpecification
 {
-	public:
-    Boost();
-    Boost(double);
+private:
+  double charge; //Between 0 and 1
+
+public:
+  Boost();
+  Boost(double);
+  bool isFull();
+  void addCharge(double);
+  void useCharge();
 };
 
 #endif

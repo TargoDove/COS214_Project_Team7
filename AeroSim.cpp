@@ -10,6 +10,7 @@ AeroSim::~AeroSim()
 
 double AeroSim::simulateComponent(double e)
 {
+	srand(time(0));
 	double maxSpeed = 100 + (rand() % (376 - 100 + 1));
 	double bad = 0.2*(pow(maxSpeed,2))/2;
 	double average = 0.4*(pow(maxSpeed,2))/2;
@@ -17,11 +18,12 @@ double AeroSim::simulateComponent(double e)
 	double excellent = 0.8*(pow(maxSpeed,2))/2;
 
 	double simulatedValue = e*(pow(maxSpeed,2))/2;
-
+	double improvement = (simulatedValue/excellent)*e;
 	cout << "_______________________________"<<endl;
 	cout << "Aerodynamics Simulation Complete"<<endl;
 	cout << "_______________________________"<<endl;
 	cout << "Scored " << simulatedValue << endl;
+	cout << "Improvement " << (improvement)*100 << "%" << endl;
 	if(simulatedValue <= bad)
 	{
 		cout << "Outcome: [BAD]\ncar will likely experience lift at " << maxSpeed <<"KM/h"<< endl;
@@ -45,5 +47,5 @@ double AeroSim::simulateComponent(double e)
 	cout << "good:\t\t" << good << endl;
 	cout << "excellent:\t" << excellent << endl;
 	cout << "==============================="<<endl;
-	return simulatedValue;
+	return improvement*e;
 }

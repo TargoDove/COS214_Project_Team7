@@ -4,10 +4,10 @@ Driver::Driver()
 {
   skill = 100;
   currentPoints = 0;
-  name = "Dummy"
+  name = "Dummy";
 }
 
-Driver::Driver(double s, double c, string n)
+Driver::Driver(double s, int c, string n)
 {
   skill = s;
   currentPoints = c;
@@ -19,12 +19,12 @@ Driver::~Driver()
   //Do nothing
 }
 
-void Driver::addPoints(double c)
+void Driver::addPoints(int c)
 {
   currentPoints = c;
 }
 
-double Driver::getPoints()
+int Driver::getPoints()
 {
   return currentPoints;
 }

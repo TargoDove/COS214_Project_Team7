@@ -19,6 +19,13 @@ Date::Date(int d, int m, int y){
   }
 }
 
+Date::Date(const Date &copy)
+{
+  day = copy.day;
+  month = copy.month;
+  year = copy.year;
+}
+
 Date::~Date(){
   //Do nothing
 }
@@ -284,6 +291,16 @@ Date Date::operator--(int)
   return temp;
 }
 
+// Overloaded assignment
+Date &Date::operator=(const Date &date)
+{
+  day = date.day;
+  month = date.month;
+  year = date.year;
+
+  return *this;
+}
+
 bool Date::isLeapYear(int y)
 {
   if(y%400 == 0) return true;
@@ -291,4 +308,48 @@ bool Date::isLeapYear(int y)
   else {
     return (y%4 == 0);
   }
+}
+
+bool operator==(const Date &d1, const Date &d2)
+{
+  return ((d1.day == d2.day) && (d1.month == d2.month) && (d1.year == d2.year));
+}
+
+bool operator!=(const Date &d1, const Date &d2)
+{
+  return !(d1 == d2);
+}
+
+bool operator>(const Date &d1, const Date &d2)
+{
+  if(d1.year > d2.year) 
+    return true;
+  else if (d1.year == d2.year && d1.month > d2.month)
+    return true;
+  else if (d1.year == d2.year && d1.month == d2.month && d1.day > d2.day)
+    return true;
+  else 
+    return false;
+}
+
+bool operator>=(const Date &d1, const Date &d2)
+{
+  return d1 > d2 || d1 == d2;
+}
+
+bool operator<(const Date &d1, const Date &d2)
+{
+  if (d1.year < d2.year)
+    return true;
+  else if (d1.year == d2.year && d1.month < d2.month)
+    return true;
+  else if (d1.year == d2.year && d1.month == d2.month && d1.day < d2.day)
+    return true;
+  else
+    return false;
+}
+
+bool operator<=(const Date &d1, const Date &d2)
+{
+  return d1 < d2 || d1 == d2;
 }

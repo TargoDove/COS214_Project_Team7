@@ -10,15 +10,16 @@ double EngineSim::simulateComponent(double e)
 {
 	double bad = 0.2*(pow(e,2));
 	double average = 0.4*(pow(e,2));
-	double good = 0.6*(pow(e,2))/2;
+	double good = 0.6*(pow(e,2));
 	double excellent = 0.8*(pow(e,2));
 
 	double simulatedValue = e*(pow(e,2));
-
+	double improvement = (simulatedValue/excellent)*(e/2);
 	cout << "_______________________________"<<endl;
 	cout << "Engine Simulation Complete"<<endl;
 	cout << "_______________________________"<<endl;
 	cout << "Scored " << simulatedValue << endl;
+	cout << "Improvement " << (improvement)*100 << "%" << endl;
 	if(simulatedValue <= bad)
 	{
 		cout << "Outcome: [BAD]\ndoes not produce enough power " << endl;
@@ -42,5 +43,5 @@ double EngineSim::simulateComponent(double e)
 	cout << "good:\t\t" << good << endl;
 	cout << "excellent:\t" << excellent << endl;
 	cout << "==============================="<<endl;
-	return simulatedValue;
+	return improvement*e;
 }

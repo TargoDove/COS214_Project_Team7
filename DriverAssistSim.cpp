@@ -15,11 +15,12 @@ double DriverAssistSim::simulateComponent(double e)
 	double excellent = 0.8*(randomNum);
 
 	double simulatedValue = e*(randomNum);
-
+	double improvement = (simulatedValue/excellent)*e;
 	cout << "_______________________________"<<endl;
 	cout << "Driver assist Simulation Complete"<<endl;
 	cout << "_______________________________"<<endl;
 	cout << "Scored " << simulatedValue << endl;
+	cout << "Improvement " << (improvement)*100 << "%" << endl;
 	if(simulatedValue <= bad)
 	{
 		cout << "Outcome: [BAD]\nDriver assist performs poor on track" << endl;
@@ -43,5 +44,5 @@ double DriverAssistSim::simulateComponent(double e)
 	cout << "good:\t\t" << good << endl;
 	cout << "excellent:\t" << excellent << endl;
 	cout << "==============================="<<endl;
-	return simulatedValue;
+	return improvement*e;
 }

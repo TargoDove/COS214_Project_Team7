@@ -20,13 +20,19 @@ class F1Car
     Tires* changeTires(Tires*); //Returns old tires and takes new tires
     void setStrategy(Strategy*); //Takes new Strategy and deletes old strategy
     Strategy * getStrategy();
-	void addToRaceScore(int lapScore);
-	int getRaceScore();
+	  void addToRaceScore(int lapScore);
+	  int getRaceScore();
+    string getLocation();
+    void setLocation(string);
+    bool isCurrentYearCar();
+    void setCurrentYear(bool);
+    void addRacePoints(int);
 
   private: 
-	int raceScore=0;
+	  int raceScore; //Set back to zero once points have been added to team
     Strategy *strategy;
-    string location;
+    string location; //Factory -> home, other options include "in transit" or race locations
+    bool currentYearCar;
     GenericList<F1CarSpecification>* carSpecifications;
     Tires *fittedTires();
     //Be better if the spare tires are created and transported and then held in the garage

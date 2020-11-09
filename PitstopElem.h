@@ -1,14 +1,17 @@
 #ifndef PITSTOPELEM_H
 #define PITSTOPELEM_H
 
-class PitstopElem : LapElement {
+#include "LapElement.h"
+
+class PitstopElem : public LapElement
+{
+
+private:
+	double pitstopTimePenalty;
 
 public:
-	int pitstopTemp;
-
-	string performPitstop(boolean pitstop);
-
-	void handleLap();
+	PitstopElem(int, LapElement *, double);
+	virtual void handleLap(AssembledCar *, double *);
 };
 
 #endif

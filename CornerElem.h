@@ -1,14 +1,19 @@
 #ifndef CORNERELEM_H
 #define CORNERELEM_H
 
-class CornerElem : LapElement {
+#include "LapElement.h"
+
+class CornerElem : public LapElement
+{
+
+private:
+	double cornerMultiplier;
+	double sharpness;
+	double friction;
 
 public:
-	int cornerTemp;
-
-	void takeCorner();
-
-	void handleLap();
+	CornerElem(int, LapElement *, double, double, double);
+	virtual void handleLap(AssembledCar *, double *);
 };
 
 #endif

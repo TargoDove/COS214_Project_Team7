@@ -1,6 +1,8 @@
 #ifndef RACINGCONTEXT_H
 #define RACINGCONTEXT_H
 
+#include "RacingDay.h"
+
 class RacingContext {
 
 private:
@@ -9,7 +11,7 @@ private:
 public:
 	RacingContext();
 
-	void ~RacingContext();
+	~RacingContext();
 
 	void nextDay();
 
