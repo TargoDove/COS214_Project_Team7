@@ -4,10 +4,10 @@
 Transportation::Transport(Container* c){
     if(c->loaded){
         if(c->getContainerType() == "car"){
-                    c->cars[0]->setLocation("In Transit");
+                    c->getCars()[0]->setLocation("In Transit");
         }
         c->increaseCount();
-        Garage** LeGarage = c->race.getRaceTrack().getGarageList();
+        Garage** LeGarage = c->getRace()->getRaceTrack()->getGarageList();
         Garage* TeamGarage = LeGarage[c->getIndex()];
         if(c->getContainerType() == "car"){
             duration = 0;
@@ -19,8 +19,8 @@ Transportation::Transport(Container* c){
             }
         }
 
-        if(container->getDayCount >=duration){
-                container->setStatus = true;
+        if(container->getDayCount() >=duration){
+                container->setStatus(true);
                 TeamGarage->addContainer(c);
         }
         
@@ -29,16 +29,16 @@ Transportation::Transport(Container* c){
     }
 }
 
-Transportation::F1Car** returnCars(){
+Container* Transportation::returnCars(){
     cout << "Two cars are being readied for transportation back to their factory for service." << "\n"; //Message displayed when cars are returned in order to simulate the cars returning to factory.
-    return container->cars;
+    return container;
 }
 
-Transportation::void loadcontainer(){ //Setter function
+void Transportation::loadContainer(Container* c){ //Setter function
     container = c;
 }
 
-Transportation::Container* unloadcontainer(){ //Getter function
+Container* Transportation::unloadContainer(){ //Getter function
     return container;
 }
 
@@ -46,7 +46,7 @@ Ship::Ship(Container* c){
     container = c;
 }
 
-Ship::sendContainer(Container* c){ //Virtual function. Will print out different message depending on type of transport used. This is for the important for the template method.
+void Ship::sendContainer(Container* c){ //Virtual function. Will print out different message depending on type of transport used. This is for the important for the template method.
     cout << "The container has been loaded onto a ship and sent off to it's destination." << "\n";
 }
 
@@ -54,7 +54,7 @@ Truck::Truck(Container* c){
     container = c;
 }
 
-Truck::sendContainer(Container* c){
+void Truck::sendContainer(Container* c){
     cout << "The container is being transported by truck to the race track." << "\n";
 }
 
@@ -62,6 +62,6 @@ Plane::Plane(Container* c){
     container = c;
 }
 
-Plane::sendContainer(Container* c){
+void Plane::sendContainer(Container* c){
     cout << "The plane containing the F1 car has taken off and is en route to the race track." << "\n";
 }
