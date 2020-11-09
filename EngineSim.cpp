@@ -15,6 +15,7 @@ double EngineSim::simulateComponent(double e)
 
 	double simulatedValue = e*(pow(e,2));
 	double improvement = (simulatedValue/excellent)*(e/2);
+	improvement = (((double)rand() * 1.0) / RAND_MAX); //This will give a random value from 0-1
 	cout << "_______________________________"<<endl;
 	cout << "Engine Simulation Complete"<<endl;
 	cout << "_______________________________"<<endl;
