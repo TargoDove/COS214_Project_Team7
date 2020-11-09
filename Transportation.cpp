@@ -3,18 +3,21 @@
 
 Transportation::Transport(Container* c){
     if(c->loaded){
+        if(c->getContainerType() == "car"){
+                    c->cars[0]->setLocation("In Transit");
+        }
         c->increaseCount();
         Garage** LeGarage = c->race.getRaceTrack().getGarageList();
         Garage* TeamGarage = LeGarage[c->getIndex()];
         if(c->getDestination()){ //getDestination() will return a boolean value. True if the destination is in Europe and false if non-European.
             if(c->getDayCount >=6){
                 c->setStatus = true; //Sets ArrivalStatus to true
-                TeamGarage->container = c;
+                TeamGarage->addContainer(c);
             }
         }else{
             if(container->getDayCount >=90){
                 container->setStatus = true;
-                TeamGarage->container = c
+                TeamGarage->addContainer(c);
             }
         }
         
