@@ -25,7 +25,7 @@ Container::Container(bool dest, F1Car** LeCars, Driver** LeDrivers ,int teamId, 
     drivers = LeDrivers;
     ContainerType = "car";
     GarageIndex = teamId;
-    races = raceList;
+    race = raceList;
     cout << "Transport for the F1 car is being prepared" << "\n";
 }
 
@@ -69,10 +69,23 @@ string* Container::getTools(){
     return toolList;
 }
 
-F1Car* Container::getCar(){
-    return Car;
+F1Car** Container::getCar(){
+    return cars;
 }
 
 int Container::getIndex(){
     return GarageIndex;
 }
+    
+Tire** getTires(){
+    retun tires;
+}
+
+RacingEvent* getRace(){
+    return race;
+}
+
+Driver** getDrivers(){
+    return drivers;
+}
+

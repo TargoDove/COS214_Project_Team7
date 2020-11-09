@@ -20,7 +20,7 @@ class Container
         Tire** tires;
         int dayCount;
         int GarageIndex;
-        racingEvent* race;
+        RacingEvent* race;
         string ContainerType;
 	public:
 		Container(bool dest, string* tools, Tire** tireParts, int teamId, racingEvent* raceList);  //Two different constructors. This is to decide whether the car or the tools will be transported in this container.
@@ -38,6 +38,8 @@ class Container
         string* getTools();
         F1Car** getCars();
         Tire** getTires();
+        Driver** getDrivers();
+        RacingEvent* getRace();
 
 };
 
