@@ -1,25 +1,28 @@
 #include "Container.h"
 #include <iostream>
 
-Container::Container(bool dest, string* tools, int teamId, racingEvent* raceList){
+Container::Container(bool dest, string* tools, Tire** tireParts, int teamId, racingEvent* raceList){
     ArrivalStatus = false;
     loaded = false; //Tests if a container is ready to be shipped. If yes, the daycount will increase. If no, it will ready the container for transport.
     dayCount = 0; //Used to simulate the passage of time.
     GarageIndex = teamId;
     destination = dest;
     toolList = tools;
+    tires = tireParts;
     ContainerType = "tools";
     GarageIndex = teamId;
     race = raceList;
     cout << "A container to transport the tools is being prepared" << "\n";
 }
 
-Container::Container(bool dest, F1Car* LeCar, int teamId, racingEvent* raceList){
+//This is a metaphorical 'container' that groups together everything that needs to be transported on the plane.
+Container::Container(bool dest, F1Car** LeCars, Driver** LeDrivers ,int teamId, racingEvent* raceList){
     ArrivalStatus = false;
     loaded = false;
     dayCount = 0;
     destination = dest;
-    Car = LeCar;
+    cars = LeCars;
+    drivers = LeDrivers;
     ContainerType = "car";
     GarageIndex = teamId;
     races = raceList;

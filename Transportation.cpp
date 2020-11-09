@@ -3,24 +3,35 @@
 
 Transportation::Transport(Container* c){
     if(c->loaded){
+        if(c->getContainerType() == "car"){
+                    c->cars[0]->setLocation("In Transit");
+        }
         c->increaseCount();
         Garage** LeGarage = c->race.getRaceTrack().getGarageList();
         Garage* TeamGarage = LeGarage[c->getIndex()];
-        if(c->getDestination()){ //getDestination() will return a boolean value. True if the destination is in Europe and false if non-European.
-            if(c->getDayCount >=6){
-                c->setStatus = true; //Sets ArrivalStatus to true
-                TeamGarage->container = c;
-            }
+        if(c->getContainerType() == "car"){
+            duration = 0;
         }else{
-            if(container->getDayCount >=90){
-                container->setStatus = true;
-                TeamGarage->container = c
+            if(c->getDestination()){ //getDestination() will return a boolean value. True if the destination is in Europe and false if non-European.
+                duration = 89;
+            }else{
+                duration = 5;
             }
+        }
+
+        if(container->getDayCount >=duration){
+                container->setStatus = true;
+                TeamGarage->addContainer(c);
         }
         
     }else{
         container->loaded = true;
     }
+}
+
+Transportation::F1Car** returnCars(){
+    cout << "Two cars are being readied for transportation back to their factory for service." << "\n"; //Message displayed when cars are returned in order to simulate the cars returning to factory.
+    return container->cars;
 }
 
 Transportation::void loadcontainer(){ //Setter function

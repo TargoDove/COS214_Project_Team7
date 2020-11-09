@@ -4,7 +4,8 @@
 #include "F1Car.h"
 #include "RacingEvent.h"
 #include "Container.h"
-#include "Date.h"
+#include "Driver.h"
+
 
 #include <string>
 
@@ -13,12 +14,13 @@ using namespace std;
 class Warehouse{
     private:
         string toolList[];
-        F1Car* car;
+        F1Car** cars;
         RacingEvent** raceList;
+        Driver** drivers;
     public:
-        Warehouse(F1Car*, RacingEvent**);
+        Warehouse(F1Car*, RacingEvent**, Driver**);
         ~Warehouse();
-        Container* createContainer(bool, bool, int);
+        Container* createContainer(bool, bool, int, RacingEvent*);
         void reinstateContainer(Container* container);
         void setRacingEvent(RacingEvent* list);
         RacingEvent* getRacingEvent();
