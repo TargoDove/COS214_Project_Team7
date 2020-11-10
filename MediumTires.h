@@ -3,8 +3,6 @@
 
 #include "Tires.h"
 
-using namespace std;
-
 class MediumTires : public Tires
 {
 	public:

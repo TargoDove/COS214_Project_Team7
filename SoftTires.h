@@ -3,8 +3,6 @@
 
 #include "Tires.h"
 
-using namespace std;
-
 class SoftTires : public Tires
 {
 	public:

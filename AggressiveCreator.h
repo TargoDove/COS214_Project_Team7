@@ -1,8 +1,9 @@
 #ifndef AGGRESSIVECREATOR_H
 #define AGGRESSIVECREATOR_H
 
-#include "StrategyCreator.h"
 #include "AgressiveStrategy.h"
+#include "StrategyCreator.h"
+
 class AggressiveCreator : public StrategyCreator
 {
 public:

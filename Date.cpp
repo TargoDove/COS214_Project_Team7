@@ -250,7 +250,6 @@ bool Date::validDate(int d, int m, int y)
     if (d > maxDay)
       return false;
     break;
-  default:
     //do nothing
   }
   return true;

@@ -1,7 +1,8 @@
 #ifndef STRATEGYCREATOR_H
 #define STRATEGYCREATOR_H
+
 #include "TeamStrategy.h"
-#include "F1Team.h"
+//#include "F1Team.h"
 
 class StrategyCreator
 {

@@ -23,7 +23,7 @@ class Builder
 
 public:
   //Builder();
-  //~Builder();
+  virtual ~Builder() = 0;
   virtual void buildF1Teams() = 0;
   virtual void buildRacingEvents() = 0;
   virtual void buildCompetition() = 0;

@@ -21,7 +21,7 @@ void CompetitionBuilder::buildRacingEvents()
     Date tDate(1, 4, 2018);
     bool inEuro = (date > tDate) && (randNumGen() >= 0.8);
 
-    RaceTrack *raceTrack = new RaceTrack(nStraights, nCorners, clim, numLaps, numLaps * sLen, loc, tName, 10, (randNumGen() >= 0.8), s, f, sLen, penalty);
+    RaceTrack *raceTrack = new RaceTrack(nStraights, nCorners, clim, numLaps, numLaps * sLen, loc, tName, 10, inEuro, s, f, sLen, penalty);
 
     RacingEvent* rEvent = new RacingEvent("RacingEvent"+to_string(i+1), date, raceTrack);
     comp->addRace(rEvent);
@@ -52,7 +52,7 @@ void CompetitionBuilder::buildF1Teams()
 
   for (int i = 0; i < numTeams; i++)
   {
-    double budget = 800000 + 400000 * (((double)rand() * 1.0) / RAND_MAX);
+    budget = 800000 + 400000 * (((double)rand() * 1.0) / RAND_MAX);
     for (int j = 0; j < numCars; j++)
     {
       cCars[j] = new F1Car();
@@ -72,13 +72,14 @@ void CompetitionBuilder::buildF1Teams()
     comp->addTeam(tm);
   }
 
-  delete[] names;
+  //delete[] names;
   delete[] cCars;
   delete[] nCars;
   delete[] drivers;
 }
 
-void addSpecifications(F1Car* car){
+void CompetitionBuilder::addSpecifications(F1Car *car)
+{
   car->addSpecification(new BreakEfficiency());
   car->addSpecification(new Boost());
   car->addSpecification(new EnginePower());
@@ -87,7 +88,7 @@ void addSpecifications(F1Car* car){
   car->addSpecification(new Aerodynamics());
 }
 
-void addDepartments(F1Team* team)
+void CompetitionBuilder::addDepartments(F1Team *team)
 {
   WindTunnel* windTunnel = new WindTunnel();
   Testing *testing = new CarWeightTesting(NULL, windTunnel);
@@ -105,7 +106,7 @@ void addDepartments(F1Team* team)
   team->addDepartment(new EngineeringDepartments("Electronics", "DriverAssistance", 0.08, 0.14, 40000, testing));
 }
 
-double randNumGen()
+double CompetitionBuilder::randNumGen()
 {
   return (((double)rand() * 1.0) / RAND_MAX);
 }

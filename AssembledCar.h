@@ -6,6 +6,8 @@
 #include "F1Car.h"
 #include <list>
 
+class F1Car;
+
 class AssembledCar {
 
   private:

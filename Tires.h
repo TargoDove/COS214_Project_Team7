@@ -1,8 +1,6 @@
 #ifndef TIRES_H
 #define TIRES_H
 
-using namespace std;
-
 class Tires
 {
 	public:

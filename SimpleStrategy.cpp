@@ -8,7 +8,7 @@
 //     this->getTeam()->getCurrentCar(this->getIndex())->changeTires(tires);
 // }
 
-SimpleStrategy::SimpleStrategy():TeamStrategy()
+SimpleStrategy::SimpleStrategy()
 {
   tireSetSize = 5;
   integrityCutoff = 0.6;

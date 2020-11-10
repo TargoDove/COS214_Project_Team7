@@ -4,6 +4,8 @@
 #include "Container.h"
 #include "AssembledCar.h"
 
+class Container;
+
 class Garage {
 
   private:

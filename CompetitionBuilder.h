@@ -13,6 +13,9 @@ private:
   RacingEvent** events;
   int numRacingEvents;
   Competition* comp;
+  void addDepartments(F1Team *);
+  double randNumGen();
+  void addSpecifications(F1Car*);
 
 public:
   CompetitionBuilder();

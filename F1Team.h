@@ -7,10 +7,12 @@
 #include "EngineeringDepartments.h"
 #include "Logistics.h"
 #include "RacingEvent.h"
-#include "Strategy.h"
 #include "Iterator.h"
+#include "Strategy.h"
 
 using namespace std;
+
+//class Strategy;
 
 class F1Team : public EventObject
 {

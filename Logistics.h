@@ -5,6 +5,8 @@
 #include "Transportation.h"
 #include "Date.h"
 
+class RacingEvent;
+
 class Logistics{
     private:
         Warehouse* warehouse;

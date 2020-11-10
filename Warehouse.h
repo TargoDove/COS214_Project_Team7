@@ -5,11 +5,11 @@
 #include "RacingEvent.h"
 #include "Container.h"
 #include "Driver.h"
-
-
 #include <string>
 
 using namespace std;
+
+class RacingEvent;
 
 class Warehouse{
     private:

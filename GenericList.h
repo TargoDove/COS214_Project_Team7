@@ -13,7 +13,7 @@ class GenericList
 {
 public:
   GenericList();
-  ~GenericList();
+  virtual ~GenericList();
   virtual void addItem(T *);
   virtual void removeItem(string);
   virtual void removeItem(int);

@@ -1,7 +1,7 @@
 #include "Container.h"
 #include <iostream>
 
-Container::Container(bool dest, string* tools, Tire** tires1, Tire** tires2, int teamId, racingEvent* raceList){
+Container::Container(bool dest, string* tools, Tires** tires1, Tires** tires2, int teamId, RacingEvent* raceList){
     ArrivalStatus = false;
     loaded = false; //Tests if a container is ready to be shipped. If yes, the daycount will increase. If no, it will ready the container for transport.
     dayCount = 0; //Used to simulate the passage of time.
@@ -17,7 +17,7 @@ Container::Container(bool dest, string* tools, Tire** tires1, Tire** tires2, int
 }
 
 //This is a metaphorical 'container' that groups together everything that needs to be transported on the plane.
-Container::Container(bool dest, F1Car** LeCars, Driver** LeDrivers ,int teamId, racingEvent* raceList){
+Container::Container(bool dest, F1Car** LeCars, Driver** LeDrivers ,int teamId, RacingEvent* raceList){
     ArrivalStatus = false;
     loaded = false;
     dayCount = 0;
@@ -32,7 +32,7 @@ Container::Container(bool dest, F1Car** LeCars, Driver** LeDrivers ,int teamId, 
 
 Container::~Container()
 {
-    throw "This correct??"; //Since we are using pointers for nearly everything, deleting things in here would cause the objects at that pointer to be deleted, which we don't want, right? So an empty destructor should be good?
+    //throw "This correct??"; //Since we are using pointers for nearly everything, deleting things in here would cause the objects at that pointer to be deleted, which we don't want, right? So an empty destructor should be good?
 }
 
 bool Container::getStatus(){
@@ -82,20 +82,23 @@ F1Car** Container::getCars(){
 int Container::getIndex(){
     return GarageIndex;
 }
-    
-Tire** getTires1(){
-    retun tiresCar1;
+
+Tires **Container::getTires1()
+{
+    return tiresCar1;
 }
 
-Tire** getTires2(){
-    retun tiresCar2;
+Tires **Container::getTires2()
+{
+    return tiresCar2;
 }
 
-RacingEvent* getRace(){
+RacingEvent *Container::getRace()
+{
     return race;
 }
 
-Driver** getDrivers(){
+Driver **Container::getDrivers()
+{
     return drivers;
 }
-

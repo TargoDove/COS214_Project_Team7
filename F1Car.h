@@ -2,8 +2,8 @@
 #define F1CAR_H
 
 #include <string>
-#include "F1CarSpecification.h"
 #include "TeamStrategy.h"
+#include "F1CarSpecification.h"
 #include "GenericList.h"
 #include "Tires.h"
 

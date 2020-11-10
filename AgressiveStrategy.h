@@ -1,5 +1,6 @@
 #ifndef AGRESSIVESTRATEGY_H
 #define AGRESSIVESTRATEGY_H
+
 #include "TeamStrategy.h"
 
 class AgressiveStrategy : public TeamStrategy
