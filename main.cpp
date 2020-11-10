@@ -5,6 +5,10 @@
 
 using namespace std;
 
+//NOTE:
+//int arr[] = {10,20,30,40,50,60};
+//int arrSize = sizeof(arr) / sizeof(arr[0]);
+
 int main(int argc, char const *argv[])
 {
 	Date firstDay(1, 1, 2020);

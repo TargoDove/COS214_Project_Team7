@@ -24,12 +24,14 @@ class F1Team : public EventObject
     void setCarStrategies();
     F1Car* getCurrentCar(int);
     F1Car *getNextYearCar(int);
-    int qualifyScore;
+    //int qualifyScore;
     string getTeamName();
     double getBudget();
     int getPoints();
     void addPoints(int);
+    void addDepartment(EngineeringDepartments*);
     Driver* getDriver(int);
+    void applyStrategy();
 
   private:
     string teamName;
@@ -45,7 +47,6 @@ class F1Team : public EventObject
     Logistics* logistics;
     RacingEvent** raceList;
     void applyDepartmentImprovements(F1Car *);
-    void applyStrategy();
 };
 
 #endif

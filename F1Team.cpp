@@ -13,7 +13,7 @@ F1Team::F1Team(string n, int id, double b, F1Car **cCars, F1Car **nCars, Driver 
   logistics = NULL;
   raceList = NULL;
   points = 0;
-  qualifyScore = 0;
+  //qualifyScore = 0;
   //setCarStrategies();//Must add departments first
 }
 
@@ -197,4 +197,9 @@ Driver *F1Team::getDriver(int index)
   {
     return NULL;
   }
+}
+
+void F1Team::addDepartment(EngineeringDepartments *dep)
+{
+  departments->addItem(dep);
 }

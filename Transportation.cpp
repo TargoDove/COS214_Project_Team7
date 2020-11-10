@@ -1,24 +1,24 @@
 #include "Transportation.h"
 
-void Transportation::Transport(Container *c)
+void Transportation::Transport()
 {
-  if (c->isLoaded())
+  if (container->isLoaded())
   { //This tests if there is a container to be transported.
-    if (c->getContainerType() == "car")
+    if (container->getContainerType() == "car")
     {
-      c->getCars()[0]->setLocation("In Transit");
+      container->getCars()[0]->setLocation("In Transit");
     }
-    c->increaseCount();
-    Garage **LeGarage = c->getRace()->getRaceTrack()->getGarageList();
-    Garage *TeamGarage = LeGarage[c->getIndex()];
+    container->increaseCount();
+    Garage **LeGarage = container->getRace()->getRaceTrack()->getGarageList();
+    Garage *TeamGarage = LeGarage[container->getIndex()];
     int duration = 0;
-    if (c->getContainerType() == "car")
+    if (container->getContainerType() == "car")
     {               //This if-else statement determines how many days the container will be in transit. Would have been 1, 6 and 30, but I subtracted 1 day from each to ensure the container arrives one day before the race.
       duration = 0; // Flights are fast so will probably reach it's destination in 1 day.
     }
     else
     {
-      if (c->getDestination())
+      if (container->getDestination())
       {                //getDestination() will return a boolean value. True if the destination is in Europe and false if non-European.
         duration = 89; //Containers for Non-European races in transit for 3 months.
       }
@@ -28,16 +28,16 @@ void Transportation::Transport(Container *c)
       }
     }
 
-    throw "Sometimes you refer to 'c' and sometimes to 'container', which is to be used and when?"; //My bad. It's supposed to be c. I made the changes
-    if (c->getDayCount() >= duration)
+    throw "Sometimes you refer to 'c' and sometimes to 'container', which is to be used and when?"; //My bad. It's supposed to be container. I made the changes
+    if (container->getDayCount() >= duration)
     {
-      c->setStatus(true); //This checks if the container has arrived at it's destination yet.
-      TeamGarage->addContainer(c);
+      container->setStatus(true); //This checks if the container has arrived at it's destination yet.
+      TeamGarage->addContainer(container);
     }
   }
   else
   {
-    c->setLoaded(true);
+    container->setLoaded(true);
   }
 }
 
