@@ -5,8 +5,11 @@
 #include "F1CarSpecification.h"
 #include "TeamStrategy.h"
 #include "GenericList.h"
+#include "Tires.h"
 
 using namespace std;
+
+class TeamStrategy;
 
 class F1Car
 {

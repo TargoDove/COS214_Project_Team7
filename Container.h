@@ -10,6 +10,8 @@
 
 using namespace std;
 
+class RacingEvent;
+
 class Container
 {
     private:

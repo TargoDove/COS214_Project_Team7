@@ -18,7 +18,7 @@ double AeroSim::simulateComponent(double e)
 	double excellent = 0.8*(pow(maxSpeed,2))/2;
 	
 	double simulatedValue = e*(pow(maxSpeed,2))/2;
-	//double improvement = (simulatedValue/excellent)*e;
+	double improvement = (simulatedValue/excellent)*e;
 	improvement = (((double)rand() * 1.0) / RAND_MAX); //This will give a random value from 0-1
 	cout << "_______________________________"<<endl;
 	cout << "Aerodynamics Simulation Complete"<<endl;

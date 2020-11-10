@@ -3,8 +3,18 @@
 Sunday::Sunday(RacingEvent *ev, list<AssembledCar *> l) : RacingDay(ev)
 {
 	carList = l;
-	pointsArray = {25, 18, 15, 12, 10, 8, 6, 4, 2, 1};
+	int pArray[] = {25, 18, 15, 12, 10, 8, 6, 4, 2, 1};
 	pointsArraySize = 10;
+
+	pointsArray = new int[pointsArraySize];
+	for (int i = 0; i < pointsArraySize; i++){
+		pointsArray[i] = pArray[i];
+	}
+}
+
+Sunday::~Sunday()
+{
+	delete [] pointsArray;
 }
 
 void Sunday::handle(Date)

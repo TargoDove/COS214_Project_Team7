@@ -3,7 +3,7 @@
 
 #include "TeamStrategy.h"
 
-class SimpleStrategy:public TeamStrategy
+class SimpleStrategy : public TeamStrategy
 {
 public:
   SimpleStrategy();

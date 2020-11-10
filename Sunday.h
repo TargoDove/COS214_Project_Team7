@@ -10,10 +10,11 @@ class Sunday : public RacingDay {
 
 public:
 	Sunday(RacingEvent *, list<AssembledCar *>);
+	virtual ~Sunday();
 	virtual void handle(Date);
 
 protected:
-	int pointsArray[];
+	int *pointsArray;
 	int pointsArraySize;
 };
 

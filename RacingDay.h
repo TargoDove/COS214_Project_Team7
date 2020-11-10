@@ -7,7 +7,7 @@ class RacingDay
 {
 
 public:
-	virtual RacingDay(RacingEvent*);
+	RacingDay(RacingEvent*);
 	virtual ~RacingDay();
 	virtual void handle(Date) = 0;
 	virtual bool checkGarage(Garage *);

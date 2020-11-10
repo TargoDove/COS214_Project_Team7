@@ -7,6 +7,8 @@
 #include "F1Team.h"
 #include <iostream>
 
+class F1Team;
+
 //class Competition : EventObject, RacingEvent{ <- why would this inherit from RacingEvent?
 class Competition : public EventObject{
 
