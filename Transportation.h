@@ -13,6 +13,7 @@ protected:
   Container *container;
 
 public:
+  virtual ~Transportation();
   void Transport(Container *c);
   void loadContainer(Container *c);
   Container *unloadContainer();

@@ -12,21 +12,22 @@ Warehouse::Warehouse(F1Car** _cars, RacingEvent** _raceList, Driver** _drivers)
 }
 
 Warehouse::~Warehouse(){
-    for(int i = 0; i<2;i++){
-        delete cars[i];
-        delete drivers[i];
-    }
+    throw "these will/should all be deleted elsewhere";
+    // for(int i = 0; i<2;i++){
+    //     delete cars[i];
+    //     delete drivers[i];
+    // }
 
-    delete [] cars;
-    delete [] drivers;
+    // delete [] cars;
+    // delete [] drivers;
 
-    delete [] toolList;
+    // delete [] toolList;
 
-    for(int i = 0; i<30 && raceList[i] != nullptr; i++){
-        delete raceList[i];
-    }
+    // for(int i = 0; i<30 && raceList[i] != nullptr; i++){
+    //     delete raceList[i];
+    // }
 
-    delete [] raceList;
+    // delete [] raceList;
 }
         
 Container* Warehouse::createContainer(bool raceType,bool pickContainer, int teamId, RacingEvent* race){

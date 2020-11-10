@@ -29,6 +29,11 @@ Container::Container(bool dest, F1Car** LeCars, Driver** LeDrivers ,int teamId, 
     cout << "Transport for the F1 car is being prepared" << "\n";
 }
 
+Container::~Container()
+{
+    throw "This correct??";
+}
+
 bool Container::getStatus(){
     return ArrivalStatus;
 }

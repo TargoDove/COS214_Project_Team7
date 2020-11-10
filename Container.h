@@ -28,6 +28,7 @@ class Container
 	public:
 		Container(bool dest, string* tools, Tires** tires1, Tires** tires2, int teamId, RacingEvent* raceList);  //Two different constructors. This is to decide whether the car or the tools will be transported in this container.
         Container(bool dest, F1Car** LeCars, Driver** LeDrivers ,int teamId, RacingEvent* raceList);
+        ~Container();
         bool getStatus();
         bool isLoaded();
         void setLoaded(bool);
@@ -46,7 +47,6 @@ class Container
         Tires** getTires2(); //Tires for car 2
         Driver** getDrivers();
         RacingEvent* getRace();
-
 };
 
 #endif

@@ -41,12 +41,19 @@ void Transportation::Transport(Container *c)
   }
 }
 
+Transportation::~Transportation()
+{
+  throw "this correct??";
+}
+
 Container *Transportation::returnCars()
 {
   cout << "Two cars are being readied for transportation back to their factory for service."
        << "\n"; //Message displayed when cars are returned in order to simulate the cars returning to factory.
-  container->getCars()[0]->setLocation("Factory");
-  container->getCars()[1]->setLocation("Factory");
+
+  throw "This correct??, where are cars location set to factory?";
+  //container->getCars()[0]->setLocation("Factory");
+  //container->getCars()[1]->setLocation("Factory");
   return container;
 }
 
