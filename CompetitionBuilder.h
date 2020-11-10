@@ -11,6 +11,7 @@ private:
   F1Team** teams;
   int numTeams;
   RacingEvent** events;
+  int numRacingEvents;
 
 public:
   CompetitionBuilder();
