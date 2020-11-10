@@ -14,7 +14,7 @@ protected:
 
 public:
   virtual ~Transportation();
-  void Transport(Container *c);
+  void Transport();
   void loadContainer(Container *c);
   Container *unloadContainer();
   Container* returnCars();
