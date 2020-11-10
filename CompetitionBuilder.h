@@ -12,6 +12,7 @@ private:
   int numTeams;
   RacingEvent** events;
   int numRacingEvents;
+  Competition* comp;
 
 public:
   CompetitionBuilder();
@@ -19,7 +20,7 @@ public:
   virtual void buildRacingEvents();
   virtual void buildF1Teams();
   virtual void buildCompetition();
-  //F1Team* getPart();
+  Competition *getPart();
 };
 
 #endif

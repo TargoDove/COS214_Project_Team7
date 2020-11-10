@@ -211,3 +211,8 @@ void Competition::conductPrizeGiving()
        << " points." << endl
        << endl;
 }
+
+int Competition::getNumTeams()
+{
+  return currTeamCount;
+}

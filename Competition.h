@@ -24,9 +24,12 @@ private:
 public:
 	Competition(Date sDate, int nTeams, int nRaces);
 	~Competition();
-	virtual void daysEvents() = 0;
+	//virtual void daysEvents() = 0;
 	void addTeam(F1Team* team); 					//adds a team to the event
 	void addRace(RacingEvent* race);
+	F1Team** getTeams();
+	int getNumTeams();
+	RacingEvent** getRaceList();
 	void printRaceNames();
 	void printTeamNames();
 	void conductPrizeGiving();

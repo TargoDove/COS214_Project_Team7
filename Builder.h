@@ -14,6 +14,7 @@
 #include "BoostTesting.h"
 #include "EngineTesting.h"
 #include "DriverAssistTesting.h"
+#include "Competition.h"
 
 using namespace std;
 

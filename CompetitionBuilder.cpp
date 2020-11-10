@@ -2,10 +2,7 @@
 
 void CompetitionBuilder::buildRacingEvents()
 {
-  numRacingEvents = 21;
-
-  events = new RacingEvent *[numRacingEvents];
-  //RaceTrack** raceTracks = new RaceTrack*[numRacingEvents];
+  //numRacingEvents = 21;
 
   Date date(1, 2, 2018);
   for(int i = 0; i < numRacingEvents; i++)
@@ -26,39 +23,37 @@ void CompetitionBuilder::buildRacingEvents()
 
     RaceTrack *raceTrack = new RaceTrack(nStraights, nCorners, clim, numLaps, numLaps * sLen, loc, tName, 10, (randNumGen() >= 0.8), s, f, sLen, penalty);
 
-    events[i] = new RacingEvent("RacingEvent"+to_string(i+1), date, raceTrack);
-    date = events[i]->getStartDate();
+    RacingEvent* rEvent = new RacingEvent("RacingEvent"+to_string(i+1), date, raceTrack);
+    comp->addRace(rEvent);
+    date = rEvent->getStartDate();
   }
 }
 
 void CompetitionBuilder::buildF1Teams()
 {
-  string names[] = { "Mercedes",
-                     "Ferrari",
-                     "McLaren",
-                     "Alpha",
-                     "Beta",
-                     "Red Bull",
-                     "Williams",
-                     "Red Point",
-                     "Haas",
-                     "Romeo"
-                     };
+  string names[] = {"Mercedes",
+                    "Ferrari",
+                    "McLaren",
+                    "Alpha",
+                    "Beta",
+                    "Red Bull",
+                    "Williams",
+                    "Red Point",
+                    "Haas",
+                    "Romeo"};
   //numTeams = 10;
-  numTeams = sizeof(names)/sizeof(names[0]);
+  //numTeams = sizeof(names)/sizeof(names[0]);
   int numCars = 2;
-
-  teams = new F1Team*[numTeams];
 
   double budget;
   F1Car **cCars = new F1Car *[numCars];
   F1Car **nCars = new F1Car *[numCars];
-  Driver** drivers = new Driver*[numCars];
+  Driver **drivers = new Driver *[numCars];
 
   for (int i = 0; i < numTeams; i++)
   {
     double budget = 800000 + 400000 * (((double)rand() * 1.0) / RAND_MAX);
-    for(int j = 0; j < numCars; j++)
+    for (int j = 0; j < numCars; j++)
     {
       cCars[j] = new F1Car();
       cCars[j]->setCurrentYear(true);
@@ -68,19 +63,19 @@ void CompetitionBuilder::buildF1Teams()
       addSpecifications(nCars[j]);
       drivers[j] = new Driver(100, 0, "Driver" + to_string(j));
     }
-
-    teams[i] = new F1Team(names[i], i + 1, budget, cCars, nCars, drivers);
-    teams[i]->setCarStrategies();
-    teams[i]->setRaceList(events);
-    teams[i]->setLogistics(new Logistics(events, cCars, drivers));
-    addDepartments(teams[i]);
-    teams[i]->applyStrategy();
+    F1Team *tm = new F1Team(names[i], i + 1, budget, cCars, nCars, drivers);
+    tm->setCarStrategies();
+    tm->setRaceList(events);
+    tm->setLogistics(new Logistics(events, cCars, drivers));
+    addDepartments(tm);
+    tm->applyStrategy();
+    comp->addTeam(tm);
   }
 
-  delete [] names;
-  delete [] cCars;
-  delete [] nCars;
-  delete [] drivers;
+  delete[] names;
+  delete[] cCars;
+  delete[] nCars;
+  delete[] drivers;
 }
 
 void addSpecifications(F1Car* car){
@@ -117,4 +112,12 @@ double randNumGen()
 
 void CompetitionBuilder::buildCompetition()
 {
+  numTeams = 10;
+  numRacingEvents = 21;
+  Date date(12, 1, 2018);
+
+  comp = new Competition(date, numTeams, numRacingEvents);
+
+  events = comp->getRaceList();
+  teams = comp->getTeams();
 }

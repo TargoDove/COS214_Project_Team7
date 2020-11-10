@@ -2,6 +2,8 @@
 #include <string>
 #include "Date.h"
 #include "Formula1Date.h"
+#include "Director.h"
+#include "CompetitionBuilder.h"
 
 using namespace std;
 
@@ -11,12 +13,21 @@ using namespace std;
 
 int main(int argc, char const *argv[])
 {
+	//TO DO: Instantiate and initialize all objects
 	Date firstDay(1, 1, 2020);
 	Formula1Date *f1Date = new Formula1Date(firstDay);
-
-	//TO DO: Instantiate and initialize all objects
+	CompetitionBuilder* builder = new CompetitionBuilder();
+	Director * director = new Director(builder);
+	director->construct();
+	Competition* competition = builder->getPart();
 
 	//TO DO: Register eventObjects with F1Date
+	f1Date->registerObj(competition);
+
+	for(int i = 0; i < competition->getNumTeams(); i++)
+	{
+		f1Date->registerObj(competition->getTeams()[i]);
+	}
 
 	//Looping through/simulating year
 	for (int i = 0; i < 365; i++)
@@ -25,3 +36,9 @@ int main(int argc, char const *argv[])
 
 		return 0;
 	}
+
+	delete f1Date;
+	//delete builder;
+	delete director;
+	delete competition;
+}
