@@ -43,10 +43,13 @@ void Logistics::run(Date date,int id){
     int monthDiff, dayDiff,  endDayDiff,  endMonthDiff, type;
     bool inEuro;
     for(int i = 0; i< 30 && warehouse->getRacingEvent()[i] != NULL ; i++){
-        monthDiff = warehouse->getRacingEvent()[i]->getStartDate().getMonth() - date.getMonth();
-        dayDiff = warehouse->getRacingEvent()[i]->getStartDate().getDay() - date.getDay();
-        endDayDiff = date.getDay() - warehouse->getRacingEvent()[i]->getEndDate().getDay();
-        endMonthDiff = date.getMonth() - warehouse->getRacingEvent()[i]->getEndDate().getMonth();
+        Date startDate = warehouse->getRacingEvent()[i]->getStartDate();
+        monthDiff = startDate.getMonth() - date.getMonth();
+        dayDiff = startDate.getDay() - date.getDay();
+        
+        Date endDate = warehouse->getRacingEvent()[i]->getEndDate();
+        endDayDiff = date.getDay() - endDate.getDay();
+        endMonthDiff = date.getMonth() - endDate.getMonth();
         inEuro = warehouse->getRacingEvent()[i]->getRaceTrack()->inEurope();
 
 
