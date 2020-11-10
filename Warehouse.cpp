@@ -10,25 +10,6 @@ Warehouse::Warehouse(F1Car** _cars, RacingEvent** _raceList, Driver** _drivers)
     cars[0]->setLocation("Factory");
     cars[1]->setLocation("Factory");
 }
-
-Warehouse::~Warehouse(){
-    throw "these will/should all be deleted elsewhere";
-    // for(int i = 0; i<2;i++){
-    //     delete cars[i];
-    //     delete drivers[i];
-    // }
-
-    // delete [] cars;
-    // delete [] drivers;
-
-    // delete [] toolList;
-
-    // for(int i = 0; i<30 && raceList[i] != nullptr; i++){
-    //     delete raceList[i];
-    // }
-
-    // delete [] raceList;
-}
         
 Container* Warehouse::createContainer(bool raceType,bool pickContainer, int teamId, RacingEvent* race){
     Container* c;

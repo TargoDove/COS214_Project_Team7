@@ -23,8 +23,13 @@
 Logistics::Logistics(RacingEvent **raceList, F1Car **cars, Driver **drivers)
 {
   warehouse = new Warehouse(cars, raceList, drivers);
-  transport = new Transportation *[2]; //idx = 0 -> ship/truck, idx = 1 -> plane
-  container = new Container *[2];      //idx = 0 -> tools, idx = 1 -> car
+  ship = new Transportation *[10]; 
+  nonEuropToolsContainer = new Container *[10]; 
+    containerCount = 0;
+    truck = nullptr;
+    plane = nullptr;
+    ship = nullptr;
+    container = nullptr;
 }
 
 Logistics::~Logistics()
@@ -32,104 +37,124 @@ Logistics::~Logistics()
   delete warehouse;
   warehouse = NULL;
 
-  for (int i = 0; i < 2; i++)
+  for (int i = 0; i < 10 && ship[i]!= nullptr; i++)
   {
-    delete transport[i];
-    delete container[i];
+    delete ship[i];
+    delete nonEuropToolsContainer[i];
   }
+  delete [] ship;
+  delete [] nonEuropToolsContainer;
 
-  delete[] transport;
-  delete[] container;
+  delete container;
+  delete truck;
+  delete plane;
+}
+
+void Logistics::trackTools(){
+    for(int i = 0; i<containerCount; i++){
+        ship[i]->Transport();
+    }
 }
 
 void Logistics::run(Date date, int id)
 {
-  int monthDiff, dayDiff, endDayDiff, endMonthDiff, type;
-  bool inEuro;
-  throw "Why 30??";
-  throw "If there are less than 30 racing events then an index out of bounds exception will be raised?";
-  for (int i = 0; i < 30 && warehouse->getRacingEvent()[i] != NULL; i++)
-  {
-    monthDiff = warehouse->getRacingEvent()[i]->getStartDate().getMonth() - date.getMonth();
-    dayDiff = warehouse->getRacingEvent()[i]->getStartDate().getDay() - date.getDay();
-    endDayDiff = date.getDay() - warehouse->getRacingEvent()[i]->getEndDate().getDay();
-    endMonthDiff = date.getMonth() - warehouse->getRacingEvent()[i]->getEndDate().getMonth();
-    inEuro = warehouse->getRacingEvent()[i]->getRaceTrack()->inEurope();
+    int monthDiff, dayDiff, endDayDiff, endMonthDiff, type;
+    bool inEuro;
+    throw "Why 30??"; //It was a placeholder for the number of races taking place. 
+                    //There are usually not more than 25 races. this check ,warehouse->getRacingEvent()[i] != NULL, 
+                    //makes sure we dont got out of bounds 
+    throw "If there are less than 30 racing events then an index out of bounds exception will be raised?";
+    for (int i = 0; i < 30 && warehouse->getRacingEvent()[i] != NULL; i++)
+    {
+        Date startDate = warehouse->getRacingEvent()[i]->getStartDate();
+        monthDiff = startDate.getMonth() - date.getMonth();
+        dayDiff = startDate.getDay() - date.getDay();
+        
+        Date endDate = warehouse->getRacingEvent()[i]->getEndDate();
+        endDayDiff = date.getDay() - endDate.getDay();
+        endMonthDiff = date.getMonth() - endDate.getMonth();
+        inEuro = warehouse->getRacingEvent()[i]->getRaceTrack()->inEurope();
 
     //Start to transport if there is a Non European race 3 months away and the tools havent yet been transported.
     //Still call the transport function if there is non european race <= 3 months away and the tools are already in transit. This is done to track the container
-    if (monthDiff <= 3 && inEuro == false)
-    {
-      if (toolsTransported[i] == false)
-      {
-        throw "What happens to container[0]'s old value? Can I delete it or is it deleted elsewhere?";
-        throw "What happens if you have multiple different containers busy being shipped at the same time?";
-        throw "There isn't a 3 month gap between every race. Are old containers lost or overwritten or are they stored somewhere?";
-        container[0] = warehouse->createContainer(1, 1, id, warehouse->getRacingEvent()[i]); //1 = toolsContainer, 1= non european
-        throw "What happens to transport[0]'s old value? Can I delete it or is it deleted elsewhere?";
-        throw "Is there not a memory leak here?";
-        transport[0] = new Ship(container[0]);
-        toolsTransported[i] = true;
-      }
-      transport[0]->Transport(container[0]);
-    }
-    else if ((monthDiff == 1 || monthDiff == 0))
-    {
-
-      //Transport tools if the race is 7 days away.Track tools if tols have already been transported and race is <=7 days away
-      //Take into account if you're on the last days of the month and 7 days away is the following month
-      if ((dayDiff >= -24 && dayDiff <= -21) || dayDiff <= 7)
-      {
-        if (toolsTransported[i] == false)
+        if (monthDiff <= 3 && inEuro == false)
         {
-          type = 0;
-          container[0] = warehouse->createContainer(type, 1, id, warehouse->getRacingEvent()[i]);
-          transport[0] = new Truck(container[0]);
-          toolsTransported[i] = true;
-        }
-        transport[0]->Transport(container[0]);
-      }
-      else if ((dayDiff >= -29 && dayDiff <= -26) || dayDiff == 2)
-      { //Start to transport cars 2 days before race. Track cars if race < 2 days away
-        if (carTransported[i] == false)
-        {
-          if (inEuro == true)
-            type = 1;
-          else
-            type = 0;
-          container[1] = warehouse->createContainer(type, 0, id, warehouse->getRacingEvent()[i]);
-          transport[1] = new Plane(container[1]);
-          carTransported[i] = true;
-        }
-        transport[1]->Transport(container[1]);
-      }
+            if (toolsTransported[i] == false)
+            {
+                throw "What happens to container[0]'s old value? Can I delete it or is it deleted elsewhere?";
+                throw "What happens if you have multiple different containers busy being shipped at the same time?";
+                throw "There isn't a 3 month gap between every race. Are old containers lost or overwritten or are they stored somewhere?";
+                throw "What happens to transport[0]'s old value? Can I delete it or is it deleted elsewhere?";
+                throw "Is there not a memory leak here?"; 
+                
+                //nonEuropToolsContainer - an array of containers that allow us to have different containers shipped at the same time.
+                //ship - the different ships created for those containers
+                if(containerCount >= 10){
+                        containerCount = 0;
+                        delete nonEuropToolsContainer[containerCount];
+                        nonEuropToolsContainer[containerCount] = warehouse->createContainer(1, 1, id, warehouse->getRacingEvent()[i]);//1 = toolsContainer, 1= non european
+                        delete ship[containerCount];
+                        ship[containerCount] = new Ship(nonEuropToolsContainer[containerCount++]);
+                        toolsTransported[i] = true;
+                }else{
+                    nonEuropToolsContainer[containerCount] = warehouse->createContainer(1, 1, id, warehouse->getRacingEvent()[i]);
+                    ship[containerCount] = new Ship(nonEuropToolsContainer[containerCount++]);
+                    toolsTransported[i] = true;
+                }
 
-      //return cars and drivers to the warehouse a day after the race. Drivers are stored in the same container as cars
+            }
+            trackTools();
+        }
+        else if ((monthDiff == 1 || monthDiff == 0))
+        {
+
+            //Transport tools if the race is 7 days away.Track tools if tols have already been transported and race is <=7 days away
+            //Take into account if you're on the last days of the month and 7 days away is the following month
+            if ((dayDiff >= -24 && dayDiff <= -21) || dayDiff <= 7)
+            {
+                if (toolsTransported[i] == false)
+                {
+                    type = 0;
+                    delete container;
+                    delete truck;
+                    container = warehouse->createContainer(type, 1, id, warehouse->getRacingEvent()[i]);
+                    truck = new Truck(container);
+                    toolsTransported[i] = true;
+                }
+                truck->Transport();
+            }
+            else if ((dayDiff >= -29 && dayDiff <= -26) || dayDiff == 2)
+            { //Start to transport cars 2 days before race. Track cars if race < 2 days away
+                if (carTransported[i] == false)
+                {
+                    delete container;
+                    delete plane;
+                    if (inEuro == true)
+                        type = 1;
+                    else
+                        type = 0;//only want the first line to execute. Whether its in Europe or not the method of transporting the cars is the same.
+                        // Only difference is the location
+                    container = warehouse->createContainer(type, 0, id, warehouse->getRacingEvent()[i]);
+                    plane = new Plane(container);
+                    carTransported[i] = true;
+                }
+                plane->Transport();
+            }
+
+            //return cars and drivers to the warehouse a day after the race. Drivers are stored in the same container as cars
+        }
+        else if (raceOver(endMonthDiff, endDayDiff) == true)
+        {
+            warehouse->reinstateContainer(plane->returnCars());
+        }
     }
-    else if ((endMonthDiff == 1 || endMonthDiff == 0) && ((endDayDiff >= -30 && endDayDiff <= -27) || endDayDiff == 1))
-    {
-      warehouse->reinstateContainer(transport[1]->returnCars());
-    }
-    transport[0]->Transport(container[0]);
-    throw "Theres an error here that needs to be fixed. There can't be a statement between two else ifs";
-    else if ((dayDiff >= -30 && dayDiff <= -27) || dayDiff == 1)
-    {
-      if (carTransported[i] == false)
-      {
-        if (inEuro == true)
-          type = 1;
-        else
-          type = 0; //use brackets else only the first line will be executed
-        container[1] = warehouse->createContainer(type, 0, id, warehouse->getRacingEvent()[i]);
-        transport[1] = new Plane(container[1]);
-        carTransported[i] = 1;
-      }
-      container[1] = transport[1]->Transport(container[1]);
-    }
-    else if ((endMonthDiff == 1 || endMonthDiff == 0) && ((endDayDiff >= -30 && endDayDiff <= -27) || endDayDiff == 1))
-    {
-      warehouse->reinstateContainer(transport[1]->returnCars());
-    }
-  }
 }
+
+bool Logistics::raceOver(int endMonth, int endDay){
+    if((endMonth == 1 || endMonth == 0) && ((endDay >= -30 && endDay <= -27) || endDay == 1)){
+        return true;
+    }
+    return false;
+}
+
 //need to simulate time that has passed while in transit

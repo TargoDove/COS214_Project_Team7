@@ -19,7 +19,6 @@ class Warehouse{
         Driver** drivers;
     public:
         Warehouse(F1Car**, RacingEvent**, Driver**);
-        ~Warehouse();
         Container* createContainer(bool, bool, int, RacingEvent*);
         void reinstateContainer(Container* container);
         void setRacingEvent(RacingEvent** list);
