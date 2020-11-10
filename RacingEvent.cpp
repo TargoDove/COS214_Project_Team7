@@ -11,14 +11,12 @@ RacingEvent::RacingEvent(string name, Date sDate, RaceTrack *trk)
   endDate = sDate;
   endDate.incrementDate(2);
   track = trk;
-  dayState = new Friday();
+  dayState = new Friday(this);
 }
 
 RacingEvent::~RacingEvent()
 {
-  // TODO - implement RacingEvent::~RacingEvent()
-  throw "Not yet finished";
-
+  
   if(dayState != NULL)
   {
     delete dayState;
@@ -34,8 +32,6 @@ RacingEvent::~RacingEvent()
 
 void RacingEvent::runRace(Date currentDate)
 {
-  // TODO - implement RacingEvent::RunRace(Date currentDate)
-  throw "Not yet finished";
   if (dayState != NULL)
   {
     dayState->handle(currentDate);
@@ -44,7 +40,7 @@ void RacingEvent::runRace(Date currentDate)
 
 RaceTrack *RacingEvent::getRaceTrack()
 {
-    return track;
+  return track;
 }
 
 Date RacingEvent::getStartDate()

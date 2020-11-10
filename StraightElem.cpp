@@ -9,6 +9,8 @@ StraightElem::StraightElem(int num, LapElement *next, double l, double f) : LapE
 
 void StraightElem::handleLap(AssembledCar *car, double *time)
 {
+	if(car == NULL || time == NULL) return;
+	
 	//numLaps
 	//straightMultiplier, length, friction
 	//Tires(actualspeed), boost, aerodynamics, weight, breakefficiency
@@ -37,4 +39,7 @@ void StraightElem::handleLap(AssembledCar *car, double *time)
 	elTime *= elementsPerLap;
 
 	*time += elTime;
+
+	if (nextElement != NULL)
+		nextElement->handleLap(car, time);
 }

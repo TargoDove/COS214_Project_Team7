@@ -3,49 +3,41 @@
 
 #include "Container.h"
 #include <string>
+#include <iostream>
 
 using namespace std;
 
 class Transportation
 {
-private:
+protected:
   Container *container;
 
 public:
-  Transport(Container *c);
+  void Transport(Container *c);
   void loadContainer(Container *c);
   Container *unloadContainer();
   Container* returnCars();
-  virtual void sendContainer(Container *c);
-}
+  virtual void sendContainer(Container *c) = 0;
+};
 
 class Ship : public Transportation
 {
-private:
-  Container *container;
-
 public:
-  Ship(Container* c;
-  void sendContainer(Container* c);
-}
+  Ship(Container* c);
+  virtual void sendContainer(Container *c);
+};
 
 class Truck : public Transportation
 {
-private:
-  Container *container;
-
 public:
   Truck(Container *c);
-  void sendContainer(Container *c);
-}
+  virtual void sendContainer(Container *c);
+};
 
 class Plane : public Transportation
 {
-private:
-  Container *container;
-
 public:
   Plane(Container *c);
   void sendContainer(Container *c);
-}
+};
 #endif

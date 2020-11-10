@@ -25,8 +25,8 @@ public:
 	virtual void daysEvents() = 0;
 	void addTeam(F1Team* team); 					//adds a team to the event
 	void addRace(RacingEvent* race);
-	void getRaceNames();
-	void getTeamNames();
+	void printRaceNames();
+	void printTeamNames();
 	virtual void update(Date);
 };
 

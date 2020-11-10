@@ -41,7 +41,7 @@ void Competition::addTeam(F1Team *team)
   }
 }
 
-void Competition::getTeamNames()
+void Competition::printTeamNames()
 {
   for (int i = 0; i < currTeamCount; i++)
   {
@@ -59,7 +59,7 @@ void Competition::addRace(RacingEvent *race)
     cout << "Race Limit Reached, unable to add race" << endl;
   }
 }
-void Competition::getRaceNames()
+void Competition::printRaceNames()
 {
   for (int i = 0; i < currRaceCount; i++)
   {

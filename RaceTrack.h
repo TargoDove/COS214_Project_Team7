@@ -3,6 +3,9 @@
 
 #include "Garage.h"
 #include "Competition.h"
+#include "CornerElem.h"
+#include "PitstopElem.h"
+#include "StraightElem.h"
 
 class RaceTrack {
 
@@ -15,30 +18,35 @@ private:
 	string climate;
 	int numLaps;
 	string trackLocation;
-	boolean isEuropean;
+	bool isEuropean;
 	string trackName;
 	int lapLen;
-	Garage** garageList;
+	Garage **garageList;
 	int numberOfGarages;
-	LapElement* trackLap;
+	LapElement *trackLap;
+	double cornerSharpness; //Should ideally be 0.5 to 2
+	double trackFriction;		//Should be between 1.0 and 4.0
+	double straightLength;	//Should ideally be 100 to 200
+	double pitstopTimePenalty;
 
 public:
-	RaceTrack(int numStraights, int numCorners, string climate, int numLaps, int lapLen, string trackLocation, string trackName, int numGarages, bool inEuro);
-	void ~RaceTrack();
+	RaceTrack(int nStraights, int nCorners, string clim, int numLaps, int lLen, string tLocation, string tName, int numGarages, bool inEuro, double s, double f, double sLen, double penalty);
+	~RaceTrack();
 	void buildLap();
 	//LapElement* getTrackLap();
-	double raceSingleLap(AssembledCar*);
-	double raceFull(AssembledCar*);
+	double raceSingleLap(AssembledCar *);
+	double raceFull(AssembledCar *);
 	string getTrackName();
 	string getTrackLocation();
 	int getTotalLength();
 	string checkWeather();
-	Garage** getGarageList();
+	Garage **getGarageList();
 	Garage *getGarage(int);
 	int getNumGarages();
+	bool inEurope();
 
 	//void setGarageList(Garage** garageList);
-	
+
 	//void setGarageList(Garage** garageList);
 };
 

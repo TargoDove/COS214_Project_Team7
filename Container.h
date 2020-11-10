@@ -5,6 +5,8 @@
 #include "F1Car.h"
 #include "RacingEvent.h"
 #include "Garage.h"
+#include <iostream>
+#include "Tires.h"
 
 using namespace std;
 
@@ -16,17 +18,19 @@ class Container
         bool destination;
         string* toolList;
         F1Car** cars;
-        Driver** drivers
-        Tire** tiresCar1;
-        Tire** tiresCar2;
+        Driver** drivers;
+        Tires** tiresCar1;
+        Tires** tiresCar2;
         int dayCount;
         int GarageIndex;    //Determines which garage the container should be stored in.
         RacingEvent* race;
         string ContainerType;
 	public:
-		Container(bool dest, string* tools, Tire** tires1, Tire** tires2, int teamId, racingEvent* raceList);  //Two different constructors. This is to decide whether the car or the tools will be transported in this container.
-        Container(bool dest, F1Car** LeCars, Driver** LeDrivers ,int teamId, racingEvent* raceList);
+		Container(bool dest, string* tools, Tires** tires1, Tires** tires2, int teamId, RacingEvent* raceList);  //Two different constructors. This is to decide whether the car or the tools will be transported in this container.
+        Container(bool dest, F1Car** LeCars, Driver** LeDrivers ,int teamId, RacingEvent* raceList);
         bool getStatus();
+        bool isLoaded();
+        void setLoaded(bool);
         void setStatus(bool status);
         string* getContents();
         void setContents(string tools[]);
@@ -38,8 +42,8 @@ class Container
         string getContainerType();
         string* getTools();
         F1Car** getCars();
-        Tire** getTires1(); //Tires for car 1
-        Tire** getTires2(); //Tires for car 2
+        Tires** getTires1(); //Tires for car 1
+        Tires** getTires2(); //Tires for car 2
         Driver** getDrivers();
         RacingEvent* getRace();
 

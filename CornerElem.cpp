@@ -9,6 +9,9 @@ CornerElem::CornerElem(int num, LapElement *next, double s, double f) : LapEleme
 
 void CornerElem::handleLap(AssembledCar *car, double *time)
 {
+	if (car == NULL || time == NULL)
+		return;
+
 	//numLaps
 	//straightMultiplier, sharpness, friction
 	//Tires(actualspeed), boost, aerodynamics, weight, breakefficiency
@@ -58,4 +61,7 @@ void CornerElem::handleLap(AssembledCar *car, double *time)
 	elTime += burstPenalty;
 
 	*time += elTime;
+
+	if (nextElement != NULL)
+		nextElement->handleLap(car, time);
 }
