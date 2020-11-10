@@ -1,5 +1,36 @@
 #include "CompetitionBuilder.h"
 
+void CompetitionBuilder::buildRacingEvents()
+{
+  numRacingEvents = 21;
+
+  events = new RacingEvent *[numRacingEvents];
+  //RaceTrack** raceTracks = new RaceTrack*[numRacingEvents];
+
+  Date date(1, 2, 2018);
+  for(int i = 0; i < numRacingEvents; i++)
+  {
+    date.incrementDate(13);
+    int nStraights = (int) 20+20*randNumGen();
+    int nCorners = (int) 20 + 20 * randNumGen();
+    int numLaps = (int) 30 + 20 * randNumGen();
+    double sLen = 100 + 100 * randNumGen();
+    double s = 0.5 + 1.5 * randNumGen();
+    double f = 1 + 3 * randNumGen();
+    double penalty = 15 + 10 * randNumGen();
+    string clim = "Hot";
+    string loc = "Location-" + to_string(i);
+    string tName = "Track-" + to_string(i);
+    Date tDate(1, 4, 2018);
+    bool inEuro = (date > tDate) && (randNumGen() >= 0.8);
+
+    RaceTrack *raceTrack = new RaceTrack(nStraights, nCorners, clim, numLaps, numLaps * sLen, loc, tName, 10, (randNumGen() >= 0.8), s, f, sLen, penalty);
+
+    events[i] = new RacingEvent("RacingEvent"+to_string(i+1), date, raceTrack);
+    date = events[i]->getStartDate();
+  }
+}
+
 void CompetitionBuilder::buildF1Teams()
 {
   string names[] = { "Mercedes",
@@ -16,6 +47,8 @@ void CompetitionBuilder::buildF1Teams()
   //numTeams = 10;
   numTeams = sizeof(names)/sizeof(names[0]);
   int numCars = 2;
+
+  teams = new F1Team*[numTeams];
 
   double budget;
   F1Car **cCars = new F1Car *[numCars];
@@ -43,6 +76,11 @@ void CompetitionBuilder::buildF1Teams()
     addDepartments(teams[i]);
     teams[i]->applyStrategy();
   }
+
+  delete [] names;
+  delete [] cCars;
+  delete [] nCars;
+  delete [] drivers;
 }
 
 void addSpecifications(F1Car* car){
@@ -72,16 +110,11 @@ void addDepartments(F1Team* team)
   team->addDepartment(new EngineeringDepartments("Electronics", "DriverAssistance", 0.08, 0.14, 40000, testing));
 }
 
-void CompetitionBuilder::buildRacingEvents()
+double randNumGen()
 {
+  return (((double)rand() * 1.0) / RAND_MAX);
 }
 
 void CompetitionBuilder::buildCompetition()
 {
 }
-#include "CarWeightTesting.h"
-#include "BreakTesting.h"
-#include "AeroTesting.h"
-#include "BoostTesting.h"
-#include "EngineTesting.h"
-#include "DriverAssistTesting.h"
