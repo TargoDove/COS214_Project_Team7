@@ -24,13 +24,17 @@ class F1Team : public EventObject
     void setCarStrategies();
     F1Car* getCurrentCar(int);
     F1Car *getNextYearCar(int);
-    int points;
     int qualifyScore;
     string getTeamName();
     double getBudget();
+    int getPoints();
+    void addPoints(int);
+    Driver* getDriver(int);
+
   private:
     string teamName;
     int teamID;
+    int points;
     int windTunnelTokens; //= 400
     double budget;
     F1Car** currentCars;

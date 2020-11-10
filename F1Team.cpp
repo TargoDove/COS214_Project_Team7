@@ -78,11 +78,21 @@ void F1Team::update(Date date)
 
   if(currentCars[0]->getLocation().compare("Factory") == 0)
   {
+    if(currentCars[0]->getRaceScore() > 0)
+    {
+      this->addPoints(currentCars[0]->getRaceScore());
+      currentCars[0]->clearRacePoints();
+    }
     applyDepartmentImprovements(currentCars[0]);
   }
 
   if (currentCars[1]->getLocation().compare("Factory") == 0)
   {
+    if (currentCars[1]->getRaceScore() > 0)
+    {
+      this->addPoints(currentCars[1]->getRaceScore());
+      currentCars[1]->clearRacePoints();
+    }
     applyDepartmentImprovements(currentCars[1]);
   }
 
@@ -166,4 +176,25 @@ void F1Team::applyStrategy(){
 
 string F1Team::getTeamName(){
   return teamName;
+}
+
+int F1Team::getPoints()
+{
+  return points;
+}
+
+void F1Team::addPoints(int p)
+{
+  points += p;
+}
+
+Driver *F1Team::getDriver(int index)
+{
+  if(index >=0 && index < 2)
+  {
+    return drivers[index];
+  } else 
+  {
+    return NULL;
+  }
 }
