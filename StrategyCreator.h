@@ -5,16 +5,11 @@
 
 class StrategyCreator
 {
-    public:
-        StrategyCreator(TeamStrategy* strat,int index);
-        virtual ~StrategyCreator();
-        int getIndex();
+public:
+  StrategyCreator();
+  virtual ~StrategyCreator();
 
-       virtual TeamStrategy* createStrategy(F1Team* team)=0;
-
-    private:
-    TeamStrategy* teamStrategy;
-    int index;
+  virtual TeamStrategy *createStrategy(F1Team *team, int index) = 0;
 };
 
 #endif // STRATEGYCREATOR_H

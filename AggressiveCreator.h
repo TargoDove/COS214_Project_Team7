@@ -3,12 +3,12 @@
 
 #include "StrategyCreator.h"
 #include "AgressiveStrategy.h"
-class AggressiveCreator:public StrategyCreator
+class AggressiveCreator : public StrategyCreator
 {
-    public:
-        AggressiveCreator(TeamStrategy* strat,int index);
-        virtual ~AggressiveCreator();
-        TeamStrategy* createStrategy(F1Team*team);
+public:
+  AggressiveCreator();
+  virtual ~AggressiveCreator();
+  TeamStrategy *createStrategy(F1Team *team, int index);
 };
 
 #endif // AGGRESSIVECREATOR_H

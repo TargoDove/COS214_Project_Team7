@@ -7,6 +7,8 @@
 #include "EngineeringDepartments.h"
 #include "Logistics.h"
 #include "RacingEvent.h"
+#include "Strategy.h"
+#include "Iterator.h"
 
 using namespace std;
 
@@ -17,16 +19,22 @@ class F1Team : public EventObject
     F1Team(string n, int id, double b, F1Car **cCars, F1Car **nCars, Driver **drs);
     virtual ~F1Team();
     virtual void update(Date date);
-    void setRaceList(RaceingEvent **rList);
+    void setRaceList(RacingEvent **rList);
     void setLogistics(Logistics *l);
+    void setCarStrategies();
     F1Car* getCurrentCar(int);
     F1Car *getNextYearCar(int);
-    int points;
     int qualifyScore;
     string getTeamName();
+    double getBudget();
+    int getPoints();
+    void addPoints(int);
+    Driver* getDriver(int);
+
   private:
     string teamName;
     int teamID;
+    int points;
     int windTunnelTokens; //= 400
     double budget;
     F1Car** currentCars;
@@ -35,8 +43,8 @@ class F1Team : public EventObject
     //EngineeringDepartments** departments;
     GenericList<EngineeringDepartments>* departments;
     Logistics* logistics;
-    RacingEvent** raceList; 
-    void applyDepartmentImprovements();
+    RacingEvent** raceList;
+    void applyDepartmentImprovements(F1Car *);
     void applyStrategy();
 };
 

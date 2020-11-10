@@ -3,10 +3,11 @@
 
 #include "AssembledCar.h"
 //#include "RaceTrack.h"
+#include "Boost.h"
 
 class LapElement {
 
-private:
+protected:
 	int elementsPerLap;
 	LapElement* nextElement;
 

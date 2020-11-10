@@ -1,6 +1,6 @@
 #include "RaceTrack.h"
 
-RaceTrack::RaceTrack(int nStraights, int nCorners, string clim, int numLaps, int lLen, string tLocation, string tName, int int numGarages, boolean inEuro)
+RaceTrack::RaceTrack(int nStraights, int nCorners, string clim, int numLaps, int lLen, string tLocation, string tName, int numGarages, bool inEuro, double s, double f, double sLen, double penalty)
 {
   numStraights = nStraights;
   numCorners = nCorners;
@@ -16,6 +16,10 @@ RaceTrack::RaceTrack(int nStraights, int nCorners, string clim, int numLaps, int
   numberOfGarages = numGarages;
   garageList = new Garage *[numberOfGarages];
   trackLap = NULL;
+  cornerSharpness = s; //Should ideally be 0.5 to 2
+  trackFriction = f;  //Should be between 1.0 and 4.0
+  straightLength = sLen;     //Should ideally be 100 to 200
+  pitstopTimePenalty = penalty; //Should probably be between 10-20 seconds
   for (int i = 0; i < numberOfGarages; i++)
   {
     garageList[i] = new Garage();
@@ -28,15 +32,19 @@ RaceTrack::RaceTrack(int nStraights, int nCorners, string clim, int numLaps, int
 
 RaceTrack::~RaceTrack()
 {
-  // TODO - implement RaceTrack::~RaceTrack()
-  throw "Not yet implemented";
+  delete trackLap;
+
+  for(int i = 0; i < numberOfGarages; i++){
+    delete garageList[i];
+  }
+  delete [] garageList;
 }
 
 void RaceTrack::buildLap()
 {
-  // TODO - implement RaceTrack::buildLap()
-  //Need to create and link all the raceElements here
-  throw "Not yet implemented";
+  trackLap = new CornerElem(numCorners, NULL, cornerSharpness, trackFriction);
+  trackLap = new StraightElem(numStraights, trackLap, straightLength, trackFriction);
+  trackLap = new PitstopElem(1, trackLap, pitstopTimePenalty);
 }
 
 double RaceTrack::raceSingleLap(AssembledCar * car)
@@ -62,27 +70,27 @@ double RaceTrack::raceFull(AssembledCar *car)
 
 string RaceTrack::getTrackName()
 {
-  return this->trackName;
+  return trackName;
 }
 
 string RaceTrack::getTrackLocation()
 {
-  return this->trackLocation;
+  return trackLocation;
 }
 
 int RaceTrack::getTotalLength()
 {
-  return this->total;
+  return total;
 }
 
 string RaceTrack::checkWeather()
 {
-  return this->climate;
+  return climate;
 }
 
-boolean RaceTrack::inEurope()
+bool RaceTrack::inEurope()
 {
-  return this->isEuropean;
+  return isEuropean;
 }
 
 Garage **RaceTrack::getGarageList()

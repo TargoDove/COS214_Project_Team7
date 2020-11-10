@@ -6,7 +6,7 @@ LapElement::LapElement(int num, LapElement *el)
 	nextElement = el;
 }
 
-virtual LapElement::~LapElement()
+LapElement::~LapElement()
 {
 	if(nextElement != NULL)
 	{
@@ -14,7 +14,7 @@ virtual LapElement::~LapElement()
 	}
 }
 
-virtual void LapElement::setNextElement(LapElement *el)
+void LapElement::setNextElement(LapElement *el)
 {
 	if(nextElement == NULL)
 	{

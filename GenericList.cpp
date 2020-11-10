@@ -99,5 +99,11 @@ bool GenericList<T>::isEmpty()
   return (numItems==0);
 }
 
+template <class T>
+int GenericList<T>::size()
+{
+  return numItems;
+}
+
 template class GenericList<F1CarSpecification>;
 template class GenericList<EngineeringDepartments>;

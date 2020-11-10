@@ -21,6 +21,7 @@ public:
   virtual T *getItem(int);
   virtual Iterator *createIterator();
   virtual bool isEmpty();
+  virtual int size();
 
 protected:
   T **array;

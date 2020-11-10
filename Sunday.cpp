@@ -1,6 +1,6 @@
 #include "Sunday.h"
 
-Sunday::Saturday(RacingEvent *ev, list<AssembledCar *> l) : RacingDay(ev)
+Sunday::Sunday(RacingEvent *ev, list<AssembledCar *> l) : RacingDay(ev)
 {
 	carList = l;
 	pointsArray = {25, 18, 15, 12, 10, 8, 6, 4, 2, 1};

@@ -19,36 +19,40 @@ void Garage::unpackContainers()
   // TODO - implement Garage::unpackContainers()
   //Containers must be unpacked and contents must be used to create an array of AssembledCars
   //Since two cars are being shipped this will be an array of length 2
-  if(containers.front()->getContainerType() == "car"){
-    Container* carContainer = containers.front();
-    Container* toolContainer = containers.back();
+
+  Container *carContainer = NULL;
+  Container *toolContainer = NULL;
+  if(containers.front()->getContainerType() == "car"){  //This initializes carContainer and toolContainer to the corresponding container.
+    carContainer = containers.front();
+    toolContainer = containers.back();
   }else{
-    Container* carContainer = containers.back();
-    Container* toolContainer = containers.front();
+    carContainer = containers.back();
+    toolContainer = containers.front();
   }
 
-  Tires** tires = toolContainer->getTires();
+  Tires** tires1 = toolContainer->getTires1();          //
+  Tires** tires2 = toolContainer->getTires2();          //
+ 
+  F1Car** carList = carContainer->getCars();            //
+  F1Car* car1 = carList[0];                             //
+  F1Car* car2 = carList[1];                             //
+  string raceName = toolContainer->getRace()->getName();     //  This entire part collects the data needed for the AssembledCar constructor from the stored containers.
 
-  F1Car** carList = carContainer->getCars();
-  F1Car* car1 = carList[0];
-  F1Car* car2 = carList[1];
+  car1->setLocation(raceName);                          //
+  car2->setLocation(raceName);                          //
 
-  string raceName = toolContainer->race->getName();
+  Driver* driver1 = carContainer->getDrivers()[0]; //
+  Driver* driver2 = carContainer->getDrivers()[1];  //
 
-  car1->setLocation(raceName);
-  car2->setLocation(raceName);
+  string* tools = toolContainer->getTools();            //
 
-  Driver* driver1 = carContainer->getDrivers().front();
-  Driver* driver2 = carContainer->getDrivers().back();
+  AssembledCar* finalCar1 = new AssembledCar(tires1, car1, driver1, tools, 8, 5); //Here the 2 cars are assembled.
+  AssembledCar* finalCar2 = new AssembledCar(tires2, car2, driver2, tools, 8, 5);
 
-  string* tools = toolContainer->getTools();
+  AssembledCar* FinalCars[] = {finalCar1, finalCar2};  //The AssembledCars array is created
 
-  AssembledCar finalCar1(tires, car1, driver1, tools, 8, 5);
-  AssembledCar finalCar2(tires, car2, driver2, tools, 8, 5);
-
-  AssembledCar FinalCars[] = {finalCar1, finalCar2};
-
-  assembledCars = FinalCars;
+  assembledCars = FinalCars;  //The array is stored.
+  numCars = 2;
 }
   
   
@@ -70,6 +74,6 @@ int Garage::getNumCars()
 
 AssembledCar *Garage::getAssembledCar(int index){
   if(index < numCars && index >= 0){
-    return AssembledCars[index];
+    return assembledCars[index];
   }
 }

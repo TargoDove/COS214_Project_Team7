@@ -45,14 +45,14 @@ Tires *F1Car::changeTires(Tires * newTires)
   return oldTires;
 }
 
-void F1Car::setStrategy(Strategy * newStrategy)
+void F1Car::setStrategy(TeamStrategy * newStrategy)
 {
   if(strategy != NULL) delete strategy;
 
   strategy = newStrategy;
 }
 
-Strategy *F1Car::getStrategy()
+TeamStrategy *F1Car::getStrategy()
 {
   return strategy;
 }
@@ -60,6 +60,7 @@ Strategy *F1Car::getStrategy()
 void F1Car::addToRaceScore(int lapScore){
   raceScore+=lapScore;
 }
+
 int F1Car::getRaceScore(){
   return raceScore;
 }
@@ -86,4 +87,9 @@ void F1Car::setCurrentYear(bool val)
 void F1Car::addRacePoints(int p)
 {
   raceScore += p;
+}
+
+void F1Car::clearRacePoints()
+{
+  raceScore = 0;
 }

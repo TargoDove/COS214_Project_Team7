@@ -60,3 +60,8 @@ void EngineeringDepartments::setSpecialists(int g1, int g2)
   numG1Specialists = g1;
   numG2Specialists = g2;
 }
+
+double EngineeringDepartments::getSpecialistCost()
+{
+  return specialistCost;
+}

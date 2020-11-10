@@ -12,7 +12,7 @@ private:
 	double friction;
 
 public:
-	CornerElem(int, LapElement *, double, double, double);
+	CornerElem(int, LapElement *, double, double);
 	virtual void handleLap(AssembledCar *, double *);
 };
 

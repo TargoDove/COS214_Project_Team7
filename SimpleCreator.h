@@ -4,12 +4,13 @@
 #include "StrategyCreator.h"
 #include "SimpleStrategy.h"
 #include "TeamStrategy.h"
-class SimpleCreator:public StrategyCreator
+
+class SimpleCreator : public StrategyCreator
 {
-    public:
-        SimpleCreator(TeamStrategy* strat,int index);
-        virtual ~SimpleCreator();
-        TeamStrategy* createStrategy(F1Team*team);
+public:
+  SimpleCreator();
+  virtual ~SimpleCreator();
+  TeamStrategy *createStrategy(F1Team *team, int index);
 };
 
 #endif // SIMPLECREATOR_H

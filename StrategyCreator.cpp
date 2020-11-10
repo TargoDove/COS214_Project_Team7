@@ -1,18 +1,12 @@
 #include "StrategyCreator.h"
 
-StrategyCreator::StrategyCreator(TeamStrategy* strat,int index)
+StrategyCreator::StrategyCreator()
 {
-    //ctor
-    this->teamStrategy = strat;
-    this->index = index;
+    //Do nothing
 }
 
 StrategyCreator::~StrategyCreator()
 {
-    //dtor
-}
-int StrategyCreator::getIndex()
-{
-    return index;
+    //Do nothing
 }
 

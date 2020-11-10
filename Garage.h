@@ -8,7 +8,7 @@ class Garage {
 
   private:
     list<Container *> containers;
-    AssembledCar* assembledCars;
+    AssembledCar** assembledCars;
     int numCars; //will always be maximum of 2
 
   public:
