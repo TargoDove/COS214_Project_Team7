@@ -18,27 +18,27 @@ public:
   void loadContainer(Container *c);
   Container *unloadContainer();
   Container* returnCars();
-  virtual void sendContainer(Container *c) = 0;
+  virtual void sendContainer() = 0;
 };
 
 class Ship : public Transportation
 {
 public:
   Ship(Container* c);
-  virtual void sendContainer(Container *c);
+  virtual void sendContainer();
 };
 
 class Truck : public Transportation
 {
 public:
   Truck(Container *c);
-  virtual void sendContainer(Container *c);
+  virtual void sendContainer();
 };
 
 class Plane : public Transportation
 {
 public:
   Plane(Container *c);
-  void sendContainer(Container *c);
+  void sendContainer();
 };
 #endif
