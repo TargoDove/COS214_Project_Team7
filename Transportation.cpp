@@ -28,7 +28,7 @@ void Transportation::Transport(Container *c)
       }
     }
 
-    throw "Sometimes you refer to c and sometimes to container, which is to be used and when?";
+    throw "Sometimes you refer to 'c' and sometimes to 'container', which is to be used and when?";
     if (container->getDayCount() >= duration)
     {
       container->setStatus(true); //This checks if the container has arrived at it's destination yet.
