@@ -12,12 +12,14 @@ class Competition : public EventObject{
 
 private:
 	Date startDate;
+	Date prizeGivingDate;
+	bool endDateSet;
 	int numTeams;
 	int numRaces;
 	F1Team** teamList;
 	RacingEvent** raceList;
-	int currTeamCount = 0;
-  int currRaceCount = 0;
+	int currTeamCount;
+  int currRaceCount;
 
 public:
 	Competition(Date sDate, int nTeams, int nRaces);
@@ -27,6 +29,7 @@ public:
 	void addRace(RacingEvent* race);
 	void printRaceNames();
 	void printTeamNames();
+	void conductPrizeGiving();
 	virtual void update(Date);
 };
 

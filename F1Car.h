@@ -27,6 +27,7 @@ class F1Car
     bool isCurrentYearCar();
     void setCurrentYear(bool);
     void addRacePoints(int);
+    void clearRacePoints();
 
   private: 
 	  int raceScore; //Set back to zero once points have been added to team
@@ -34,7 +35,7 @@ class F1Car
     string location; //Factory -> home, other options include "in transit" or race locations
     bool currentYearCar;
     GenericList<F1CarSpecification>* carSpecifications;
-    Tires *fittedTires();
+    Tires *fittedTires;
     //Be better if the spare tires are created and transported and then held in the garage
 };
 
